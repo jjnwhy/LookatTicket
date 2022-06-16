@@ -22,10 +22,12 @@ CREATE TABLE tickets(
  	name  VARCHAR2(100), -- 이름
  	price NUMBER, -- 가격
  	grade NUMBER, -- 등급
+ 	image VARCHAR2(100), -- 상품 이미지
  	cast VARCHAR2(400), -- 출연
  	hours VARCHAR(20), -- 관람시간
  	startdate DATE, -- 첫 공연일
  	enddate DATE -- 마지막 공연일
+ 	remainCount NUMBER CHECK(remainCount>=0) -- 재고 갯수
 );
 
 CREATE SEQUENCE location_seq;
