@@ -117,7 +117,7 @@
 			<scope>test</scope>
 		</dependency>
 		
-		      <!-- 추가 의존 라이브러리 -->
+	  <!-- 추가 의존 라이브러리 -->
       <!-- MyBatis 라이브러리 -->
         <dependency>
          <groupId>org.mybatis</groupId>
