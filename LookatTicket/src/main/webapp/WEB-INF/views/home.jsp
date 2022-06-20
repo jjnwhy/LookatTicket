@@ -23,5 +23,6 @@
 	</c:choose>
 	<h1>3조 화이팅</h1>
 </div>
+	<li><a href="${pageContext.request.contextPath}/review/list.do">리뷰목록</a></li>
 </body>
 </html>
