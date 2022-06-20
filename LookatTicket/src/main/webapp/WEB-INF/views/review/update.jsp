@@ -5,10 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/home.jsp</title>
+<title>/views/review/update.jsp</title>
 </head>
 <body>
-	<h1>3조 화이팅</h1>
-	<li><a href="${pageContext.request.contextPath}/review/list.do">리뷰목록</a></li>
+	<script>
+		alert("${id} 님 글을 수정 했습니다")
+		location.href="${pageContext.request.contextPath}/review/deatil.do?num=${param.num}";	
+	</script>
 </body>
 </html>

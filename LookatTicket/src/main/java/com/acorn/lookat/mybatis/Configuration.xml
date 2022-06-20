@@ -5,10 +5,10 @@
 <configuration>
 	<!-- 자주 사용하는 type의 별칭을 등록해놓고 Mapper.xml에서 사용할 수 있다. -->
 	<typeAliases>
-		<typeAlias type="com.acorn.lookat.location.dto.LocationDto" alias="locationDto"/>
+		<typeAlias type="com.acorn.lookat.review.dto.ReviewDto" alias="reviewDto"/>
 	</typeAliases>
 	<!-- 필요한 Mapper.xml 등록하기 -->
 	<mappers>
-		<mapper resource="com/acorn/lookat/mybatis/LocationMapper.xml"/>
+		<mapper resource="com/acorn/lookat/mybatis/ReviewMapper.xml"/>
 	</mappers>
 </configuration>
