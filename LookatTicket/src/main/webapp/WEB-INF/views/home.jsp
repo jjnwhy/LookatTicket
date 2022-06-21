@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>/home.jsp</title>
-<<<<<<< HEAD
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,16 +17,11 @@
 		font-family: 'Nanum Gothic', sans-serif;
 	}
 </style>
-=======
+
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
->>>>>>> branch 'master' of https://github.com/jjnwhy/LookatTicket.git
+
 </head>
 <body>
-<<<<<<< HEAD
-	
-	<h1>LookatTicket</h1>
-	<li><a href="${pageContext.request.contextPath}/review/list.do">리뷰목록</a></li>
-=======
 	<div class="container">
 	<h1>lookat Ticket 페이지</h1>
 	<c:choose>
@@ -49,8 +44,6 @@
 	<a href="${pageContext.request.contextPath }/notice/list.do">공지사항</a>
 	</div>
 	</div>
-
->>>>>>> branch 'master' of https://github.com/jjnwhy/LookatTicket.git
 	
 </body>
 </html>
