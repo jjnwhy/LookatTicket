@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>/view/review/list.jsp</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 </head>
 <body>
 	<div class="container">
@@ -27,11 +28,13 @@
 		<c:forEach var="tmp" items="${list }">
 			<tr>
 				<td>${tmp.num }</td>
+				<td>shopNum</td>
 				<td>${tmp.writer }</td>
 				<td>
-					<a href="detail.do?num=${tmp.num }&keyword=${encodedK }&condition=${condition}">${tmp.title }"></a>
+					<a href="detail.do?num=${tmp.num }&keyword=${encodedK }&condition=${condition}">${tmp.title }</a>
 				</td>
 				<td>${tmp.viewCount }</td>
+				<td>likeCount</td>
 				<td>${tmp.regdate }</td>
 			</tr>
 		</c:forEach>
@@ -48,10 +51,10 @@
 				<li>
 					<c:choose>
 						<c:when test="${pageNum eq i }">
-							<a class="active" href="list.do?pageNum=${i }&condition=${condition }&keyword=${encodedK }">${i }></a>
+							<a class="active" href="list.do?pageNum=${i }&condition=${condition }&keyword=${encodedK }">${i }</a>
 						</c:when>
 						<c:otherwise>
-							<a "list.do?pageNum=${i }&condition=${condition }&keyword=${encodedK }">${i }</a>
+							<a href="list.do?pageNum=${i }&condition=${condition }&keyword=${encodedK }">${i }</a>
 						</c:otherwise>
 					</c:choose>
 				</li>

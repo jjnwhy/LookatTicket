@@ -118,9 +118,13 @@ public class ReviewServiceImpl implements ReviewService{
 				dto.setWriter(keyword);
 			}
 		}
+		dto=reviewDao.getData(dto);
+		String encodedK=URLEncoder.encode(keyword);
 		
+		request.setAttribute("dto", dto);
 		request.setAttribute("condition", condition);
 		request.setAttribute("keyword", keyword);
+		request.setAttribute("encodedK", encodedK);
 		
 	}
 
