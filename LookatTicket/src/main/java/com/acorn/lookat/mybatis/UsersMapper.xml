@@ -14,7 +14,7 @@
 	</insert>
 	
 	<select id="getData" parameterType="string" resultType="usersDto">
-		SELECT id, pwd, name, addrNum, addr, birth, phone, email, regdate
+		SELECT id, pwd, name, addrNum, addr, TO_CHAR(birth, 'YYYY-MM-DD') birth, phone, email, TO_CHAR(regdate, 'YYYY-MM-DD') regdate
 		FROM users
 		WHERE id=#{id}	
 	</select>

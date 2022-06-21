@@ -53,7 +53,7 @@
 		</tr>
 		<tr>
 			<th>좋아요 수</th>
-			<td>likeCount</td>
+			<td>${tmp.likeCount }</td>
 		</tr>
 		<tr>
 			<th>등록일</th>
@@ -64,14 +64,20 @@
 				<div class="content">${dto.content }</div>
 			</td>
 		</tr>
+		
 	</table>
+
 	<ul>
 		<li><a href="list.do">목록보기</a></li>
 		<c:if test="${dto.writer eq id }">
 			<li><a href="updateform.do?num=${dto.num }">수정</a></li>
 			<li><a href="delete.do?num=${dto.num }">삭제</a></li>
 		</c:if>
+		<c:if test="${dto.writer ne id }">
+			<button <a href="like.do?num=${dto.num }">좋아요</a>></button>
+		</c:if>
 	</ul>
+
 </div>
 	<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>

@@ -95,9 +95,6 @@ public class ReviewServiceImpl implements ReviewService{
 		int num=Integer.parseInt(request.getParameter("num"));
 		//조휘수 올리기
 		reviewDao.addViewCount(num);
-		
-		
-
 		//검색
 		String keyword=request.getParameter("keyword");
 		String condition=request.getParameter("condition");
@@ -157,5 +154,12 @@ public class ReviewServiceImpl implements ReviewService{
 		
 	}
 
+	@Override
+	public void likeCount(int num, HttpServletRequest request) {
+		String id=(String)request.getSession().getAttribute("id");
+		String writer=reviewDao.getData(num).getWriter();
+		
+		reviewDao.likeCount(num);
+	}
 
 }
