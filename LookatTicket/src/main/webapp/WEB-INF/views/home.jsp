@@ -6,13 +6,33 @@
 <head>
 <meta charset="UTF-8">
 <title>/home.jsp</title>
+<<<<<<< HEAD
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+<style>
+	*{
+		font-family: 'Nanum Gothic', sans-serif;
+	}
+</style>
+=======
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+>>>>>>> branch 'master' of https://github.com/jjnwhy/LookatTicket.git
 </head>
 <body>
-<div class="container">
+<<<<<<< HEAD
+	
+	<h1>LookatTicket</h1>
+	<li><a href="${pageContext.request.contextPath}/review/list.do">리뷰목록</a></li>
+=======
+	<div class="container">
+	<h1>lookat Ticket 페이지</h1>
 	<c:choose>
 		<c:when test="${empty sessionScope.id }">
-			<a href="${pageContext.request.contextPath}/users/loginform.do">로그인</a>
-			<a href="${pageContext.request.contextPath}/users/signup_form.do">회원가입</a>
+			<a href="${pageContext.request.contextPath }/users/loginform.do">로그인</a>
+			<a href="${pageContext.request.contextPath }/users/signup_form.do">회원가입</a>
 		</c:when>
 		<c:otherwise>
 			<p>
@@ -21,8 +41,16 @@
 			</p>
 		</c:otherwise>
 	</c:choose>
-	<h1>3조 화이팅</h1>
-</div>
-	<li><a href="${pageContext.request.contextPath}/review/list.do">리뷰목록</a></li>
+	<div class="container">
+	<a href="${pageContext.request.contextPath }/home.do">홈</a>
+	<a href="${pageContext.request.contextPath }/shop/list.do">티켓</a>
+	<a href="${pageContext.request.contextPath }/review/list.do">리뷰</a>
+	<a href="${pageContext.request.contextPath }/qna/list.do">QnA</a>
+	<a href="${pageContext.request.contextPath }/notice/list.do">공지사항</a>
+	</div>
+	</div>
+
+>>>>>>> branch 'master' of https://github.com/jjnwhy/LookatTicket.git
+	
 </body>
 </html>
