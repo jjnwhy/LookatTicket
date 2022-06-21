@@ -59,4 +59,10 @@ public class ReviewDaoImpl implements ReviewDao{
 		session.update("cafe.update", dto);
 	}
 
+	@Override
+	public void addLikeCount(int num) {
+		session.update("review.addLikeCount",num);
+		
+	}
+
 }

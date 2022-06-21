@@ -95,6 +95,8 @@ public class ReviewServiceImpl implements ReviewService{
 		int num=Integer.parseInt(request.getParameter("num"));
 		//조휘수 올리기
 		reviewDao.addViewCount(num);
+		
+		
 
 		//검색
 		String keyword=request.getParameter("keyword");

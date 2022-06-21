@@ -19,7 +19,6 @@
 				<th>작성자</th>
 				<th>제목</th>
 				<th>조회수</th>
-				<th>좋아요수</th>
 				<th>등록일</th>
 			</tr>
 		</thead>
@@ -28,6 +27,7 @@
 			<tr>
 				<td>${tmp.num }</td>
 				<td>${tmp.writer }</td>
+				<td>${tmp.shopNum }</td>
 				<td>
 					<a href="detail.do?num=${tmp.num }&keyword=${encodedK }&condition=${condition}">${tmp.title }"></a>
 				</td>
