@@ -39,7 +39,7 @@
 	<insert id="insert" parameterType="reviewDto">
 		insert into board_review
 		(num,writer,title,content,viewCount,regdate)
-		values(board_reivew_seq.nextval, #{writer}, #{title},
+		values(board_review_seq.nextval, #{writer}, #{title},
 			#{content}, #{viewCount}, sysdate)
 	</insert>
 	

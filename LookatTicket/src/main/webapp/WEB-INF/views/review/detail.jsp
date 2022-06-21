@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/review/detail.jsp</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 </head>
 <body>
 <div class="container">
@@ -28,7 +29,7 @@
 		</tr>
 		<tr>
 			<th>상품 번호</th>
-			<td>${dto.shopNum }</td>
+			<td>shopNum</td>
 		</tr>
 		<tr>
 			<th>작성자</th>
@@ -40,11 +41,11 @@
 		</tr>
 		<tr>
 			<th>조회수</th>
-			<td>${dto.likeCount }</td>
+			<td>${dto.viewCount }</td>
 		</tr>
 		<tr>
 			<th>좋아요 수</th>
-			<td>${dto.viewCount }</td>
+			<td>likeCount</td>
 		</tr>
 		<tr>
 			<th>등록일</th>
