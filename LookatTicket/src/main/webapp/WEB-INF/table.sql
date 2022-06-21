@@ -12,7 +12,6 @@ CREATE TABLE users(
 	regdate DATE -- 가입일
 );
 
-
 CREATE SEQUENCE shop_seq;
 -- 상품 테이블
 CREATE TABLE shop(
@@ -25,7 +24,7 @@ CREATE TABLE shop(
  	hours VARCHAR2(20), -- 관람시간
  	location VARCHAR2(100), -- 공연장소
  	startdate DATE, -- 첫 공연일
- 	enddate DATE -- 마지막 공연일
+ 	enddate DATE, -- 마지막 공연일
  	remainCount NUMBER CHECK(remainCount>=0), -- 재고 갯수
  	tel VARCHAR2(100), -- 문의 전화번호
  	seatNum NUMBER -- 좌석번호

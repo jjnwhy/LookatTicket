@@ -17,8 +17,10 @@
 			<a href="${pageContext.request.contextPath }/users/signup_form.do">회원가입</a>
 		</c:when>
 		<c:otherwise>
-			<a href="${pageContext.request.contextPath }/users/info.do">내 정보</a>
-			<a href="${pageContext.request.contextPath }/users/logout.do">로그아웃</a>
+			<p>
+				<a href="${pageContext.request.contextPath}/users/mypage.do">${sessionScope.id }</a>로그인 중..
+				<a href="${pageContext.request.contextPath}/users/logout.do">로그아웃</a> 
+			</p>
 		</c:otherwise>
 	</c:choose>
 	<div class="container">
@@ -29,5 +31,7 @@
 	<a href="${pageContext.request.contextPath }/notice/list.do">공지사항</a>
 	</div>
 	</div>
+
+	
 </body>
 </html>

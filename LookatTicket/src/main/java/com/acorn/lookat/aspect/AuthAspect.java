@@ -13,15 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Aspect
 @Component
 public class AuthAspect {
-	/*
-	 * 	[ 이 Aspect 가 적용되는 메소드 ]
-	 *  1. return type이 ModelAndView
-	 *  2. 메소드의 이름이 auth로 시작하는 메소드
-	 *  3. 이 aspect가 정상 동작하기 위해서는 메소드의 인자중에 HttpServletRequest 객체가 있어야 한다.
-	 *  
-	 *  - 이 aspect는 Controller의 특정 메소드에 적용이 되게해서 특정 요청이 로그인을 하지 않은 상태로 된다면 
-	 *  로그인 폼 요청으로 리다이렉트 시키는 aspect이다.
-	 */
+
 	@Around("execution(org.springframework.web.servlet.ModelAndView auth*(..))")
 	public Object loginCheck(ProceedingJoinPoint joinPoint) throws Throwable {
 		Object[] args=joinPoint.getArgs();
