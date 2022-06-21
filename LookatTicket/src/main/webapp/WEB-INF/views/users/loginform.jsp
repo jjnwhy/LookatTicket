@@ -18,6 +18,9 @@
 </style>
 </head>
 <body>
+	<jsp:include page="/include/navbar.jsp">
+		<jsp:param value="home" name="thisPage" />
+	</jsp:include>
 	<div class="row">
 	<div class="col-4 offset-md-4">
 	<h1>로그인</h1>
@@ -44,5 +47,6 @@
 	</form>
 	</div>
 </div>	
+	<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>

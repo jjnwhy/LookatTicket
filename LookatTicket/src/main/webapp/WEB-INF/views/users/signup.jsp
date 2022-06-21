@@ -18,11 +18,18 @@
 </style>
 </head>
 <body>
+	<jsp:include page="/include/navbar.jsp">
+		<jsp:param value="home" name="thisPage" />
+	</jsp:include>
 	<div class="container">
 		<p>
-			<strong>${param.id }</strong>님 가입이 완료 되었습니다.
-			<a href="${pageContext.request.contextPath}/users/loginform.do">로그인</a>
+			<img src="${pageContext.request.contextPath }/images/welcome_logo.jpg" width="400" height="200"/><br /><br />
+			
+			<button type="button" class="btn btn-light" onclick="location.href='${pageContext.request.contextPath}/users/loginform.do'">로그인하러 가기</button>
+			&nbsp;
+			<button type="button" class="btn btn-light" onclick="location.href='${pageContext.request.contextPath }/home.do'">홈으로 가기</button>
 		</p>
 	</div>
+		<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>

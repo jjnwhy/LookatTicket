@@ -68,7 +68,7 @@
 			</tr>
 		</table>
 		<a href="${pageContext.request.contextPath}/users/updateform.do">정보 수정하기</a> 
-		<a href="${pageContext.request.contextPath}/users/delete.do">탈퇴하기</a> 
+		<a href="${pageContext.request.contextPath}/users/delete.do">탈퇴하기</a>
 	</div>
 	</div>
 </body>
