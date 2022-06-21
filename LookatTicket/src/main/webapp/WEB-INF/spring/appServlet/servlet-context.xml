@@ -48,12 +48,7 @@
 		sessionFactory.setDataSource(dataSource);
 		sessionFactory.setConfigLocation("classpath:com/gura/xxx");
 	 -->
-<<<<<<< HEAD
-	
-	
-=======
-	 
->>>>>>> branch 'master' of https://github.com/jjnwhy/LookatTicket.git
+
 	<!-- 
 		SqlSession 인터페이스를 구현한 
 		SqlSessionTemplate(SqlSession) 객체 
@@ -90,11 +85,7 @@
 	<context:component-scan base-package="com.acorn.lookat" />
 	<context:component-scan base-package="com.acorn.lookat.aspect" />
 
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> branch 'master' of https://github.com/jjnwhy/LookatTicket.git
 	<!-- Multipart 폼 전송 처리를 위한 bean 설정 -->
 	<beans:bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -107,19 +98,13 @@
 		0 순위로 찾아서 없으면 
 		views 폴더 안에서 jsp 페이지를 찾게 된다. 	
 	-->
-	<!-- 어노테이션 기반으로 aop 적용할수 있도록 설정 -->
-	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 
 	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
 		<beans:property name="order" value="0"/>
 	</beans:bean>
-<<<<<<< HEAD
-	
-	
+
 	<!-- 어노테이션 기반으로 aop 적용할수 있도록 설정 -->
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
-=======
->>>>>>> branch 'master' of https://github.com/jjnwhy/LookatTicket.git
 
 </beans:beans>
 

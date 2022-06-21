@@ -9,7 +9,9 @@
 </head>
 <body>
 	<div class="container">
+		<c:if test="${id eq 'admin' }">
 		<a href="insertform.do">글 작성</a>
+		</c:if>
 		<h1>공지사항 페이지</h1>
 		<table>
 			<thead>
@@ -19,7 +21,8 @@
 					<th>작성자</th>
 					<th>조회수</th>
 					<th>등록일</th>
-					<th>삭제</th>
+					<c:if test="${id eq 'admin' }">
+					<th>삭제</th></c:if>
 				</tr>
 			</thead>
 			<tbody>
@@ -32,7 +35,9 @@
 						<td>${tmp.writer }</td>
 						<td>${tmp.viewCount }</td>
 						<td>${tmp.regdate }</td>
+						<c:if test="${id eq 'admin' }">
 						<td><a href="delete.do?num=${tmp.num }">X</a></td>
+						</c:if>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -82,7 +87,7 @@
 				<strong>${totalRow }</strong> 개의 글이 검색 되었습니다.
 			</p>
 		</c:if>
-
+	<a href="${pageContext.request.contextPath }/home.do">홈으로</a>
 	</div>
 </body>
 </html>

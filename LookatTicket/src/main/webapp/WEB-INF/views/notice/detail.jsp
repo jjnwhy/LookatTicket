@@ -53,9 +53,11 @@
 		</table>
 		<ul>
 			<li><a href="list.do">목록보기</a></li>
-			<li><a href="updateform.do?num=${dto.num }">수정</a></li>
+			<c:if test="${id eq 'admin' }">
+				<li><a href="updateform.do?num=${dto.num }">수정</a></li>
 				<li><a href="delete.do?num=${dto.num }">삭제</a></li>
-				<!-- 아이디 동일할 경우
+			</c:if>
+				<!-- 아이디가 admin일 경우
 			<c:if test="${dto.writer eq id }">
 				<li><a href="updateform.do?num=${dto.num }">수정</a></li>
 				<li><a href="delete.do?num=${dto.num }">삭제</a></li>
