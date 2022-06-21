@@ -1,71 +1,81 @@
 -- 회원 테이블
 CREATE TABLE users(
-	id VARCHAR2(20) PRIMARY KEY, -- 회원 아이디
-    pwd VARCHAR2(50), -- 비밀번호
-	name VARCHAR2(20), -- 이름
+	id VARCHAR2(100) PRIMARY KEY, -- 회원 아이디
+    pwd VARCHAR2(100), -- 비밀번호
+    name VARCHAR2(20), -- 이름
+    addrNum VARCHAR2(10), -- 우편번호
+	addr VARCHAR2(100), -- 주소
+	gender VARCHAR2(3), -- 성별
+	birth DATE, -- 생일
 	phone VARCHAR2(20), -- 전화번호
-	addr VARCHAR2(50), -- 주소
-	email VARCHAR2(100) -- 이메일
+	email VARCHAR2(50), -- 이메일
+	regdate DATE -- 가입일
 );
 
--- 카테고리 테이블
-CREATE TABLE category(
-	num NUMBER PRIMARY KEY, -- 카테고리 번호
-	name VARCHAR(20) -- 이름
-);
 
-CREATE SEQUENCE tickets_seq;
+CREATE SEQUENCE shop_seq;
 -- 상품 테이블
-CREATE TABLE tickets(
-	ticket_num NUMBER PRIMARY KEY, -- 상품 번호
- 	cate_num NUMBER CONSTRAINT cate_num_fk REFERENCES category(num), -- 카테고리 번호
- 	name  VARCHAR2(100), -- 이름
- 	price NUMBER, -- 가격
- 	grade NUMBER, -- 등급
+CREATE TABLE shop(
+	num NUMBER PRIMARY KEY, -- 상품 번호
+ 	cateNum NUMBER NOT NULL, -- 카테고리 번호
+ 	name VARCHAR2(100) NOT NULL, -- 상품명
  	image VARCHAR2(100), -- 상품 이미지
+ 	price NUMBER NOT NULL, -- 가격
  	cast VARCHAR2(400), -- 출연
- 	hours VARCHAR(20), -- 관람시간
+ 	hours VARCHAR2(20), -- 관람시간
+ 	location VARCHAR2(100), -- 공연장소
  	startdate DATE, -- 첫 공연일
  	enddate DATE -- 마지막 공연일
- 	remainCount NUMBER CHECK(remainCount>=0) -- 재고 갯수
+ 	remainCount NUMBER CHECK(remainCount>=0), -- 재고 갯수
+ 	tel VARCHAR2(100), -- 문의 전화번호
+ 	seatNum NUMBER -- 좌석번호
 );
 
-CREATE SEQUENCE location_seq;
--- 장소 테이블
-CREATE TABLE locations(
-	location_num NUMBER PRIMARY KEY, -- 장소 번호
-	ticket_num NUMBER CONSTRAINT ticket_num_fk REFERENCES tickets(ticket_num), -- 상품 번호
-	name VARCHAR2(100), -- 이름
-	addr VARCHAR2(100), -- 주소
-	tel VARCHAR2(20) -- 전화번호
-);
-
-CREATE SEQUENCE schedules_seq;
--- 공연 일정 테이블
-CREATE TABLE schedules(
-   schedule_num NUMBER PRIMARY KEY, -- 공연일정 번호
-   location_num NUMBER CONSTRAINT location_num_fk REFERENCES locations(location_num), -- 장소 번호
-   dDay DATE, -- 공연 날짜
-   times NUMBER, -- 회차
-   startTime VARCHAR2(50) -- 시작 시간
-);
-
--- 좌석 테이블
-CREATE TABLE seat(
-	seat_num NUMBER PRIMARY KEY, -- 좌석 번호
-	schedule_num NUMBER CONSTRAINT schedule_num_fk REFERENCES schedules(schedule_num), -- 공연 일정 번호
-	status NUMBER -- 상태
-);
 
 CREATE SEQUENCE booking_seq;
 -- 예약 테이블
 CREATE TABLE booking(
-   booking_num NUMBER PRIMARY KEY, -- 예약 번호
-   ticket_num NUMBER CONSTRAINT ticket_num_fk REFERENCES tickets(ticket_num), -- 상품 번호
-   location_num NUMBER CONSTRAINT location_num_fk REFERENCES locations(location_num), -- 장소 번호
-   schedule_num NUMBER CONSTRAINT schedule_num_fk REFERENCES schedules(schedule_num), -- 공연 일정 번호
-   id VARCHAR2(20) CONSTRAINT user_id_fk REFERENCES users(id), -- 회원 아이디
-   seat_num NUMBER CONSTRAINT seat_num_fk REFERENCES seat(seat_num), -- 좌석 번호
-   bookDate DATE -- 예약일
+	num NUMBER PRIMARY KEY, -- 예약 번호
+	shopNum NUMBER NOT NULL, -- 상품 번호
+	id VARCHAR2(100), -- 예약자 아이디
+	dday DATE, -- 예약일
+	price NUMBER, -- 가격
+	seatNum NUMBER, -- 좌석번호
+	location VARCHAR2(100) -- 공연장소
 );
 
+CREATE SEQUENCE board_review_seq;
+-- 리뷰 테이블
+CREATE TABLE board_review(
+	num NUMBER PRIMARY KEY, -- 글 번호
+	shopNum NUMBER NOT NULL, -- 상품 번호
+	writer VARCHAR2(100) NOT NULL, -- 작성자 (로그인된 아이디)
+	title VARCHAR2(100) NOT NULL, -- 제목
+	content CLOB, -- 글 내용
+	viewCount NUMBER, -- 조회수
+	likeCount NUMBER, -- 좋아요 수
+	regdate DATE -- 글 작성일
+);
+
+CREATE SEQUENCE board_QnA_seq;
+-- QnA 테이블
+CREATE TABLE board_QnA(
+	num NUMBER PRIMARY KEY, -- 글 번호
+	writer VARCHAR2(100) NOT NULL, -- 작성자 (로그인된 아이디)
+	title VARCHAR2(100) NOT NULL, -- 제목
+	content CLOB, -- 글 내용
+	viewCount NUMBER, -- 조회수
+	regdate DATE, -- 글 작성일
+	adminComment VARCHAR2(100) -- 관리자 답변
+);
+
+CREATE SEQUENCE notice_seq;
+-- 공지사항 테이블
+CREATE TABLE notice(
+	num NUMBER PRIMARY KEY, -- 글 번호
+	title VARCHAR2(100) NOT NULL, -- 글 제목
+	content CLOB, -- 글 내용
+	writer VARCHAR2(20) NOT NULL, -- 작성자 (관리자만 가능)
+	viewCount NUMBER, -- 조회수
+	regdate DATE -- 글 작성일
+);
