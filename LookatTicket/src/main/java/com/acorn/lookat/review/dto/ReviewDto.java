@@ -2,11 +2,12 @@ package com.acorn.lookat.review.dto;
 
 public class ReviewDto {
 	private int num;
-
+	private int shopNum;
 	private String writer;
 	private String title;
 	private String content;
 	private int viewCount;
+	private int likeCount;
 	private String regdate;
 	private int startRowNum;
 	private int endRowNum;
@@ -15,14 +16,16 @@ public class ReviewDto {
 	
 	public ReviewDto() {}
 
-	public ReviewDto(int num, String writer, String title, String content, int viewCount,
+	public ReviewDto(int num, int shopNum, String writer, String title, String content, int viewCount, int likeCount,
 			String regdate, int startRowNum, int endRowNum, int prevNum, int nextNum) {
 		super();
 		this.num = num;
+		this.shopNum = shopNum;
 		this.writer = writer;
 		this.title = title;
 		this.content = content;
 		this.viewCount = viewCount;
+		this.likeCount = likeCount;
 		this.regdate = regdate;
 		this.startRowNum = startRowNum;
 		this.endRowNum = endRowNum;
@@ -36,6 +39,14 @@ public class ReviewDto {
 
 	public void setNum(int num) {
 		this.num = num;
+	}
+
+	public int getShopNum() {
+		return shopNum;
+	}
+
+	public void setShopNum(int shopNum) {
+		this.shopNum = shopNum;
 	}
 
 	public String getWriter() {
@@ -68,6 +79,14 @@ public class ReviewDto {
 
 	public void setViewCount(int viewCount) {
 		this.viewCount = viewCount;
+	}
+
+	public int getLikeCount() {
+		return likeCount;
+	}
+
+	public void setLikeCount(int likeCount) {
+		this.likeCount = likeCount;
 	}
 
 	public String getRegdate() {
@@ -109,6 +128,6 @@ public class ReviewDto {
 	public void setNextNum(int nextNum) {
 		this.nextNum = nextNum;
 	}
-	
+
 	
 }
