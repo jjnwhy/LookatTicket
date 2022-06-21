@@ -7,22 +7,31 @@
 <title>/users/signup_form.jsp</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+<style>
+	*{
+		font-family: 'Nanum Gothic', sans-serif;
+	}
+</style>
 </head>
 <body>
 	<div class="row">
-		<div class="col-12 col-md-6 offset-md-3">
-		<h1>회원 가입 폼</h1>
+		<div class="col-8 col-md-4 offset-md-4">
+		<h1>회원 가입</h1>
+		<br />
 			<form action="${pageContext.request.contextPath}/users/signup.do" method="post" id="myForm">
 				<div>
 					<label class="control-label" for="id">아이디</label>
-					<input class="form-control" type="text" name="id" id="id" />
+					<input class="form-control" type="text" name="id" id="id" autofocus/>
 					<small class="form-text text-muted">영문자 소문자로 시작하고 5글자~10글자 이내로 입력하세요</small>
-				   	<div class="invalid-feedback">사용할 수 없는 아이디 입니다.</div>
+				   	<div class="invalid-feedback">사용할 수 없는 아이디 입니다</div>
 				</div>
 				<div>
 				   <label class="control-label" for="pwd">비밀번호</label>
 				   <input class="form-control" type="password" name="pwd" id="pwd"/>
-				   <small class="form-text text-muted">특수 문자를 하나 이상 조합하세요.</small>
+				   <small class="form-text text-muted">특수 문자를 하나 이상 조합하세요</small>
 				   <div class="invalid-feedback">비밀번호를 확인 하세요</div>
 				</div>
 				<div>
@@ -36,6 +45,7 @@
 				<div>
 				   <label class="control-label" for="addrNum">우편번호</label>
 				   <input class="form-control" type="text" name="addrNum" id="addrNum"/>
+				   <div class="invalid-feedback">우편번호 형식에 맞게 입력하세요(숫자5자리)</div>
 				</div>
 				<div>
 				   <label class="control-label" for="addr">주소</label>
@@ -44,23 +54,24 @@
 				<div>
 				   <label class="control-label" for="birth">생년월일</label>
 				   <input class="form-control" type="text" name="birth" id="birth"/>
-				   <small class="form-text text-muted">YYYY-MM-DD 형식으로 입력하세요.</small>
+				   <small class="form-text text-muted">YYYY-MM-DD 형식으로 입력하세요</small>
 				</div>
 				<div>
 				   <label class="control-label" for="phone">전화번호</label>
 				   <input class="form-control" type="text" name="phone" id="phone"/>
+				   <small class="form-text text-muted">입력 예시: 010-1111-1111</small>
 				</div>
 				<div>
 				   <label class="control-label" for="email">이메일</label>
 				   <input class="form-control" type="text" name="email" id="email"/>
-				   <small class="form-text text-muted">이메일 형식에 맞게 입력하세요.</small>
+				   <small class="form-text text-muted">이메일 형식에 맞게 입력하세요</small>
 				</div>
 				<div>
-				   <label class="contrl-label" for="regdate" ></label>
+				   <label class="control-label" for="regdate" ></label>
 				   <input class="form-control" type="hidden" name="regdate" id="regdate" />
 				</div>
 				<button class="btn btn-outline-primary" type="submit">가입</button>
-				<button class="btn btn-outline-primary" type="button" onclick="location.href='${pageContext.request.contextPath}/'">홈으로</button>
+				<button class="btn btn-outline-secondary" type="button" onclick="location.href='${pageContext.request.contextPath}/'">취소</button>
 			</form>
 	</div>
 </div>	
@@ -71,6 +82,7 @@
 	let isPwdValid = false;
 	let isEmailValid = false;
 	let isAddrNumValid = false;
+	let isphoneValid = false;
 	
 	//아이디를 입력했을 때(input) 실행할 함수 등록
 	document.querySelector("#id").addEventListener("input", function(){
@@ -167,9 +179,9 @@
 		//1.입력한 우편번호 읽어오기
 		const inputAddrNum=this.value;
 		//2.우편번호를 검증할 정규표현식 객체를 만들기
-		const reg_addrNum="12345".match(/\d{5}/)[0];
+		const reg_addrNum=/[0-9]/g;
 		//3.정규표현식 매칭 여부에 따라 분기하기
-		if(ref_addrNum.test(inputAddrNum)){
+		if(reg_addrNum.test(inputAddrNum)){
 			isAddrNumValid = true;
 			document.querySelector("#addrNum").classList.add("is-valid");
 		}else{
@@ -178,16 +190,54 @@
 		}
 	});
 	
+	//핸드폰번호를 입력했을 때 실행할 함수 등록
+	document.querySelector("#phone").addEventListener("input", function(){
+		document.querySelector("#phone").classList.remove("is-valid");
+		document.querySelector("#phone").classList.remove("is-invalid");
+		
+		//1.입력한 핸드폰번호 읽어오기
+		const inputPhone=this.value;
+		//2.핸드폰번호를 검증할 정규표현식 객체를 만들기
+		const reg_phone=/^\d{3}-\d{3,4}-\d{4}$/;
+		//3.정규표현식 매칭 여부에 따라 분기하기
+		if(reg_phone.test(inputPhone)){
+			isPhoneValid = true;
+			document.querySelector("#phone").classList.add("is-valid");
+		}else{
+			isPhoneValid = false;
+			document.querySelector("#phone").classList.add("is-invalid");
+		}
+	});
+	
+	//생년월일를 입력했을 때 실행할 함수 등록
+	document.querySelector("#birth").addEventListener("input", function(){
+		document.querySelector("#birth").classList.remove("is-valid");
+		document.querySelector("#birth").classList.remove("is-invalid");
+		
+		//1.입력한 생년월일 읽어오기
+		const inputBirth=this.value;
+		//2.생년월일을 검증할 정규표현식 객체를 만들기
+		const reg_birth=/^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/;
+		//3.정규표현식 매칭 여부에 따라 분기하기
+		if(reg_birth.test(inputBirth)){
+			isBirthValid = true;
+			document.querySelector("#birth").classList.add("is-valid");
+		}else{
+			isBirthValid = false;
+			document.querySelector("#birth").classList.add("is-invalid");
+		}
+	});
+	
 	//폼에 submit 이벤트가 발생했을 때 실행할 함수 등록
 	document.querySelector("#myForm").addEventListener("submit", function(e){
 		//console.log(e);
 		/*
-			입력한 아이디, 비밀번호, 이메일의 유효성 여부를 확인해서 하나라도 유효하지 않으면 
+			입력한 아이디, 비밀번호, 이메일, 생년월일, 우편번호, 핸드폰번호의 유효성 여부를 확인해서 하나라도 유효하지 않으면 
 			e.preventDefault();
 			가 수행 되도록 해서 폼의 제출을 막아야 한다.
 		*/
 		//폼 전체의 유효성 여부 알아내기
-		let isFormValid = isIdValid && isPwdValid && isEmailValid;
+		let isFormValid = isIdValid && isPwdValid && isEmailValid && isAddrNumValid && isBirthValid && isPhoneValid;
 		if(!isFormValid){//폼이 유효하지 않으면
 			//폼 전송막기
 			e.preventDefault();
