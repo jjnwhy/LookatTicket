@@ -11,4 +11,6 @@ public interface ReviewService {
 	public void updateContent(ReviewDto dto);
 	public void deleteContent(int num, HttpServletRequest request);
 	public void getData(HttpServletRequest request);
+	public void likeCount(int num, HttpServletRequest request);
+
 }

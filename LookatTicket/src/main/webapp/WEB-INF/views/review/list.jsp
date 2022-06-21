@@ -20,6 +20,7 @@
 				<th>작성자</th>
 				<th>제목</th>
 				<th>조회수</th>
+				<th>좋아요</th>
 				<th>등록일</th>
 			</tr>
 		</thead>
@@ -29,12 +30,11 @@
 				<td>${tmp.num }</td>
 				<td>shopNum</td>
 				<td>${tmp.writer }</td>
-				<td>${tmp.shopNum }</td>
 				<td>
 					<a href="detail.do?num=${tmp.num }&keyword=${encodedK }&condition=${condition}">${tmp.title }</a>
 				</td>
 				<td>${tmp.viewCount }</td>
-				<td>likeCount</td>
+				<td>${tmp.likeCount }</td>
 				<td>${tmp.regdate }</td>
 			</tr>
 		</c:forEach>
