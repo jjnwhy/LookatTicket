@@ -10,6 +10,7 @@
 	background-color:black;
 	color: white;
 }
+
 </style>
 <!-- navbar의 배경색이 밝은색 계열이면 navbar-light, 어두운색 계열이면 navbar-dark 클래스를 지정해놓으면 좋다. -->
 <nav class="navbar navbar-light navbar-expand-md"

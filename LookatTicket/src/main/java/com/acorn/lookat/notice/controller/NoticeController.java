@@ -52,7 +52,7 @@ public class NoticeController {
 	
 	@RequestMapping("/notice/insert")
 	public ModelAndView Insert(NoticeDto dto, HttpSession session, HttpServletRequest request) {
-		String id = "관리자";
+		String id = (String)session.getAttribute("id");
 		dto.setWriter(id);
 		service.saveNotice(dto);
 		

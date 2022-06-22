@@ -5,6 +5,7 @@
 p{
 	text-align:center;
 }
+
 </style>
 
 <div class="container">
