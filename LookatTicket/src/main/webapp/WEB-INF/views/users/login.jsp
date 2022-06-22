@@ -18,6 +18,21 @@
 </style>
 </head>
 <body>
+	<c:choose>
+		<c:when test="${not empty sessionScope.id }">
+			<script>
+				location.href="${pageContext.request.contextPath }/home.do";
+			</script>
+		</c:when>
+	
+		<c:otherwise>
+			<script>
+				alert("아이디 혹은 비밀번호가 다릅니다.");
+				location.href="loginform.do?url=${requestScope.encodeUrl }";
+			</script>
+		</c:otherwise>
+	</c:choose>
+	<!-- 
 	<div class="container">
 		<h1>알림</h1>
 		<c:choose>
@@ -35,5 +50,6 @@
 			</c:otherwise>
 		</c:choose>
 	</div>	
+	 -->
 </body>
 </html>

@@ -21,7 +21,7 @@
 		from
 			(select result1.*, ROWNUM as rnum
 			from
-				(select num,writer,title,content,viewCount,regdate
+				(select num,writer,title,content,viewCount,likeCount,regdate
 				from board_review
 				<include refid="searchCondition"/>
 				order by num desc) result1)
@@ -38,9 +38,9 @@
 	
 	<insert id="insert" parameterType="reviewDto">
 		insert into board_review
-		(num,writer,title,content,viewCount,regdate)
+		(num,writer,title,content,viewCount,likeCount,regdate)
 		values(board_review_seq.nextval, #{writer}, #{title},
-			#{content}, #{viewCount}, sysdate)
+			#{content}, #{viewCount}, #{likeCount}, sysdate)
 	</insert>
 	
 	<select id="getData" parameterType="int" resultType="reviewDto"> 

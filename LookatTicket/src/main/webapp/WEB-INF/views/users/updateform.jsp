@@ -18,6 +18,9 @@
 </style>
 </head>
 <body>
+	<jsp:include page="/include/navbar.jsp">
+		<jsp:param value="home" name="thisPage" />
+	</jsp:include>
 <div class="row">
 		<div class="col-8 col-md-4 offset-md-4">
 		<h1>가입정보 수정</h1>
@@ -114,5 +117,6 @@
 	});
 
 </script>		
+	<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>
