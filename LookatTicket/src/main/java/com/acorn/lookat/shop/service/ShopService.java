@@ -12,6 +12,8 @@ public interface ShopService {
 	//상품 주문 처리를 하는 메소드
 	public void buy(HttpServletRequest request,
 			ModelAndView mView);
+	//예매 취소하기
+	public void cancle(int num);
 }
 
 

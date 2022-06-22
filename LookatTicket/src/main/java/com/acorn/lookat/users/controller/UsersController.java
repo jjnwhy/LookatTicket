@@ -74,7 +74,17 @@ public class UsersController {
 		
 		mView.setViewName("users/mypage");
 		return mView;
-	}
+	}	
+	@RequestMapping("/users/bookingpage")
+	public ModelAndView authBooking(HttpSession session, ModelAndView mView, 
+			HttpServletRequest request) {
+		
+		service.getBookingList(session, mView);
+		
+		mView.setViewName("users/bookingpage");
+		return mView;
+	}	
+	
 	
 	@RequestMapping("/users/logout")
 	public String logout(HttpSession session) {

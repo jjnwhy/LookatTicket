@@ -1,5 +1,7 @@
 package com.acorn.lookat.booking.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,4 +31,21 @@ public class BookingController {
 		
 		return mView;
 	}
+	//예매 하기 요청
+	@RequestMapping("/shop/booking")
+	public ModelAndView authBuy(HttpServletRequest request,
+			ModelAndView mView) {
+		service.buy(request, mView);
+		mView.setViewName("redirect:/users/bookingpage.do");
+		return mView;
+	}
+	
+	@RequestMapping("booking/delete")
+	public ModelAndView delete(@RequestParam int num) {
+		
+		service.cancle(num);
+		
+		return new ModelAndView("redirect:/users/bookingpage.do");
+	}
+	
 }
