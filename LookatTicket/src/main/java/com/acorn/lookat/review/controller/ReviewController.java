@@ -62,6 +62,12 @@ public class ReviewController {
 		service.updateContent(dto);
 		return new ModelAndView("review/update");
 	}
+	@RequestMapping("/review/like")
+	public ModelAndView authLikeCount(@RequestParam int num, HttpServletRequest request) {
+		service.likeCount(num, request);
+		return new ModelAndView("redirect:/review/detail.do");
+	}
+	
 }
 
 

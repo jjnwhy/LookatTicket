@@ -60,8 +60,8 @@ public class ReviewDaoImpl implements ReviewDao{
 	}
 
 	@Override
-	public void addLikeCount(int num) {
-		session.update("review.addLikeCount",num);
+	public void likeCount(int num) {
+		session.update("review.likeCount",num);
 		
 	}
 

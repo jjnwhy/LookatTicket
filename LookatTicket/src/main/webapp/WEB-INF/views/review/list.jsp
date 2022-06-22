@@ -15,13 +15,31 @@
 	*{
 		font-family: 'Nanum Gothic', sans-serif;
 	}
+	
+	#write{
+			float: right;
+	}
+	
+	th, td{
+		text-align: center;
+	}
 </style>
 </head>
 <body>
+	<jsp:include page="/include/navbar.jsp">
+		<jsp:param value="review" name="thisPage" />
+	</jsp:include>
 	<div class="container">
-	<a href="insertform.do">후기작성</a>
-	<h1>후기 목록</h1>
-	<table>
+	<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);">
+			 <ol class="breadcrumb">
+				 <li class="breadcrumb-item">
+				 	<a href="${pageContext.request.contextPath}/home.do">홈</a></li>
+				 <li class="breadcrumb-item active">Review</li>
+			 </ol>
+	</nav>
+	<h2>후기 목록</h2>
+	<a href="insertform.do" id="write">후기작성</a>
+	<table class="table">
 		<thead>
 			<tr>
 				<th>번호</th>
@@ -29,6 +47,7 @@
 				<th>작성자</th>
 				<th>제목</th>
 				<th>조회수</th>
+				<th>좋아요</th>
 				<th>등록일</th>
 			</tr>
 		</thead>
@@ -38,12 +57,11 @@
 				<td>${tmp.num }</td>
 				<td>shopNum</td>
 				<td>${tmp.writer }</td>
-				<td>${tmp.shopNum }</td>
 				<td>
 					<a href="detail.do?num=${tmp.num }&keyword=${encodedK }&condition=${condition}">${tmp.title }</a>
 				</td>
 				<td>${tmp.viewCount }</td>
-				<td>likeCount</td>
+				<td>${tmp.likeCount }</td>
 				<td>${tmp.regdate }</td>
 			</tr>
 		</c:forEach>
@@ -86,7 +104,7 @@
 			<option value="writer" ${condition eq 'writer' ? 'selected' : '' }>작성자</option>
 		</select>
 		<input type="text" id="keyword" name="keyword" placeholder="검색어..." value="${keyword }" />
-		<button type="submit">검색</button>
+		<button class="btn btn-outline-dark" type="submit">검색</button>
 	</form>
 	<c:if test="${not empty condition }">
 		<p>
@@ -94,5 +112,6 @@
 		</p>
 	</c:if>
 	</div>
+		<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>
