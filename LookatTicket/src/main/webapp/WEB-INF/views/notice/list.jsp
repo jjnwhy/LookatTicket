@@ -22,7 +22,19 @@
 		text-align: center;
 	}
 	
+	#write{
+		float: right;
+	}
 	
+	a:link, a:visited, a:active
+	{
+	    color: #000000;
+	    text-decoration: none;
+	}
+	
+	a:hover{
+		color: highlight;
+	}
 </style>
 </head>
 <body>
@@ -40,7 +52,7 @@
 	</nav>
 	<h2>공지사항</h2>
 		<c:if test="${id eq 'admin' }">
-		<a href="insertform.do">글 작성</a>
+		<a href="insertform.do" id="write">글 작성</a>
 		</c:if>
 		<table class="table">
 			<thead>
@@ -97,7 +109,6 @@
 				</c:if>
 			</ul>
 		</div>
-
 		<div style="clear: both;"></div>
 
 		<form action="list.do" method="get">

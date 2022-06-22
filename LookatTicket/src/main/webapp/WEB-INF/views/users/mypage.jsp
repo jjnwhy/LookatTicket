@@ -16,6 +16,24 @@
 	*{
 		font-family: 'Nanum Gothic', sans-serif;
 	}
+	
+	a:link, a:visited, a:active
+	{
+	    color: #000000;
+	    text-decoration: none;
+	}
+	
+	a:hover{
+		color: highlight;
+	}
+	
+	th{
+		vertical-align:middle;
+	}
+	
+	tr{
+		text-align:center;
+	}
 </style>
 
 </head>
@@ -33,11 +51,14 @@
 			 </ol>
 		</nav>
 	<div class="row">
-		<div class="col-8 col-md-4 offset-md-4">
+		<div class="col-8 col-md-6 offset-md-3">
 		<h2>마이페이지</h2>
 		<br />
 		<table class="table table-default">
-
+			<colgroup>
+				<col style="width:20%">
+				<col style="width:40%">
+			</colgroup>
 			<tr>
 				<th scope="row">이름</th>
 				<td>${dto.name }</td>
@@ -48,7 +69,7 @@
 			</tr>
 			<tr>
 				<th scope="row">비밀번호</th>
-				<td><a href="${pageContext.request.contextPath}/users/pwd_updateform.do">수정하기</a></td>
+				<td><button type="button" class="btn btn-light" onclick="location.href='${pageContext.request.contextPath}/users/pwd_updateform.do'">비밀번호 수정</button></td>
 			</tr>
 			<tr>
 				<th scope="row">주소</th>
@@ -71,8 +92,8 @@
 				<td>${dto.regdate }</td>
 			</tr>
 		</table>
-		<a href="${pageContext.request.contextPath}/users/updateform.do">정보 수정하기</a> 
-		<a href="${pageContext.request.contextPath}/users/delete.do">탈퇴하기</a>
+		<button type="button" class="btn btn-light" onclick="location.href='${pageContext.request.contextPath}/users/updateform.do'">정보수정 하기</button>
+		<button type="button" class="btn btn-light" onclick="location.href='${pageContext.request.contextPath }/delete.do'">회원탈퇴</button>
 	</div>
 	</div>
 	</div>

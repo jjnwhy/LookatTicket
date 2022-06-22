@@ -15,6 +15,16 @@
 	*{
 		font-family: 'Nanum Gothic', sans-serif;
 	}
+	
+	a:link, a:visited, a:active
+	{
+	    color: #000000;
+	    text-decoration: none;
+	}
+	
+	a:hover{
+		color: highlight;
+	}
 </style>
 </head>
 <body>
@@ -29,36 +39,37 @@
 				 <li class="breadcrumb-item">
 				 	<a href="${pageContext.request.contextPath}/users/mypage.do">마이페이지</a>
 				 </li>	
-				 <li class="breadcrumb-item active">정보 수정</li>
+				 <li class="breadcrumb-item active">가입정보수정</li>
 			 </ol>
 		</nav>
-		<div class="col-8 col-md-4 offset-md-4">
+		<div class="col-6 col-md-4 offset-md-4">
 		<h2>가입정보 수정</h2>
 		<br />
-		<form action="${pageContext.request.contextPath}/users/update.do" method="post" id="myForm">
-			<div>
+		<form class="row g-3" action="${pageContext.request.contextPath}/users/update.do" method="post" id="myForm">
+			<div class="col-12">
 				<label class="control-label" for="id">아이디</label>
 				<input class="form-control" type="text" id="id" value="${id }" disabled/>
 			</div>
-			<div>
+			<div class="col-md-3">
 				<label class="control-label" for="addrNum">우편번호</label>
 				<input class="form-control" type="text" id="addrNum" name="addrNum" value="${dto.addrNum }" />
 			</div>
-			<div>
+			<div class="col-md-9">
 				<label class="control-label" for="addr">주소</label>
 				<input class="form-control" type="text" id="addr" name="addr" value="${dto.addr }" />
 			</div>
-			<div>
+			<div class="col-12">
 				<label class="control-label" for="phone">전화번호</label>
 				<input class="form-control" type="text" id="phone" name="phone" value="${dto.phone }"/>
 			</div>
-			<div>
+			<div class="col-12">
 				<label class="control-label" for="email">이메일</label>
 				<input class="form-control" type="text" id="email" name="email" value="${dto.email }" />
 			</div>
-			<br />
-			<button class="btn btn-outline-primary" type="submit">확인</button>
+			<div>
+			<button class="btn btn-outline-primary" type="submit">완료</button>
 			<button class="btn btn-outline-secondary" type="reset">되돌리기</button>
+			</div>
 		</form>
 	</div>
 </div>
