@@ -1,5 +1,8 @@
 package com.acorn.lookat.review.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -8,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.acorn.lookat.review.dto.ReviewDto;
@@ -63,9 +67,14 @@ public class ReviewController {
 		return new ModelAndView("review/update");
 	}
 	@RequestMapping("/review/like")
-	public ModelAndView authLikeCount(@RequestParam int num, HttpServletRequest request) {
-		service.likeCount(num, request);
-		return new ModelAndView("redirect:/review/detail.do");
+	@ResponseBody
+	public Map<String, Object> authLikeCount(@RequestParam int num, HttpServletRequest request) {
+		int count=service.likeCount(num, request);
+		System.out.println(num);
+		Map<String, Object> map=new HashMap<String, Object>();
+		map.put("likeCount", count);
+		
+		return map;
 	}
 	
 }

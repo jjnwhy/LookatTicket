@@ -53,7 +53,7 @@
 		</tr>
 		<tr>
 			<th>좋아요 수</th>
-			<td>${tmp.likeCount }</td>
+			<td id="likeCount">${dto.likeCount }</td>
 		</tr>
 		<tr>
 			<th>등록일</th>
@@ -64,21 +64,37 @@
 				<div class="content">${dto.content }</div>
 			</td>
 		</tr>
-		
 	</table>
-
+	
 	<ul>
 		<li><a href="list.do">목록보기</a></li>
 		<c:if test="${dto.writer eq id }">
 			<li><a href="updateform.do?num=${dto.num }">수정</a></li>
 			<li><a href="delete.do?num=${dto.num }">삭제</a></li>
 		</c:if>
-		<c:if test="${dto.writer ne id }">
-			<button <a href="like.do?num=${dto.num }">좋아요</a>></button>
-		</c:if>
 	</ul>
-
+	<button id="likeBtn">좋아요</button>
 </div>
+
+<script src="${pageContext.request.contextPath}/resources/js/gura_util.js"></script>
+<script>
+	document.querySelector("#likeBtn").addEventListener("click" , function(){
+		//좋아요 카운트를 올릴 글번호
+		const num=${dto.num};
+		//ajax 요청으로 해당 글 번호를 서버에 전달한다.
+		ajaxPromise("${pageContext.request.contextPath}/review/like.do", "get", "num="+num)
+		.then(function(res){
+			return res.json();
+		})
+		.then(function(data){
+			console.log(data);
+			document.querySelector("#likeCount").innerText=data.likeCount;
+		});
+	});
+	
+</script>
+
 	<jsp:include page="/include/footer.jsp"></jsp:include>
+
 </body>
 </html>
