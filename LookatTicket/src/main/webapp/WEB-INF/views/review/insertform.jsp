@@ -22,7 +22,7 @@
 	<form action="insert.do" method="post" id="insertForm">
 		<div class="mb-3">
 			<label class="form-label" for="title">제목</label>
-			<input class="form-control" type="text" name="title" id="title"/>
+			<input class="form-control" type="text" name="title" id="title" placeholder="제목입력.."/>
 		</div>
 		<div class="mb-3">
 			<label class="form-label" for="content">내용</label>

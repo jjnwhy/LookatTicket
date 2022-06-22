@@ -20,7 +20,7 @@ public class ReviewServiceImpl implements ReviewService{
 	@Override
 	public void getList(HttpServletRequest request) {
 		//한 페이지에 몇개씩 표시할 것인지
-		final int PAGE_ROW_COUNT=20;
+		final int PAGE_ROW_COUNT=15;
 		//하단 페이지를 몇개씩 표시할 것인지
 		final int PAGE_DISPLAY_COUNT=7;
 		//보여줄 페이지의 번호의 초기값 (1)
@@ -45,7 +45,7 @@ public class ReviewServiceImpl implements ReviewService{
 		}
 		//특수기호 인코딩
 		String encodedK=URLEncoder.encode(keyword);
-		//CafeDto 객체에 startRowNum 과 endRowNum 을 담는다.
+		//ReviewDto 객체에 startRowNum 과 endRowNum 을 담는다.
 		ReviewDto dto=new ReviewDto();
 		dto.setStartRowNum(startRowNum);
 		dto.setEndRowNum(endRowNum);
@@ -58,7 +58,7 @@ public class ReviewServiceImpl implements ReviewService{
 				dto.setContent(keyword);
 			}else if(condition.equals("title")) {
 				dto.setTitle(keyword);
-			}else if(condition.equals("writier")) {
+			}else if(condition.equals("writer")) {
 				dto.setWriter(keyword);
 			}
 		}
