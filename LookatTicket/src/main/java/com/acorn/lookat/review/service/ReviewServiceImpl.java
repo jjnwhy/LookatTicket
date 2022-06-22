@@ -155,11 +155,13 @@ public class ReviewServiceImpl implements ReviewService{
 	}
 
 	@Override
-	public void likeCount(int num, HttpServletRequest request) {
+	public int likeCount(int num, HttpServletRequest request) {
 		String id=(String)request.getSession().getAttribute("id");
-		String writer=reviewDao.getData(num).getWriter();
-		
+		//like 카운트를 올리고
 		reviewDao.likeCount(num);
+		//현재 like 카운트를 읽어와서 리턴해 준다.
+		int count=reviewDao.getData(num).getLikeCount();
+		return count;
 	}
 
 }
