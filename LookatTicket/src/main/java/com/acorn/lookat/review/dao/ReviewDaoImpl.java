@@ -56,7 +56,7 @@ public class ReviewDaoImpl implements ReviewDao{
 
 	@Override
 	public void update(ReviewDto dto) {
-		session.update("cafe.update", dto);
+		session.update("review.update", dto);
 	}
 
 	@Override
