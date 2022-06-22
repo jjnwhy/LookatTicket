@@ -20,56 +20,55 @@
 	<jsp:include page="/include/navbar.jsp">
 		<jsp:param value="home" name="thisPage" />
 	</jsp:include>
-	<div class="row">
+	<div class="container">
 		<div class="col-8 col-md-4 offset-md-4">
 		<h1>회원 가입</h1>
 		<br />
 			<form action="${pageContext.request.contextPath}/users/signup.do" method="post" id="myForm">
-				<div>
+				<div class="col-12">
 					<label class="control-label" for="id">아이디</label>
 					<input class="form-control" type="text" name="id" id="id" autofocus/>
 					<small class="form-text text-muted">영문자 소문자로 시작하고 5글자~10글자 이내로 입력하세요</small>
 				   	<div class="invalid-feedback">사용할 수 없는 아이디 입니다</div>
 				</div>
-				<div>
+				<div class="col-12">
 				   <label class="control-label" for="pwd">비밀번호</label>
 				   <input class="form-control" type="password" name="pwd" id="pwd"/>
 				   <small class="form-text text-muted">특수 문자를 하나 이상 조합하세요</small>
 				   <div class="invalid-feedback">비밀번호를 확인 하세요</div>
 				</div>
-				<div>
+				<div class="col-12">
 				   <label class="control-label" for="pwd2">비밀번호 확인</label>
 				   <input class="form-control" type="password" name="pwd2" id="pwd2"/>
 				</div>
-				<div>
+				<div class="col-12">
 				   <label class="control-label" for="name">이름</label>
 				   <input class="form-control" type="text" name="name" id="name"/>
 				</div>
-				<div>
-				   <label class="control-label" for="addrNum">우편번호</label>
-				   <input class="form-control" type="text" name="addrNum" id="addrNum"/>
-				   <div class="invalid-feedback">우편번호 형식에 맞게 입력하세요(숫자5자리)</div>
+				<div class="col-12">
+					<label class="control-label" for="addrNum">우편번호</label>
+					<input class="form-control" type="text" name="addrNum" id="addrNum"/>
+					<div class="invalid-feedback">우편번호 형식에 맞게 입력하세요(숫자5자리)</div>
+				<div class="col-12">
+					<label class="control-label" for="addr">주소</label>	
+					<input class="form-control" type="text" name="addr" id="addr"/>  		   
 				</div>
-				<div>
-				   <label class="control-label" for="addr">주소</label>
-				   <input class="form-control" type="text" name="addr" id="addr"/>
-				</div>
-				<div>
+				<div class="col-12">
 				   <label class="control-label" for="birth">생년월일</label>
 				   <input class="form-control" type="text" name="birth" id="birth"/>
 				   <small class="form-text text-muted">YYYY-MM-DD 형식으로 입력하세요</small>
 				</div>
-				<div>
+				<div class="col-12">
 				   <label class="control-label" for="phone">전화번호</label>
 				   <input class="form-control" type="text" name="phone" id="phone"/>
 				   <small class="form-text text-muted">입력 예시: 010-1111-1111</small>
 				</div>
-				<div>
+				<div class="col-12">
 				   <label class="control-label" for="email">이메일</label>
 				   <input class="form-control" type="text" name="email" id="email"/>
 				   <small class="form-text text-muted">이메일 형식에 맞게 입력하세요</small>
 				</div>
-				<div>
+				<div class="col-12">
 				   <label class="control-label" for="regdate" ></label>
 				   <input class="form-control" type="hidden" name="regdate" id="regdate" />
 				</div>

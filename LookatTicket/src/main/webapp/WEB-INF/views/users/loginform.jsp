@@ -15,17 +15,47 @@
 	*{
 		font-family: 'Nanum Gothic', sans-serif;
 	}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: white;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="id"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 50;
+  border-top-right-radius: 50;
+}
 </style>
 </head>
-<body>
-	<jsp:include page="/include/navbar.jsp">
-		<jsp:param value="home" name="thisPage" />
-	</jsp:include>
-	<div class="row">
-	<div class="col-4 offset-md-4">
-	<h1>로그인</h1>
-	<form action="${pageContext.request.contextPath}/users/login.do" method="post">
-		<c:choose>
+
+<body class="text-center">
+<main class="form-signin w-100 m-auto">
+  <form action="${pageContext.request.contextPath}/users/login.do" method="post">
+    	<c:choose>
 			<c:when test="${empty param.url }">
 				<input type="hidden" name="url" value="${pageContext.request.contextPath}" />
 			</c:when>
@@ -33,20 +63,24 @@
 				<input type="hidden" name=url" value="${param.url }" />
 			</c:otherwise>
 		</c:choose>
-		<div>
-			<label class="control-label" for="id">아이디</label>
-			<input class="form-control" type="text" name="id" id="id" autofocus/>
-		</div>
-		<div>
-			<label class="control-label" for="pwd">비밀번호</label>
-			<input class="form-control" type="password" name="pwd" id="pwd" />
-		</div>
-		<br />
-		<button class="btn btn-outline-primary" type="submit">로그인</button>
-		<button class="btn btn-outline-secondary" type="button" onclick="location.href='${pageContext.request.contextPath}'">취소</button>
-	</form>
-	</div>
-</div>	
-	<jsp:include page="/include/footer.jsp"></jsp:include>
+    
+    <img class="mb-4" src="${pageContext.request.contextPath}/images/lookat_logo.jpg" alt="" width="90" height="57">
+    <h1 class="h3 mb-3 fw-normal">로그인</h1>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" name="id" id="id" placeholder="id">
+      <label for="id">아이디</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" name="pwd" id="pwd" placeholder="Password">
+      <label for="pwd">비밀번호</label>
+    </div>
+
+    <button class="w-100 btn btn-lg btn-secondary" type="submit">Sign in</button>
+
+  </form>
+    
+</main>
+<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>
