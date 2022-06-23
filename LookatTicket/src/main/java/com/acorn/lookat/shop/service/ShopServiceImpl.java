@@ -1,12 +1,10 @@
 package com.acorn.lookat.shop.service;
 
 import java.util.List;
-import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
@@ -31,9 +29,8 @@ public class ShopServiceImpl implements ShopService{
 		mView.addObject("list", list);
 	}
 
-
-	@Override
 	@Transactional
+	@Override
 	public void buy(HttpServletRequest request, ModelAndView mView) {
 		
 		//구입자의 아이디
@@ -85,8 +82,6 @@ public class ShopServiceImpl implements ShopService{
 
 	@Override
 	public void deleteConcert(int num, HttpServletRequest request) {
-		String id=(String)request.getSession().getAttribute("id");
-		String writer=shopDao.getData(num).getWriter();
 		shopDao.delete(num);
 	}
 

@@ -14,12 +14,12 @@ public class ShopDto {
 	private String enddate;//마지막 공연일
 	private int remainCount;//재고 갯수
 	private String tel;//문의 번호
-	private int seatnum;//좌석번호
+	private int seatNum;//좌석번호
 	
 	public ShopDto() {}
 
 	public ShopDto(int num, String writer, int cateNum, String name, String image, int price, String cast, String hours,
-			String location, String startdate, String enddate, int remainCount, String tel, int seatnum) {
+			String location, String startdate, String enddate, int remainCount, String tel, int seatNum) {
 		super();
 		this.num = num;
 		this.writer = writer;
@@ -34,7 +34,7 @@ public class ShopDto {
 		this.enddate = enddate;
 		this.remainCount = remainCount;
 		this.tel = tel;
-		this.seatnum = seatnum;
+		this.seatNum = seatNum;
 	}
 
 	public int getNum() {
@@ -141,12 +141,12 @@ public class ShopDto {
 		this.tel = tel;
 	}
 
-	public int getSeatnum() {
-		return seatnum;
+	public int getSeatNum() {
+		return seatNum;
 	}
 
-	public void setSeatnum(int seatnum) {
-		this.seatnum = seatnum;
+	public void setSeatNum(int seatNum) {
+		this.seatNum = seatNum;
 	}
 
 	

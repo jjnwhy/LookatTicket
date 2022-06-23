@@ -45,7 +45,8 @@ public class ShopController {
 	@RequestMapping("/shop/detail")
 	public ModelAndView detail(HttpServletRequest request, ModelAndView mView, int num) {
 		service.getDetail(mView, num);
-		return new ModelAndView("shop/detail");
+		mView.setViewName("shop/detail");
+		return mView;
 	}
 	@RequestMapping("shop/delete")
 	public ModelAndView authDelete(@RequestParam int num, HttpServletRequest request) {
