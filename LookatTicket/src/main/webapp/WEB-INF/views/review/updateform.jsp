@@ -5,11 +5,23 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/review/updateform.jsp</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+<style>
+	*{
+		font-family: 'Nanum Gothic', sans-serif;
+	}
+</style>	
 </head>
 <body>
 <div class="container">
-	<h1>글 수정 폼 입니다.</h1>
+	<jsp:include page="/include/navbar.jsp">
+			<jsp:param value="review" name="thisPage" />
+	</jsp:include>
+	<h1>리뷰 수정</h1>
 	<form action="update.do" method="post">
 		<input type="hidden" name="num" value="${dto.num }" />
 		<div class="mb-3">
@@ -81,5 +93,6 @@
 		oEditors.getById["content"].setDefaultFont(sDefaultFont, nFontSize);
 	}
 </script>
+<jsp:include page="/include/footer.jsp"></jsp:include>	
 </body>
 </html>

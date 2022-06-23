@@ -55,16 +55,15 @@ body {
 <body class="text-center">
 <main class="form-signin w-100 m-auto">
   <form action="${pageContext.request.contextPath}/users/login.do" method="post">
-    	<c:choose>
+	    <c:choose>
 			<c:when test="${empty param.url }">
-				<input type="hidden" name="url" value="${pageContext.request.contextPath}" />
+				<input type="hidden" name="url" value="${pageContext.request.contextPath}/" />
 			</c:when>
 			<c:otherwise>
-				<input type="hidden" name=url" value="${param.url }" />
+				<input type="hidden" name="url" value="${param.url }" />
 			</c:otherwise>
 		</c:choose>
-    
-    <img class="mb-4" src="${pageContext.request.contextPath}/images/lookat_logo.jpg" alt="" width="90" height="57">
+    <a href="${pageContext.request.contextPath}"/><img class="mb-4" src="${pageContext.request.contextPath}/images/lookat_logo.jpg" width="90" height="57"></a>
     <h1 class="h3 mb-3 fw-normal">로그인</h1>
 
     <div class="form-floating">
@@ -75,9 +74,7 @@ body {
       <input type="password" class="form-control" name="pwd" id="pwd" placeholder="Password">
       <label for="pwd">비밀번호</label>
     </div>
-
-    <button class="w-100 btn btn-lg btn-secondary" type="submit">Sign in</button>
-
+ 	<button class="w-100 btn btn-lg btn-secondary" type="submit">Sign in</button>  
   </form>
     
 </main>

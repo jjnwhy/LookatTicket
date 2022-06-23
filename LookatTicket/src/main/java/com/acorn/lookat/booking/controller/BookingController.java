@@ -36,7 +36,7 @@ public class BookingController {
 	public ModelAndView authBuy(HttpServletRequest request,
 			ModelAndView mView) {
 		service.buy(request, mView);
-		mView.setViewName("redirect:/users/bookingpage.do");
+		mView.setViewName("redirect:/users/mybooking.do");
 		return mView;
 	}
 	
@@ -45,7 +45,7 @@ public class BookingController {
 		
 		service.cancle(num);
 		
-		return new ModelAndView("redirect:/users/bookingpage.do");
+		return new ModelAndView("redirect:/users/mybooking.do");
 	}
 	
 }

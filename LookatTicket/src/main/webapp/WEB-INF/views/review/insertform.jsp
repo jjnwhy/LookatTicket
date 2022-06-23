@@ -41,10 +41,11 @@
 			 <li class="breadcrumb-item">
 			 	<a href="${pageContext.request.contextPath}/review/list.do">Review</a>
 			 </li>	
-			 <li class="breadcrumb-item active">후기 작성</li>
+			 <li class="breadcrumb-item active">리뷰 작성</li>
 		 </ol>
 	</nav>
-	<h2>후기 작성</h2>
+	<br />
+	<h2>리뷰 작성</h2>
 	<form action="insert.do" method="post" id="insertForm">
 		<div class="mb-3">
 			<label class="form-label" for="title"></label>

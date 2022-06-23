@@ -12,20 +12,22 @@
 .container{
 	text-align:center;
 }
+
+
 </style>
 </head>
 <body>
 	<jsp:include page="/include/navbar.jsp">
-		<jsp:param value="home" name="thisPage" />
+		<jsp:param value="users" name="thisPage" />
 	</jsp:include>
-<div class="container">
-	<p>
-		<img src="${pageContext.request.contextPath }/images/lookat_foot.jpg" width="500" height="200"/><br /><br />		
-		<h5><strong>${requestScope.id }</strong>님 탈퇴처리 되었습니다.</h5><br />
-		<button type="button" class="btn btn-light" onclick="location.href='${pageContext.request.contextPath}/home.do'">홈으로 가기</button>
-		<!-- <a href="${pageContext.request.contextPath}/home.do">메인으로</a> -->
-	</p>
-</div>
+	<div class="container">
+		<p>
+			<img src="${pageContext.request.contextPath }/images/lookat_foot.jpg" width="500" height="200"/><br /><br />		
+			<h5><strong>${requestScope.id }</strong>님 탈퇴처리 되었습니다.</h5><br />
+			<button type="button" class="btn btn-light" onclick="location.href='${pageContext.request.contextPath}/home.do'">홈으로 가기</button>
+			<!-- <a href="${pageContext.request.contextPath}/home.do">메인으로</a> -->
+		</p>
+	</div>
 	<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>

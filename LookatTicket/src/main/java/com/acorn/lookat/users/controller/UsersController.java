@@ -75,13 +75,14 @@ public class UsersController {
 		mView.setViewName("users/mypage");
 		return mView;
 	}	
-	@RequestMapping("/users/bookingpage")
+	
+	@RequestMapping("/users/mybooking")
 	public ModelAndView authBooking(HttpSession session, ModelAndView mView, 
 			HttpServletRequest request) {
 		
 		service.getBookingList(session, mView);
 		
-		mView.setViewName("users/bookingpage");
+		mView.setViewName("users/mybooking");
 		return mView;
 	}	
 	
@@ -123,6 +124,7 @@ public class UsersController {
 		return mView;
 	}
 	
+	//비밀번호 수정 요청 처리
 	@RequestMapping("/users/pwd_update")
 	public ModelAndView authPwdUpdate(UsersDto dto, ModelAndView mView, HttpSession session,
 			HttpServletRequest request) {
@@ -132,6 +134,8 @@ public class UsersController {
 		mView.setViewName("users/pwd_update");
 		return mView;
 	}
+	
+	//비밀번호 수정 폼 요청 처리
 	@RequestMapping("/users/pwd_updateform")
 	public ModelAndView authPwdUpdateForm(ModelAndView mView, HttpServletRequest request) {
 		mView.setViewName("users/pwd_updateform");

@@ -15,41 +15,50 @@
 	*{
 		font-family: 'Nanum Gothic', sans-serif;
 	}
+	a:link, a:visited, a:active
+	{
+	    color: #000000;
+	    text-decoration: none;
+	}
+	
+	a:hover{
+		color: highlight;
+	}
+	
+	h4,h6{
+		text-align:center;
+	}
 </style>
 </head>
 <body>
-	<c:choose>
-		<c:when test="${not empty sessionScope.id }">
-			<script>
-				location.href="${pageContext.request.contextPath }/home.do";
-			</script>
-		</c:when>
-	
-		<c:otherwise>
-			<script>
-				alert("아이디 혹은 비밀번호가 다릅니다.");
-				location.href="loginform.do?url=${requestScope.encodeUrl }";
-			</script>
-		</c:otherwise>
-	</c:choose>
-	<!-- 
 	<div class="container">
-		<h1>알림</h1>
+		<jsp:include page="/include/navbar.jsp">
+			<jsp:param value="users" name="thisPage" />
+		</jsp:include>
+		<br />
+		<br />
+		<br />
+		<br />
 		<c:choose>
 			<c:when test="${not empty sessionScope.id }">
-				<p>
-					<strong>${sessionScope.id }</strong>님 로그인 되었습니다.
-					<a href="${requestScope.url }">확인</a>
-				</p>
+				<h4><strong>${sessionScope.id }</strong>님, 로그인 되었습니다.🙌</h4>
+				<br />
+				<br />
+				<h6><a href="${requestScope.url }">이전페이지로</a></h6>
 			</c:when>
 			<c:otherwise>
 				<p>
-					아이디 혹은 비밀번호가 다릅니다.
-					<a href="loginform.do?url=${requestScope.encodeUrl }">다시 시도</a>			
+					<h4>아이디 혹은 비밀번호가 달라요.😓</h4>					
+					<br />
+					<h6><a href="loginform.do?url=${requestScope.encodeUrl }">다시 시도하기</a></h6>			
 				</p>
 			</c:otherwise>
 		</c:choose>
 	</div>	
-	 -->
+	<br />
+	<br />
+	<br />
+	<br />
+	<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>

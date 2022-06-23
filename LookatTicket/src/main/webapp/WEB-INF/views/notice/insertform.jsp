@@ -20,7 +20,16 @@
 	}
 	
 	#insertForm{
-				width:50%;
+				width:70%;
+	}
+	a:link, a:visited, a:active
+	{
+	    color: #000000;
+	    text-decoration: none;
+	}
+	
+	a:hover{
+		color: highlight;
 	}
 	
 </style>
@@ -38,18 +47,18 @@
 			 <li class="breadcrumb-item">
 			 	<a href="${pageContext.request.contextPath}/notice/list.do">Notice</a>
 			 </li>	
-			 <li class="breadcrumb-item active">공지글 작성</li>
+			 <li class="breadcrumb-item active">공지 작성</li>
 		 </ol>
 	</nav>
-	<h2>새글 작성 폼</h2>
 	<br />
+	<h2>공지 작성</h2>
 	<form action="insert.do" method="post" id="insertForm">
-		<div class="mb-4">
-			<label class="form-label" for="title">제목</label>
-			<input class="form-control" type="text" name="title" id="title" />
+		<div class="mb-3">
+			<label class="form-label" for="title"></label>
+			<input class="form-control" type="text" name="title" id="title" placeholder="제목을 입력하세요"/>
 		</div>
 		<div class="mb-3">
-			<label class="form-label" for="content">내용</label>
+			<label class="form-label" for="content"></label>
 			<textarea class="form-control" name="content" id="content" cols="30" rows="10"></textarea>
 		</div>
 		<button class="btn btn-primary" type="submit">저장</button>
