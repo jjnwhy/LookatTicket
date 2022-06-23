@@ -10,10 +10,10 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
-import com.acorn.lookat.booking.dao.BookingDao;
-import com.acorn.lookat.booking.dto.BookingDto;
-import com.acorn.lookat.shop.dao.ShopDao;
 
+import com.acorn.lookat.shop.dao.BookingDao;
+import com.acorn.lookat.shop.dao.ShopDao;
+import com.acorn.lookat.shop.dto.BookingDto;
 import com.acorn.lookat.shop.dto.ShopDto;
 
 @Service
@@ -65,7 +65,7 @@ public class ShopServiceImpl implements ShopService{
 
 
 	@Override
-	public void cancle(int num) {
+	public void cancel(int num) {
 		bookingDao.delete(num);
 		
 	}

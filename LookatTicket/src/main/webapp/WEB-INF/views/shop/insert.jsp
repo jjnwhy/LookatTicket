@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<script>
+    alert("상품을 등록하였습니다.");
+    location.href="${pageContext.request.contextPath}/shop/list.do";
+	</script>
 </body>
 </html>

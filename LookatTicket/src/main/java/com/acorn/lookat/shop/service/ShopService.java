@@ -16,7 +16,7 @@ public interface ShopService {
 	public void buy(HttpServletRequest request,
 			ModelAndView mView);
 	//예매 취소하기
-	public void cancle(int num);
+	public void cancel(int num);
 	//상품 저장
 	public void saveConcert(ShopDto dto);
 	//상품 수정

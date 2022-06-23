@@ -12,8 +12,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.acorn.lookat.booking.dao.BookingDao;
-import com.acorn.lookat.booking.dto.BookingDto;
+import com.acorn.lookat.shop.dao.BookingDao;
+import com.acorn.lookat.shop.dto.BookingDto;
 import com.acorn.lookat.users.dao.UsersDao;
 import com.acorn.lookat.users.dto.UsersDto;
 

@@ -1,8 +1,9 @@
-package com.acorn.lookat.booking.dao;
+package com.acorn.lookat.shop.dao;
 
 import java.util.List;
 
-import com.acorn.lookat.booking.dto.BookingDto;
+import com.acorn.lookat.shop.dto.BookingDto;
+
 
 
 

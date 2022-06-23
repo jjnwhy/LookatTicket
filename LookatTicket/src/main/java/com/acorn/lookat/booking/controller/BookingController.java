@@ -40,10 +40,10 @@ public class BookingController {
 		return mView;
 	}
 	
-	@RequestMapping("booking/delete")
+	@RequestMapping("/booking/delete")
 	public ModelAndView delete(@RequestParam int num) {
 		
-		service.cancle(num);
+		service.cancel(num);
 		
 		return new ModelAndView("redirect:/users/bookingpage.do");
 	}

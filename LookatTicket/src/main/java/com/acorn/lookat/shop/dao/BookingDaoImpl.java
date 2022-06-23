@@ -1,4 +1,4 @@
-package com.acorn.lookat.booking.dao;
+package com.acorn.lookat.shop.dao;
 
 import java.util.List;
 
@@ -6,7 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.acorn.lookat.booking.dto.BookingDto;
+import com.acorn.lookat.shop.dto.BookingDto;
+
 
 @Repository
 public class BookingDaoImpl implements BookingDao{
