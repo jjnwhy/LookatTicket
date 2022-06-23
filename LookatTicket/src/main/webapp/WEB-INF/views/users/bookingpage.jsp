@@ -11,6 +11,10 @@
 
 </head>
 <body>
+	<jsp:include page="/include/navbar.jsp">
+		<jsp:param value="booking" name="thisPage"/>
+	</jsp:include>
+	
 	<div class="container">
 			<h1><strong>${id } </strong>님의 예매내역.</h1>
 			
@@ -30,6 +34,7 @@
 							</thead>
 							<tbody>
 					<c:forEach var="tmp" items="${list}">
+						<c:if test="${tmp.id eq sessionScope.id }">
 								<tr>
 									<td>${tmp.num }</td>
 									<td>${tmp.shopNum}</td>
@@ -40,6 +45,7 @@
 									<td>${tmp.location}</td>
 									<td><a href="${pageContext.request.contextPath}/booking/delete.do?num=${tmp.num }" onclick="return confirm('예매를 취소하시겠습니까?');">예매 취소하기</a></td>
 								</tr>
+						</c:if>
 					 </c:forEach>
 							</tbody>
 						</table>					
@@ -53,7 +59,7 @@
 
 	
 	</div>
-
+	<jsp:include page="/include/footer.jsp"></jsp:include>
 		
 </body>
 </html>

@@ -23,6 +23,7 @@
 	th, td{
 		text-align: center;
 	}
+	
 </style>
 </head>
 <body>
@@ -30,7 +31,6 @@
 		<jsp:param value="review" name="thisPage" />
 	</jsp:include>
 	<div class="container">
-
 	<a href="insertform.do">후기작성</a>
 	<h1>후기 목록</h1>
 	<table class="table table-hover">

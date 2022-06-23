@@ -22,7 +22,6 @@
 		text-align: center;
 	}
 	
-	
 </style>
 </head>
 <body>
@@ -69,27 +68,27 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<div class="page-ui clearfix">
-			<ul>
+		<div> <!-- class="page-ui clearfix" -->
+			<ul class="pagination">
 				<c:if test="${startPageNum ne 1 }">
-					<li><a
+					<li class="page-item"><a class="page-link"
 						href="list.do?pageNum=${startPageNum-1 }&condition=${condition }&keyword=${encodedK }">Prev</a>
 					</li>
 				</c:if>
 				<c:forEach var="i" begin="${startPageNum }" end="${endPageNum }">
-					<li><c:choose>
+					<li class="page-item"><c:choose>
 							<c:when test="${pageNum eq i }">
-								<a class="active"
+								<a class="page-link"
 									href="list.do?pageNum=${i }&condition=${condition }&keyword=${encodedK }">${i }</a>
 							</c:when>
 							<c:otherwise>
-								<a
+								<a class="page-link"
 									href="list.do?pageNum=${i }&condition=${condition }&keyword=${encodedK }">${i }</a>
 							</c:otherwise>
 						</c:choose></li>
 				</c:forEach>
 				<c:if test="${endPageNum lt totalPageCount }">
-					<li><a
+					<li class="page-item"><a class="page-link"
 						href="list.do?pageNum=${endPageNum+1 }&condition=${condition }&keyword=${encodedK }">Next</a>
 					</li>
 				</c:if>
@@ -115,6 +114,7 @@
 			</p>
 		</c:if>
 	</div>
+	
 	<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>
