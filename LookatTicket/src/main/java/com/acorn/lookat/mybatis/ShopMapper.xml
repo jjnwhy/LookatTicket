@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="shop">
 	<select id="getList" resultType="shopDto">
-		SELECT num,cateNum,name,image,price,cast,hours,location,startdate,enddate,remainCount,tel,seatNum
+		SELECT num,cateNum,name,image,price,cast,hours,location,TO_CHAR(startdate, 'YYYY/MM/DD') startdate, TO_CHAR(enddate, 'YYYY/MM/DD') enddate,remainCount,tel,seatNum
 		FROM shop
 		ORDER BY num ASC
 	</select>

@@ -25,6 +25,20 @@
 	a:hover{
 		color: highlight;
 	}
+	a{
+		text-align:center;
+	}
+	
+	.table{
+		width:50%;
+	}
+	
+	th, td{
+		text-align:center;
+	}
+	#bookBtn{
+		color:white;
+	}
 </style>
 </head>
 <body>
@@ -41,7 +55,13 @@
 				 <li class="breadcrumb-item active">상세정보</li>
 			 </ol>
 		</nav>
-		<table class="table">
+		<h2>공연 상세정보</h2>
+		<br />
+		<table class="table" align="center" width="60%">
+			<colgroup>
+				<col style="width:15%">
+				<col style="width:35%">
+			</colgroup>
 			<tr>
 				<th>상품 번호</th>
 				<td>${dto.num }</td>
@@ -69,7 +89,7 @@
 		</table>
 		<div>좌석선택(미구현)</div>
 		<!-- 좌석 목록을 가져오고  선택하면 선택한 값을 저장하고 선택한 좌석(seatnum)에 저장 -->
-		<a href="booking.do?num=${dto.num }">예매하기</a>
+		<a class="btn btn-primary" href="booking.do?num=${dto.num }" id="bookBtn" onclick="return confirm('${dto.name}을(를) 예매 하시겠습니까?');">예매하기</a>
 				
 	</div>
 	<jsp:include page="/include/footer.jsp"></jsp:include>

@@ -32,6 +32,11 @@
 	a:hover{
 		color: highlight;
 	}
+	
+	#addItem{
+		float: right;
+	}
+
 </style>
 </head>
 <body>
@@ -48,33 +53,21 @@
 		</nav>
 		<br />
 		<h2>CONCERT</h2>
-		<h1>상품 목록 입니다.</h1>
-		<c:choose>
-			<c:when test="${empty id }">
-				<p>
-					<a href="${pageContext.request.contextPath }/users/loginform.do">로그인</a>
-					<a href="${pageContext.request.contextPath }/users/signup_form.do">회원가입</a>
-				</p>
-			</c:when>
-			<c:otherwise>
-				<p>
-					<strong>${id }</strong> 님 로그인중...
-				</p>
-			</c:otherwise>
-		</c:choose>
-		<a href="${pageContext.request.contextPath }/shop/insertform.do">상품추가</a>
+		<br />
 		<div class="row">
+		<a href="${pageContext.request.contextPath }/shop/insertform.do" id="addItem">상품추가</a>
 			<c:forEach var="tmp" items="${list }">
 				<div class="col">
 					<div class="card">
 						<div class="card-body">
 							<h3 class="card-title">${tmp.name }</h3>
-							<h4>${tmp.startdate}~${tmp.enddate}</h4>
-							<p class="card-text">
-								출연 : <strong> ${tmp.cast} </strong> <br /> 가격 : <strong>${tmp.price }</strong>원
-								<br /> 장소 : ${tmp.location} <br /> 티켓수량 : <strong>${tmp.remainCount }</strong>장
+							<h5>${tmp.startdate}~${tmp.enddate}</h4>
+							출연 : <strong> ${tmp.cast} </strong><br /> 
+							가격 : <strong>${tmp.price }</strong>원<br /> 
+							장소 : ${tmp.location} <br /> 
+							티켓수량 : <strong>${tmp.remainCount }</strong>장
 							</p>
-							<a href="detail.do?num=${tmp.num }" class="card-link">예매하기</a>
+							<a href="detail.do?num=${tmp.num }" class="card-link">상세보기</a>
 						</div>
 					</div>
 				</div>

@@ -24,6 +24,6 @@
 		<mapper resource="com/acorn/lookat/mybatis/AdminMapper.xml"/>
 		<mapper resource="com/acorn/lookat/mybatis/QnAMapper.xml"/>
 		<mapper resource="com/acorn/lookat/mybatis/QnACommentMapper.xml"/>
-		<mapper resource="com/acorm/lookat/mybatis/BookingMapper.xml"/>
+		<mapper resource="com/acorn/lookat/mybatis/BookingMapper.xml"/>
 	</mappers>
 </configuration>

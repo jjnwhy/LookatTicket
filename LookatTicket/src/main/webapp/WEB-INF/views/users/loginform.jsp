@@ -53,6 +53,9 @@ body {
 </head>
 
 <body class="text-center">
+	<jsp:include page="/include/navbar.jsp">
+			<jsp:param value="users" name="thisPage" />
+	</jsp:include>
 <main class="form-signin w-100 m-auto">
   <form action="${pageContext.request.contextPath}/users/login.do" method="post">
 	    <c:choose>

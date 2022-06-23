@@ -42,10 +42,10 @@
 	<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="${pageContext.request.contextPath }/images/lookat_foot.jpg" class="d-block w-100" width="600" height="400">
+      <img src="${pageContext.request.contextPath }/images/concert2.jpg" class="d-block w-100" width="500" height="500">
     </div>
     <div class="carousel-item">
-      <img src="${pageContext.request.contextPath }/images/lookat_foot.jpg" class="d-block w-100" width="600" height="400">
+      <img src="${pageContext.request.contextPath }/images/bts2.jpg" class="d-block w-100" width="500" height="500">
     </div>
     
   </div>
@@ -60,7 +60,7 @@
 </div>
 	
 <div class="card-group">
-	<c:forEach var="tmp" items="${list }">
+	<c:forEach var="tmp" items="${list }" begin="1" end="3">
 		<div class="card">
 	    <img src="${pageContext.request.contextPath }/images/lookat_foot.jpg" class="card-img-top" alt="...">
 	    <div class="card-body">
@@ -72,6 +72,7 @@
 	    </div>
 	  </div>
 	</c:forEach>
+<!-- 
   <div class="card">
     <img src="${pageContext.request.contextPath }/images/lookat_foot.jpg" class="card-img-top" alt="...">
     <div class="card-body">
@@ -81,14 +82,11 @@
     <div class="card-footer">
       <small class="text-muted">일정: 2022-07-07</small>
     </div>
-  </div>
-  
-  
+  </div> 
+   -->	
 </div>
-	</div>
+</div>
 	
-	
-
-	<jsp:include page="/include/footer.jsp"></jsp:include>
+<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>
