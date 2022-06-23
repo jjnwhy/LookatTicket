@@ -24,16 +24,17 @@ public class ShopController {
 		mView.setViewName("shop/list");
 		return mView;
 	}
-	@RequestMapping("/shop/buy")
+	@RequestMapping("/shop/booking")
 	public ModelAndView authBuy(HttpServletRequest request, ModelAndView mView) {
 		service.buy(request, mView);
-		mView.setViewName("shop/buy");
+		mView.setViewName("redirect:/users/bookingpage.do");
 		return mView;
 	}
 	@RequestMapping("/shop/insertform")
 	public ModelAndView authInsertForm(HttpServletRequest request) {
 		return new ModelAndView("shop/insertform");
 	}
+	
 	@RequestMapping("/shop/insert")
 	public ModelAndView authInsert(ShopDto dto, HttpSession session, HttpServletRequest request) {
 		String id=(String)session.getAttribute("id");
