@@ -4,17 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/views/qna/insert.jsp</title>
+<title>Insert title here</title>
 </head>
 <body>
 	<script>
-		alert("새글이 추가 되었습니다.");
-		location.href="${pageContext.request.contextPath}/qna/list.do";
-	</script>
+		alert("상품을 수정하였습니다.");
+		location.href="${pageContext.request.contextPath}/shop/list.do";
+	</script>	
 </body>
 </html>
-
-
-
-
-

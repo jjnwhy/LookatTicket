@@ -30,13 +30,29 @@
 	<select id="getData" parameterType="int" resultType="ShopDto">
 		SELECT *
 		FROM
-			(SELECT num,name,price,image,cast,hours,location,
+			(SELECT num,writer,cateNum,name,price,image,cast,hours,location,
 				LAG(num, 1, 0) OVER (ORDER BY num DESC) AS prevNum,
 				LEAD(num, 1, 0) OVER (ORDER BY num DESC) AS nextNum
 			FROM shop
 			ORDER BY num DESC)
 		WHERE num = #{num}
 	</select>
+	<insert id="insert" parameterType="shopDto">
+		insert into shop
+		(num,writer,cateNum,name,price,image,cast,hours,location)
+		values(shop_seq.nextval, #{writer},#{cateNum} ,#{name},
+			#{price}, #{image}, #{cast}, #{hours}, #{location})
+	</insert>
+	<delete id="delete" parameterType="int">
+		delete from shop
+		where num=#{num}
+	</delete>
+	<update id="update" parameterType="shopDto">
+		update shop
+		set name=#{name}, cateNum=#{cateNum} ,price=#{price}, image=#{image}, cast=#{cast},
+			hours=#{hours}, location=#{location}
+		where num=#{num}
+	</update>
 </mapper>
 
 
