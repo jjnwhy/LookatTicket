@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/views/detail.jsp</title>
+<title>/views/shop/detail.jsp</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,27 +44,27 @@
 		<table class="table">
 			<tr>
 				<th>상품 번호</th>
-				<td>${num }</td>
+				<td>${dto.num }</td>
 			</tr>
 			<tr>
 				<th>상품명</th>
-				<td>${name }</td>
+				<td>${dto.name }</td>
 			</tr>
 			<tr>
 				<th>가격</th>
-				<td>${price }</td>
+				<td>${dto.price }</td>
 			</tr>
 			<tr>
 				<th>출연</th>
-				<td>${cast }</td>
+				<td>${dto.cast }</td>
 			</tr>
 			<tr>
 				<th>관람시간</th>
-				<td>${hours }</td>
+				<td>${dto.hours }</td>
 			</tr>
 			<tr>
 				<th>공연장소</th>
-				<td>${location }</td>
+				<td>${dto.location }</td>
 			</tr>
 		</table>
 		<div>좌석선택(미구현)</div>
