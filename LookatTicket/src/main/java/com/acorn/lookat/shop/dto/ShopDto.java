@@ -1,27 +1,29 @@
 package com.acorn.lookat.shop.dto;
 
 public class ShopDto {
-	private int num;
-	private int catenum;
-	private String name;
-	private String image;
-	private int	price;
-	private String cast;
-	private String hours;
-	private String location;
-	private String startdate;
-	private String enddate;
-	private int remainCount;
-	private String tel;
-	private int seatnum;
+	private int num;//상품번호
+	private String writer;//작성자
+	private int cateNum;//카테고리 번호
+	private String name;//상품명
+	private String image;//상품 이미지
+	private int	price;//가격
+	private String cast;//출연
+	private String hours;//관람시간
+	private String location;//공연장소
+	private String startdate;//첫 공연일
+	private String enddate;//마지막 공연일
+	private int remainCount;//재고 갯수
+	private String tel;//문의 번호
+	private int seatnum;//좌석번호
 	
 	public ShopDto() {}
 
-	public ShopDto(int num, int catenum, String name, String image, int price, String cast, String hours,
+	public ShopDto(int num, String writer, int cateNum, String name, String image, int price, String cast, String hours,
 			String location, String startdate, String enddate, int remainCount, String tel, int seatnum) {
 		super();
 		this.num = num;
-		this.catenum = catenum;
+		this.writer = writer;
+		this.cateNum = cateNum;
 		this.name = name;
 		this.image = image;
 		this.price = price;
@@ -43,12 +45,20 @@ public class ShopDto {
 		this.num = num;
 	}
 
-	public int getCatenum() {
-		return catenum;
+	public String getWriter() {
+		return writer;
 	}
 
-	public void setCatenum(int catenum) {
-		this.catenum = catenum;
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
+
+	public int getCateNum() {
+		return cateNum;
+	}
+
+	public void setCateNum(int cateNum) {
+		this.cateNum = cateNum;
 	}
 
 	public String getName() {
@@ -139,10 +149,6 @@ public class ShopDto {
 		this.seatnum = seatnum;
 	}
 
-	public void setId(String id) {
-		// TODO Auto-generated method stub
-		
-	};
 	
 	
 }

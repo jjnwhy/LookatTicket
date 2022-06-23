@@ -4,6 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.servlet.ModelAndView;
 
+import com.acorn.lookat.shop.dto.ShopDto;
+
+
 public interface ShopService {
 	//상품 목록을 ModelAndView 객체에 담아주는 메소드 
 	public void getList(ModelAndView mView);
@@ -14,6 +17,15 @@ public interface ShopService {
 			ModelAndView mView);
 	//예매 취소하기
 	public void cancle(int num);
+	//상품 저장
+	public void saveConcert(ShopDto dto);
+	//상품 수정
+	public void updateConcert(ShopDto dto);
+	//상품 삭제
+	public void deleteConcert(int num, HttpServletRequest request);
+	//상품 정보
+	public void getData(HttpServletRequest request);
+	
 }
 
 

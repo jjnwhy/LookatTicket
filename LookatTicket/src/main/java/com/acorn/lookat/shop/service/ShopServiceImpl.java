@@ -69,6 +69,35 @@ public class ShopServiceImpl implements ShopService{
 		bookingDao.delete(num);
 		
 	}
+
+
+	@Override
+	public void saveConcert(ShopDto dto) {
+		shopDao.insert(dto);
+	}
+
+
+	@Override
+	public void updateConcert(ShopDto dto) {
+		shopDao.update(dto);
+	}
+
+
+	@Override
+	public void deleteConcert(int num, HttpServletRequest request) {
+		String id=(String)request.getSession().getAttribute("id");
+		String writer=shopDao.getData(num).getWriter();
+		shopDao.delete(num);
+	}
+
+
+	@Override
+	public void getData(HttpServletRequest request) {
+		int num=Integer.parseInt(request.getParameter("num"));
+		ShopDto dto=shopDao.getData(num);
+		request.setAttribute("dto", dto);
+		
+	}
 }
 
 
