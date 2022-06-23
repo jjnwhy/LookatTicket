@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin">
+	<select id="getList" parameterType="adminDto" resultType="adminDto">
+		SELECT *
+		FROM
+			(SELECT result1.*, ROWNUM as rnum
+			FROM
+				(SELECT id, name, addrNum, addr, TO_CHAR(birth, 'YYYY-MM-DD') birth, phone, email, TO_CHAR(regdate, 'YYYY-MM-DD') regdate
+				FROM users
+				ORDER BY regdate DESC) result1)
+		
+	</select>
+	<select id="getShopList" parameterType="adminDto" resultType="adminDto">
+		SELECT *
+		FROM
+			(SELECT result1.*, ROWNUM as rnum
+			FROM 
+				(SELECT catenum, name, price, cast, hours, location, TO_CHAR(startdate, 'YY-MM-DD') startdate, TO_CHAR(enddate, 'YY-MM-DD') enddate, tel, remainCount
+				FROM shop
+				ORDER BY enddate ASC) result1)
+	</select>
+	<select id="getCount" parameterType="adminDto" resultType="int">
+		SELECT NVL(MAX(ROWNUM), 0)
+		FROM users
+		
+	</select>
+</mapper>

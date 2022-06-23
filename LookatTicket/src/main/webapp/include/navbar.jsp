@@ -10,7 +10,13 @@
 	background-color:black;
 	color: white;
 }
+.navbar-brand{
+	transition: transform 0.2s ease-out;
+}
 
+.navbar-brand:hover{
+	transform: scale(1.1);
+}
 </style>
 <!-- navbar의 배경색이 밝은색 계열이면 navbar-light, 어두운색 계열이면 navbar-dark 클래스를 지정해놓으면 좋다. -->
 <nav class="navbar navbar-light navbar-expand-md"
@@ -76,14 +82,23 @@
 							<ul class="dropdown-menu" aria-labelledby="dropdownBtn">
 								<li><a class="dropdown-item <%=thisPage.equals("mypage") ? "active":"" %>" 
 									href="${pageContext.request.contextPath }/users/mypage.do">마이페이지</a></li>
-								<li><a class="dropdown-item" href="${pageContext.request.contextPath }/users/bookingpage.do">예매내역</a></li>
+
+								<li><a class="dropdown-item <%=thisPage.equals("booking") ? "active":"" %>" 
+								href="${pageContext.request.contextPath }/users/bookingpage.do">예매내역</a></li>
+								
+								<c:if test="${id eq 'admin' }">
+								<li><a class="dropdown-item <%=thisPage.equals("admin") ? "active":"" %>" 
+								href="${pageContext.request.contextPath }/admin/list.do">관리자 전용</a></li>
+								</c:if>
+								
 							</ul>
 						</div>
+					</c:otherwise>
+				</c:choose>
 			</div>
-			</c:otherwise>
-			</c:choose>
+			
 			
 		</div>
 	</div>
-	</div>
+	
 </nav>
