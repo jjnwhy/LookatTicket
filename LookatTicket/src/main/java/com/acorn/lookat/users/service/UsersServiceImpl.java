@@ -1,9 +1,9 @@
 package com.acorn.lookat.users.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +12,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.acorn.lookat.booking.dao.BookingDao;
+import com.acorn.lookat.booking.dto.BookingDto;
 import com.acorn.lookat.users.dao.UsersDao;
 import com.acorn.lookat.users.dto.UsersDto;
 
@@ -20,6 +22,8 @@ public class UsersServiceImpl implements UsersService{
 	
 	@Autowired
 	private UsersDao dao;
+	@Autowired
+	private BookingDao dao2;
 	
 	@Override
 	public Map<String, Object> isExistId(String inputId) {
@@ -74,6 +78,7 @@ public class UsersServiceImpl implements UsersService{
 		//ModelAndView 객체에 담아준다.
 		mView.addObject("dto", dto);
 	}
+	
 
 	@Override
 	public void updateUserPwd(HttpSession session, UsersDto dto, ModelAndView mView) {
@@ -131,5 +136,19 @@ public class UsersServiceImpl implements UsersService{
 		mView.addObject("id", id);
 		
 	}
+
+	@Override
+	public void getBookingList(HttpSession session, ModelAndView mView) {
+		//로그인된 아이디를 읽어온다.
+		String id = (String)session.getAttribute("id");
+		//DB에서 예약정보를 읽어와서
+		BookingDto dto=new BookingDto();
+		List<BookingDto> list = dao2.getList(dto);
+		//ModelAndView 객체에 담아준다.
+		mView.addObject("list", list);
+		
+	}
+
+
 
 }

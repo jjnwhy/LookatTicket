@@ -13,6 +13,8 @@ public interface ShopDao {
 	public void minusCount(int num);
 	//상품의 가격을 리턴해주는 메소드
 	public int getPrice(int num);
+	public int getSeatNum(int num);
+	public String getLocation(int num);
 }
 
 
