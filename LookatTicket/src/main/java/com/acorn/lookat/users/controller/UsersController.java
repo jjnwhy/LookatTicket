@@ -76,13 +76,13 @@ public class UsersController {
 		return mView;
 	}	
 	
-	@RequestMapping("/users/mybooking")
+	@RequestMapping("/users/bookingpage")
 	public ModelAndView authBooking(HttpSession session, ModelAndView mView, 
 			HttpServletRequest request) {
 		
 		service.getBookingList(session, mView);
 		
-		mView.setViewName("users/mybooking");
+		mView.setViewName("users/bookingpage");
 		return mView;
 	}	
 	

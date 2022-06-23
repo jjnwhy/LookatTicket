@@ -5,6 +5,16 @@
 p{
 	text-align:center;
 }
+html,body{
+	margin:0;
+	padding:0;
+	height:100%;
+}
+footer{
+	height:100px;
+	flex:1;
+	
+}
 
 </style>
 

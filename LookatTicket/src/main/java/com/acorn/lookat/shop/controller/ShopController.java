@@ -27,7 +27,7 @@ public class ShopController {
 	@RequestMapping("/shop/booking")
 	public ModelAndView authBuy(HttpServletRequest request, ModelAndView mView) {
 		service.buy(request, mView);
-		mView.setViewName("redirect:/users/mybooking.do");
+		mView.setViewName("redirect:/users/bookingpage.do");
 		return mView;
 	}
 	@RequestMapping("/shop/insertform")

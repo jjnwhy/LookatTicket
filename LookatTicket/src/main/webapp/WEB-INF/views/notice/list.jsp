@@ -35,6 +35,7 @@
 	a:hover{
 		color: highlight;
 	}
+
 </style>
 </head>
 <body>
@@ -92,10 +93,14 @@
 			</tbody>
 		</table>
 		<div class="page-ui clearfix">
+
+		<div> <!-- class="page-ui clearfix" -->
 			<ul class="pagination">
 				<c:if test="${startPageNum ne 1 }">
 					<li class="page-item">
 					<a class="page-link" href="list.do?pageNum=${startPageNum-1 }&condition=${condition }&keyword=${encodedK }">Prev</a>
+					<li class="page-item"><a class="page-link"
+						href="list.do?pageNum=${startPageNum-1 }&condition=${condition }&keyword=${encodedK }">Prev</a>
 					</li>
 				</c:if>
 				<c:forEach var="i" begin="${startPageNum }" end="${endPageNum }">
@@ -115,6 +120,8 @@
 				<c:if test="${endPageNum lt totalPageCount }">
 					<li class="page-item">
 						<a class="page-link" href="list.do?pageNum=${endPageNum+1 }&condition=${condition }&keyword=${encodedK }">Next</a>
+					<li class="page-item"><a class="page-link"
+						href="list.do?pageNum=${endPageNum+1 }&condition=${condition }&keyword=${encodedK }">Next</a>
 					</li>
 				</c:if>
 			</ul>
@@ -143,6 +150,7 @@
 			</p>
 		</c:if>
 	</div>
+	
 	<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>
