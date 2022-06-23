@@ -47,7 +47,6 @@
 				<tr>
 					<th>번호</th>
 					<th>제목</th>
-					<th>작성자</th>
 					<th>조회수</th>
 					<th>등록일</th>
 					<c:if test="${id eq 'admin' }">
@@ -61,7 +60,6 @@
 						<td>
 							<a href="detail.do?num=${tmp.num }&keyword=${encodedK }&condition=${condition}">${tmp.title }</a>
 						</td>
-						<td>${tmp.writer }</td>
 						<td>${tmp.viewCount }</td>
 						<td>${tmp.regdate }</td>
 						<c:if test="${id eq 'admin' }">

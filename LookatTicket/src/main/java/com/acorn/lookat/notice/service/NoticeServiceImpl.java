@@ -97,7 +97,7 @@ public class NoticeServiceImpl implements NoticeService{
 		request.setAttribute("endPageNum", endPageNum);
 		request.setAttribute("condition", condition);
 		request.setAttribute("keyword", keyword);
-		request.setAttribute("encodedK", encodedK);
+		request.setAttribute("encodedK", encodedK); 
 		request.setAttribute("totalPageCount", totalPageCount);
 		request.setAttribute("list", list);
 		request.setAttribute("totalRow", totalRow);
@@ -213,7 +213,7 @@ public class NoticeServiceImpl implements NoticeService{
 //			//예외를 발생시켜서 응답을 예외 Controller 에서 하도록 한다.
 //			throw new NotDeleteException("남의 파일 지우기 없기!");
 //		}
-		String id = "관리자";
+		String id = "admin";
 		String writer = dao.getData(num).getWriter();
 		if(!writer.equals(id)) {
 			throw new NotDeleteException("관리자가 아닙니다");

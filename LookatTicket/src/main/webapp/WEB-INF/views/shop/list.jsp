@@ -18,7 +18,7 @@
 </head>
 <body>
 	<jsp:include page="/include/navbar.jsp">
-		<jsp:param value="ticket" name="thisPage" />
+		<jsp:param value="shop" name="thisPage" />
 	</jsp:include>
 
 
