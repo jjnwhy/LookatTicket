@@ -62,6 +62,13 @@ public class ShopController {
 		service.updateConcert(dto);
 		return new ModelAndView("shop/update");
 	}
+	@RequestMapping("booking/delete")
+	public ModelAndView delete(@RequestParam int num) {
+		
+		service.cancle(num);
+		
+		return new ModelAndView("redirect:/users/bookingpage.do");
+	}
 }
 
 

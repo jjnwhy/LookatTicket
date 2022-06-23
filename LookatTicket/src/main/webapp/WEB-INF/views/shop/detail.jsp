@@ -14,27 +14,27 @@
 		<table>
 			<tr>
 				<th>상품 번호</th>
-				<td>${dto.num }</td>
+				<td>${num }</td>
 			</tr>
 			<tr>
 				<th>상품명</th>
-				<td>${dto.name }</td>
+				<td>${name }</td>
 			</tr>
 			<tr>
 				<th>가격</th>
-				<td>${dto.price }</td>
+				<td>${price }</td>
 			</tr>
 			<tr>
 				<th>출연</th>
-				<td>${dto.cast }</td>
+				<td>${cast }</td>
 			</tr>
 			<tr>
 				<th>관람시간</th>
-				<td>${dto.hours }</td>
+				<td>${hours }</td>
 			</tr>
 			<tr>
 				<th>공연장소</th>
-				<td>${dto.location }</td>
+				<td>${location }</td>
 			</tr>
 		</table>
 		<div>좌석선택(미구현)</div>

@@ -1,4 +1,4 @@
-package com.acorn.lookat.booking.dto;
+package com.acorn.lookat.shop.dto;
 
 public class BookingDto {
 	private int num;

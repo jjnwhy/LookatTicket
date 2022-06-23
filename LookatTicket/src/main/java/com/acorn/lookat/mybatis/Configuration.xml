@@ -9,7 +9,6 @@
 		<typeAlias type="com.acorn.lookat.notice.dto.NoticeDto" alias="noticeDto"/>
 		<typeAlias type="com.acorn.lookat.users.dto.UsersDto" alias="usersDto"/>
 		<typeAlias type="com.acorn.lookat.review.dto.ReviewDto" alias="reviewDto"/>
-		<typeAlias type="com.acorn.lookat.booking.dto.BookingDto" alias="bookingDto"/>
 		<typeAlias type="com.acorn.lookat.shop.dto.ShopDto" alias="shopDto"/>
 		<typeAlias type="com.acorn.lookat.admin.dto.AdminDto" alias="adminDto"/>
 		<typeAlias type="com.acorn.lookat.qna.dto.QnADto" alias="qnaDto"/>
@@ -20,7 +19,6 @@
 		<mapper resource="com/acorn/lookat/mybatis/NoticeMapper.xml"/>
 		<mapper resource="com/acorn/lookat/mybatis/UsersMapper.xml"/>
 		<mapper resource="com/acorn/lookat/mybatis/ReviewMapper.xml"/>
-		<mapper resource="com/acorn/lookat/mybatis/BookingMapper.xml"/>
 		<mapper resource="com/acorn/lookat/mybatis/ShopMapper.xml"/>
 		<mapper resource="com/acorn/lookat/mybatis/AdminMapper.xml"/>
 		<mapper resource="com/acorn/lookat/mybatis/QnAMapper.xml"/>
