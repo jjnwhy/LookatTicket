@@ -36,9 +36,8 @@
 </head>
 <body>
 	<jsp:include page="/include/navbar.jsp">
-		<jsp:param value="ticket" name="thisPage" />
+		<jsp:param value="shop" name="thisPage" />
 	</jsp:include>
-
 	<div class="container">
 		<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);">
 			 <ol class="breadcrumb">
@@ -49,6 +48,21 @@
 		</nav>
 		<br />
 		<h2>CONCERT</h2>
+		<h1>상품 목록 입니다.</h1>
+		<c:choose>
+			<c:when test="${empty id }">
+				<p>
+					<a href="${pageContext.request.contextPath }/users/loginform.do">로그인</a>
+					<a href="${pageContext.request.contextPath }/users/signup_form.do">회원가입</a>
+				</p>
+			</c:when>
+			<c:otherwise>
+				<p>
+					<strong>${id }</strong> 님 로그인중...
+				</p>
+			</c:otherwise>
+		</c:choose>
+		<a href="${pageContext.request.contextPath }/shop/insertform.do">상품추가</a>
 		<div class="row">
 			<c:forEach var="tmp" items="${list }">
 				<div class="col">

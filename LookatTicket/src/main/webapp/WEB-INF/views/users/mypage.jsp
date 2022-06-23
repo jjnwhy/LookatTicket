@@ -110,8 +110,8 @@
 				<td>${dto.regdate }</td>
 			</tr>
 		</table>
-		<a class="btn btn-outline-dark btn-sm" href='${pageContext.request.contextPath}/users/updateform.do'">정보수정 하기  </a>
-		<a class="btn btn-outline-dark btn-sm" href="${pageContext.request.contextPath }/users/delete.do" onclick="return confirm('정말 탈퇴하시겠습니까?😭');">회원탈퇴</a>
+		<a class="btn btn-outline-secondary btn-sm" href='${pageContext.request.contextPath}/users/updateform.do'">정보수정 하기  </a>
+		<a class="btn btn-outline-secondary btn-sm" href="${pageContext.request.contextPath }/users/delete.do" onclick="return confirm('정말 탈퇴하시겠습니까?😭');">회원탈퇴</a>
 	</div>
 	</div>
 	</div>

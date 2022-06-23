@@ -39,6 +39,29 @@ public class ShopDaoImpl implements ShopDao{
 	public int getSeatNum(int num) {
 		return session.selectOne("shop.getSeatNum",num);
 	}
+	@Override
+	public void minusMoney(ShopDto dto) {
+		session.update("shop.minusMoney", dto);
+		
+	}
+	@Override
+	public void insert(ShopDto dto) {
+		session.insert("shop.insert", dto);
+	}
+	@Override
+	public int getCount(ShopDto dto) {
+		return session.selectOne("shop.getCount", dto);
+	}
+	@Override
+	public void update(ShopDto dto) {
+		session.update("shop.update", dto);
+		
+	}
+	@Override
+	public void delete(int num) {
+		session.delete("shop.delete", num);
+		
+	}
 
 }
 

@@ -16,13 +16,7 @@
 		font-family: 'Nanum Gothic', sans-serif;
 	}
 	
-	.navbar-brand{
-		transition: transform 0.2s ease-out;
-	}
-	
-	.navbar-brand:hover{
-		transform: scale(1.1);
-	}
+
 </style>
 </head>
 <body>
