@@ -6,16 +6,16 @@
 		FROM booking
 		ORDER by num ASC
 	</select>
- 	<select id="getData" parameterType="int" resultType="bookingDto">
+ 	<select id="getData" parameterType="string" resultType="bookingDto">
  		SELECT num, shopnum, id, dday, price, seatnum, location
  		FROM booking
- 		WHERE num=#{num}
+ 		WHERE id=#{id}
  	</select>
  	  <!-- 정보를 추가 -->
    <insert id="insert" parameterType="bookingDto">
    		INSERT INTO booking
    		(num,shopnum,id,dday,price,seatnum,location)
-   		VALUES(booking_seq.NEXTVAL,#{shopnum},#{id},sysdate,#{price},#{seatnum},#{location})
+   		VALUES(booking_seq.NEXTVAL,#{shopNum,jdbcType=VARCHAR},#{id,jdbcType=VARCHAR},sysdate,#{price,jdbcType=VARCHAR},#{seatNum,jdbcType=VARCHAR},#{location,jdbcType=VARCHAR})
    </insert>
    <!-- 정보를 삭제 -->
    <delete id="delete" parameterType="int">
