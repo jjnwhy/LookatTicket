@@ -93,9 +93,6 @@
 								<li><a class="dropdown-item <%=thisPage.equals("mypage") ? "active":"" %>" 
 									href="${pageContext.request.contextPath }/users/mypage.do">마이페이지</a></li>
 
-								<li><a class="dropdown-item" href="${pageContext.request.contextPath}/users/mybooking.do">예매내역</a></li>
-
-
 								<li><a class="dropdown-item <%=thisPage.equals("booking") ? "active":"" %>" 
 								href="${pageContext.request.contextPath }/users/bookingpage.do">예매내역</a></li>
 								
