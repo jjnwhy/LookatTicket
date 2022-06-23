@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="QnA">
+<mapper namespace="qna">
 	<sql id="searchCondition">
 		<choose>
 			<when test="title != null and content != null">
@@ -30,7 +30,7 @@
 	</select>
 	
 	<select id="getCount" parameterType="qnaDto" resultType="int">
-		select NVL(MAX(ROWNUM),O)
+		select NVL(MAX(ROWNUM),0)
 		from board_QnA
 		<include refid="searchCondition"/>
 	</select>
@@ -38,7 +38,7 @@
 	<insert id="insert" parameterType="qnaDto">
 		insert into board_QnA
 		(num,writer,title,content,viewCount,regdate)
-		VALUES(board_cafe_seq.NEXTVAL, #{writer}, #{title},
+		VALUES(board_QnA_seq.NEXTVAL, #{writer}, #{title},
 			#{content}, #{viewCount}, SYSDATE)
 	</insert>
 	
@@ -67,9 +67,20 @@
 	</select>
 	
 	<update id="addViewCount" parameterType="int">
-		update board_qna
+		update board_QnA
 		set viewCount=viewCount+1
 		where num=#{num}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM board_QnA
+		WHERE num=#{num}
+	</delete>
+	
+	<update id="update" parameterType="qnaDto">
+		UPDATE board_QnA
+		SET title=#{title}, content=#{content}
+		WHERE num=#{num}
 	</update>
 </mapper>
 

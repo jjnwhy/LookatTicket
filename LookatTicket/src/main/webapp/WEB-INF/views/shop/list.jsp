@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>/views/shop/list.jsp</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -37,6 +37,7 @@
 				</p>
 			</c:otherwise>
 		</c:choose>
+		<a href="${pageContext.request.contextPath }/shop/insertform.do">상품추가</a>
 		<div class="row">
 			<c:forEach var="tmp" items="${list }">
 				<div class="col">

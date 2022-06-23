@@ -4,9 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>/views/qna/insert.jsp</title>
 </head>
 <body>
-
+	<script>
+		alert("새글이 추가 되었습니다.");
+		location.href="${pageContext.request.contextPath}/qna/list.do";
+	</script>
 </body>
 </html>
+
+
+
+
+

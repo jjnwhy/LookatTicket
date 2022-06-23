@@ -1,11 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>/views/qna/list.jsp</title>
+<style>
+	.page-ui a{
+		text-decoration: none;
+		color: #000;
+	}
+	
+	.page-ui a:hover{
+		text-decoration: underline;
+	}
+	
+	.page-ui a.active{
+		color: red;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	.page-ui ul{
+		list-style-type: none;
+		padding: 0;
+	}
+	
+	.page-ui ul > li{
+		float: left;
+		padding: 5px;
+	}
+</style>
 </head>
 <body>
 <div class="container">
@@ -82,3 +107,15 @@
 </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
