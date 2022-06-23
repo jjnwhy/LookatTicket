@@ -47,7 +47,7 @@
 		select result1.*
 		from
 			(select num,writer,title,content,viewCount,likeCount,
-				to_char(regdate,'YY.MM.DD HH24:MI') as regdate,
+				TO_CHAR(regdate,'YY.MM.DD HH24:MI') as regdate,
 				lag(num,1,0) over (order by num desc) as prevNum,
 				lead(num,1,0) over (order by num desc) as nextNum
 			from board_review) result1
@@ -58,7 +58,7 @@
 		select result1.*
 		from
 			(select num,writer,title,content,viewCount,likeCount,
-				to_char(regdate,'YY.MM.DD HH24:MI')as regdate,
+				TO_CHAR(regdate,'YY.MM.DD HH24:MI')as regdate,
 				lag(num,1,0) over (order by num desc) as prevNum,
 				lead(num,1,0) over (order by num desc) as nextNum
 			from board_review

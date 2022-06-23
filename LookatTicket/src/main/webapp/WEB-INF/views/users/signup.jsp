@@ -19,7 +19,7 @@
 </head>
 <body>
 	<jsp:include page="/include/navbar.jsp">
-		<jsp:param value="home" name="thisPage" />
+		<jsp:param value="users" name="thisPage" />
 	</jsp:include>
 	<div class="container">
 		<p>

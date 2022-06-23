@@ -24,17 +24,27 @@
 		text-align: center;
 	}
 	
+	a:link, a:visited, a:active
+	{
+	    color: #000000;
+	    text-decoration: none;
+	}
+	
+	a:hover{
+		color: highlight;
+	}
+	
 </style>
 </head>
 <body>
 	<jsp:include page="/include/navbar.jsp">
 		<jsp:param value="review" name="thisPage" />
 	</jsp:include>
+	
 	<div class="container">
 	<a href="insertform.do">후기작성</a>
 	<h1>후기 목록</h1>
 	<table class="table table-hover">
-
 	<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);">
 			 <ol class="breadcrumb">
 				 <li class="breadcrumb-item">
@@ -42,9 +52,15 @@
 				 <li class="breadcrumb-item active">Review</li>
 			 </ol>
 	</nav>
-	<h2>후기 목록</h2>
-	<a href="insertform.do" id="write">후기작성</a>
-	<table class="table">
+	<br />
+	<h2>리뷰 목록</h2>
+		<div class="container">
+		<a href="insertform.do" id="write">리뷰작성 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+		  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+		  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+		</svg></a>
+		</div>
+	<table class="table table-hover">
 		<thead>
 			<tr>
 				<th>번호</th>
@@ -82,7 +98,7 @@
 		</c:forEach>
 		</tbody>
 	</table>
-	
+	<div class="page-ui clearfix">
 		<ul class="pagination" >
 			<c:if test="${startPageNum ne 1 }">
 				<li class="page-item">
@@ -107,26 +123,22 @@
 				</li>
 			</c:if>	
 		</ul>
-	
-	
-	<div style="clear:both;"></div>
-	
-	<form class="row g-3" action="list.do" method="get">
-	<div class="col-md-3">
+	</div>
+	<div style="clear: both;"></div>
+	<form class="row g-3" action="list.do"method="get" >
+	<div class="col-md-2">
 		<select class="form-select" name="condition" id="condition">
 			<option value="title_content" ${condition eq 'title_content' ? 'selected' : '' }>제목+내용</option>
 			<option value="title" ${condition eq 'title' ? 'selected' : '' }>제목</option>
 			<option value="writer" ${condition eq 'writer' ? 'selected' : '' }>작성자</option>
 		</select>
-
 	</div>
-	<div class="col-md-7">	
+	<div class="col-md-2">	
 		<input class="form-control" type="text" id="keyword" name="keyword" placeholder="검색어..." value="${keyword }" />
 	</div>
 	<div class="col-md-2">	
 		<button type="submit" class="btn btn-primary">검색</button>
 	</div>
-
 	</form>
 	<c:if test="${not empty condition }">
 		<p>

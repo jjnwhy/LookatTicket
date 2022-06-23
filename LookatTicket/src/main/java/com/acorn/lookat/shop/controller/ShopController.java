@@ -48,7 +48,7 @@ public class ShopController {
 		mView.setViewName("shop/detail");
 		return mView;
 	}
-	@RequestMapping("shop/delete")
+	@RequestMapping("/shop/delete")
 	public ModelAndView authDelete(@RequestParam int num, HttpServletRequest request) {
 		service.deleteConcert(num, request);
 		return new ModelAndView("redirect:/shop/list.do");
@@ -63,10 +63,10 @@ public class ShopController {
 		service.updateConcert(dto);
 		return new ModelAndView("shop/update");
 	}
-	@RequestMapping("booking/delete")
+	@RequestMapping("/booking/delete")
 	public ModelAndView delete(@RequestParam int num) {
 		
-		service.cancle(num);
+		service.cancel(num);
 		
 		return new ModelAndView("redirect:/users/bookingpage.do");
 	}

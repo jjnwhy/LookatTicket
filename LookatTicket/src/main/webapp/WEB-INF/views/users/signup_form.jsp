@@ -14,17 +14,41 @@
 	*{
 		font-family: 'Nanum Gothic', sans-serif;
 	}
+	
+	#myForm {
+  		display: justify-content: center;
+ 		align-items: center;
+	}
+	
+	a:link, a:visited, a:active
+	{
+	    color: #000000;
+	    text-decoration: none;
+	}
+	
+	a:hover{
+		color: highlight;
+	}	
+  
 </style>
 </head>
 <body>
 	<jsp:include page="/include/navbar.jsp">
-		<jsp:param value="home" name="thisPage" />
+		<jsp:param value="users" name="thisPage" />
 	</jsp:include>
 	<div class="container">
-		<div class="col-8 col-md-4 offset-md-4">
+		<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);">
+			 <ol class="breadcrumb">
+				 <li class="breadcrumb-item">
+				 	<a href="${pageContext.request.contextPath}/home.do">홈</a></li>
+				 <li class="breadcrumb-item active">회원가입</li>
+			 </ol>
+		</nav>
+		<div class="col-6 col-md-4 offset-md-4">
 		<h1>회원 가입</h1>
 		<br />
-			<form action="${pageContext.request.contextPath}/users/signup.do" method="post" id="myForm">
+			<form class="row g-3" action="${pageContext.request.contextPath}/users/signup.do" method="post" id="myForm">
+				
 				<div class="col-12">
 					<label class="control-label" for="id">아이디</label>
 					<input class="form-control" type="text" name="id" id="id" autofocus/>
@@ -45,11 +69,12 @@
 				   <label class="control-label" for="name">이름</label>
 				   <input class="form-control" type="text" name="name" id="name"/>
 				</div>
-				<div class="col-12">
+				<div class="col-md-3">
 					<label class="control-label" for="addrNum">우편번호</label>
 					<input class="form-control" type="text" name="addrNum" id="addrNum"/>
 					<div class="invalid-feedback">우편번호 형식에 맞게 입력하세요(숫자5자리)</div>
-				<div class="col-12">
+				</div>	
+				<div class="col-md-9">
 					<label class="control-label" for="addr">주소</label>	
 					<input class="form-control" type="text" name="addr" id="addr"/>  		   
 				</div>
@@ -72,8 +97,10 @@
 				   <label class="control-label" for="regdate" ></label>
 				   <input class="form-control" type="hidden" name="regdate" id="regdate" />
 				</div>
+				<div class="col-12">
 				<button class="btn btn-outline-primary" type="submit">가입</button>
 				<button class="btn btn-outline-secondary" type="button" onclick="location.href='${pageContext.request.contextPath}/'">취소</button>
+				</div>
 			</form>
 	</div>
 </div>	

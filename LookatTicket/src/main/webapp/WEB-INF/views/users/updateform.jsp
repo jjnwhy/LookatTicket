@@ -15,11 +15,21 @@
 	*{
 		font-family: 'Nanum Gothic', sans-serif;
 	}
+	
+	a:link, a:visited, a:active
+	{
+	    color: #000000;
+	    text-decoration: none;
+	}
+	
+	a:hover{
+		color: highlight;
+	}
 </style>
 </head>
 <body>
 	<jsp:include page="/include/navbar.jsp">
-		<jsp:param value="home" name="thisPage" />
+		<jsp:param value="users" name="thisPage" />
 	</jsp:include>
 	<div class="container">
 		<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);">
@@ -29,36 +39,37 @@
 				 <li class="breadcrumb-item">
 				 	<a href="${pageContext.request.contextPath}/users/mypage.do">마이페이지</a>
 				 </li>	
-				 <li class="breadcrumb-item active">정보 수정</li>
+				 <li class="breadcrumb-item active">가입정보수정</li>
 			 </ol>
 		</nav>
-		<div class="col-8 col-md-4 offset-md-4">
+		<div class="col-6 col-md-4 offset-md-4">
 		<h2>가입정보 수정</h2>
 		<br />
-		<form action="${pageContext.request.contextPath}/users/update.do" method="post" id="myForm">
-			<div>
+		<form class="row g-3" action="${pageContext.request.contextPath}/users/update.do" method="post" id="myForm">
+			<div class="col-12">
 				<label class="control-label" for="id">아이디</label>
 				<input class="form-control" type="text" id="id" value="${id }" disabled/>
 			</div>
-			<div>
+			<div class="col-md-3">
 				<label class="control-label" for="addrNum">우편번호</label>
 				<input class="form-control" type="text" id="addrNum" name="addrNum" value="${dto.addrNum }" />
 			</div>
-			<div>
+			<div class="col-md-9">
 				<label class="control-label" for="addr">주소</label>
 				<input class="form-control" type="text" id="addr" name="addr" value="${dto.addr }" />
 			</div>
-			<div>
+			<div class="col-12">
 				<label class="control-label" for="phone">전화번호</label>
 				<input class="form-control" type="text" id="phone" name="phone" value="${dto.phone }"/>
 			</div>
-			<div>
+			<div class="col-12">
 				<label class="control-label" for="email">이메일</label>
 				<input class="form-control" type="text" id="email" name="email" value="${dto.email }" />
 			</div>
-			<br />
-			<button class="btn btn-outline-primary" type="submit">확인</button>
+			<div>
+			<button class="btn btn-outline-primary" type="submit">완료</button>
 			<button class="btn btn-outline-secondary" type="reset">되돌리기</button>
+			</div>
 		</form>
 	</div>
 </div>

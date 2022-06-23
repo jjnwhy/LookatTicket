@@ -20,7 +20,7 @@ public class ReviewServiceImpl implements ReviewService{
 	@Override
 	public void getList(HttpServletRequest request) {
 		//한 페이지에 몇개씩 표시할 것인지
-		final int PAGE_ROW_COUNT=15;
+		final int PAGE_ROW_COUNT=10;
 		//하단 페이지를 몇개씩 표시할 것인지
 		final int PAGE_DISPLAY_COUNT=7;
 		//보여줄 페이지의 번호의 초기값 (1)

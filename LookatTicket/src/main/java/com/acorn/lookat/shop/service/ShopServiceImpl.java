@@ -62,7 +62,7 @@ public class ShopServiceImpl implements ShopService{
 
 
 	@Override
-	public void cancle(int num) {
+	public void cancel(int num) {
 		bookingDao.delete(num);
 		
 	}
