@@ -26,12 +26,18 @@ public class ShopDaoImpl implements ShopDao{
 	//상품 번호에 해당하는 상품의 가격을 리턴하는 메소드 
 	@Override
 	public int getPrice(int num) {
-		// TODO Auto-generated method stub
 		return session.selectOne("shop.getPrice", num);
 	}
 	@Override
 	public ShopDto getData(int num) {
 		return session.selectOne("shop.getData", num);
+	}
+
+	public String getLocation(int num) {
+		return session.selectOne("shop.getLocation",num);
+	}
+	public int getSeatNum(int num) {
+		return session.selectOne("shop.getSeatNum",num);
 	}
 
 }

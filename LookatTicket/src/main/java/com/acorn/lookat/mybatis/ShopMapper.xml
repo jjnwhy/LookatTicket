@@ -17,6 +17,16 @@
 		FROM shop
 		WHERE num=#{num}
 	</select>
+	<select id="getSeatNum" parameterType="int" resultType="int">
+		SELECT seatnum
+		from shop
+		where num=#{num}
+	</select>
+	<select id="getLocation" parameterType="int" resultType="string">
+		SELECT location
+		FROM shop
+		where num=#{num}
+	</select>
 	<select id="getData" parameterType="int" resultType="ShopDto">
 		SELECT *
 		FROM

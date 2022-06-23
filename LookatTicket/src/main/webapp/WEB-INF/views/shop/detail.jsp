@@ -39,7 +39,7 @@
 		</table>
 		<div>좌석선택(미구현)</div>
 		<!-- 좌석 목록을 가져오고  선택하면 선택한 값을 저장하고 선택한 좌석(seatnum)에 저장 -->
-				<button type="submit">확인</button>
+		<a href="booking.do?num=${dto.num }">예매하기</a>
 				
 	</div>
 </body>

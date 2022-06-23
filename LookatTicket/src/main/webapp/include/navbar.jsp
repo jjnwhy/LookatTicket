@@ -76,18 +76,23 @@
 							<ul class="dropdown-menu" aria-labelledby="dropdownBtn">
 								<li><a class="dropdown-item <%=thisPage.equals("mypage") ? "active":"" %>" 
 									href="${pageContext.request.contextPath }/users/mypage.do">마이페이지</a></li>
-								<li><a class="dropdown-item" href="#">예매내역</a></li>
+
+								<li><a class="dropdown-item <%=thisPage.equals("booking") ? "active":"" %>" 
+								href="${pageContext.request.contextPath }/users/bookingpage.do">예매내역</a></li>
+								
 								<c:if test="${id eq 'admin' }">
 								<li><a class="dropdown-item <%=thisPage.equals("admin") ? "active":"" %>" 
 								href="${pageContext.request.contextPath }/admin/list.do">관리자 전용</a></li>
 								</c:if>
+								
 							</ul>
 						</div>
+					</c:otherwise>
+				</c:choose>
 			</div>
-			</c:otherwise>
-			</c:choose>
+			
 			
 		</div>
 	</div>
-	</div>
+	
 </nav>

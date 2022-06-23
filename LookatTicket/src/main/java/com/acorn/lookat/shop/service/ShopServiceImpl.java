@@ -33,6 +33,7 @@ public class ShopServiceImpl implements ShopService{
 
 
 	@Override
+	@Transactional
 	public void buy(HttpServletRequest request, ModelAndView mView) {
 		
 		//구입자의 아이디
@@ -41,12 +42,17 @@ public class ShopServiceImpl implements ShopService{
 		int num=Integer.parseInt(request.getParameter("num"));
 		//2. 상품의 가격을 얻어온다.
 		int price=shopDao.getPrice(num);
+		int seatNum=shopDao.getSeatNum(num);
+		String location=shopDao.getLocation(num);
 		//5. 재고의 갯수를 1 줄인다.
 		shopDao.minusCount(num);
 		//6. 주문 테이블(배송) 에 정보를 추가 한다. 
 		BookingDto dto2=new BookingDto();
 		dto2.setId(id); //누가
 		dto2.setShopNum(num); //어떤 상품을 
+		dto2.setPrice(price);
+		dto2.setSeatNum(seatNum);
+		dto2.setLocation(location);
 		bookingDao.insert(dto2);
 	}
 	@Override
@@ -55,6 +61,13 @@ public class ShopServiceImpl implements ShopService{
 		ShopDto dto = shopDao.getData(num);
 		//ModelAndView 에 가져온 ShopDto 를 담는다.
 		mView.addObject("dto", dto);
+	}
+
+
+	@Override
+	public void cancle(int num) {
+		bookingDao.delete(num);
+		
 	}
 }
 

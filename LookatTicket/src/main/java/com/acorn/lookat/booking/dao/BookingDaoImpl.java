@@ -23,8 +23,8 @@ public class BookingDaoImpl implements BookingDao{
 	}
 
 	@Override
-	public BookingDto getData(int num) {
-		return session.selectOne("booking.getData",num);
+	public BookingDto getData(String id) {
+		return session.selectOne("booking.getData",id);
 	}
 
 	@Override

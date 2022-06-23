@@ -7,10 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<script>
-	$("#likebtn").click(function(){
 
-	});
-</script>
 </body>
 </html>
