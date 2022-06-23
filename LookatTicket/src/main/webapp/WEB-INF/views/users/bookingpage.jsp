@@ -53,9 +53,11 @@
 				
 				</c:when>
 				<c:otherwise>
-					예매 내역이 없어요. ( @.@ )
+					<p>예매 내역이 없어요. ( @.@ )</p>
 				</c:otherwise>
+
 			</c:choose>
+
 
 	
 	</div>
