@@ -62,7 +62,9 @@
 				</p>
 			</c:otherwise>
 		</c:choose>
-		<a href="${pageContext.request.contextPath }/shop/insertform.do">상품추가</a>
+		<c:if test="${id eq 'admin' }">
+			<a href="${pageContext.request.contextPath }/shop/insertform.do">상품추가</a>
+		</c:if>
 		<div class="row">
 			<c:forEach var="tmp" items="${list }">
 				<div class="col">
@@ -74,7 +76,7 @@
 								출연 : <strong> ${tmp.cast} </strong> <br /> 가격 : <strong>${tmp.price }</strong>원
 								<br /> 장소 : ${tmp.location} <br /> 티켓수량 : <strong>${tmp.remainCount }</strong>장
 							</p>
-							<a href="detail.do?num=${tmp.num }" class="card-link">예매하기</a>
+								<a href="detail.do?num=${tmp.num }" class="card-link">예매하기</a>
 						</div>
 					</div>
 				</div>
