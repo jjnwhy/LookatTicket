@@ -24,6 +24,7 @@
 							<thead>
 								<tr>
 									<th>예매 번호</th>
+									<th>상품 이름</th>
 									<th>상품 번호</th>
 									<th>예약자ID</th>
 									<th>예약 일자</th>
@@ -37,6 +38,7 @@
 						<c:if test="${tmp.id eq sessionScope.id }">
 								<tr>
 									<td>${tmp.num }</td>
+									<td>${tmp.name }</td>
 									<td>${tmp.shopNum}</td>
 									<td>${tmp.id }</td>
 									<td>${tmp.dday }		</td>

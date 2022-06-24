@@ -7,7 +7,7 @@
 		ORDER by num ASC
 	</select>
  	<select id="getData" parameterType="string" resultType="bookingDto">
- 		SELECT num, shopnum, id, dday, price, seatnum, location
+ 		SELECT num,shopnum, id, dday, price, seatnum, location
  		FROM booking
  		WHERE id=#{id}
  	</select>
