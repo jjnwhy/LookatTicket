@@ -210,37 +210,25 @@
 	</div>
 	
 	<!-- 원글에 댓글을 작성할 폼 -->
-	<c:if test="${id eq dto.writer || id eq 'admin' }">
-	<form class="comment-form insert-form" action="comment_insert.do" method="post">
-		<!-- 원글의 글번호가 댓글의 ref_group 번호가 된다. -->
-		<input type="hidden" name="ref_group" value="${dto.num }"/>
-		<!-- 원글의 작성자가 댓글의 대상자가 된다. -->
-		<input type="hidden" name="target_id" value="${dto.writer }"/>
-
-		<textarea name="content">${empty id ? '댓글 작성을 위해 로그인이 필요 합니다.' : '' }</textarea>
-		<button type="submit">등록</button>
-	</form>
-	</c:if>
+	<c:choose>
+		<c:when test="${id eq dto.writer || id eq 'admin'}">
+			<form class="comment-form insert-form" action="comment_insert.do" method="post">
+				<!-- 원글의 글번호가 댓글의 ref_group 번호가 된다. -->
+				<input type="hidden" name="ref_group" value="${dto.num }"/>
+				<!-- 원글의 작성자가 댓글의 대상자가 된다. -->
+				<input type="hidden" name="target_id" value="${dto.writer }"/>
+				<textarea name="content"></textarea>
+				<button type="submit">등록</button>
+			</form>
+		</c:when>
+		<c:otherwise>
+				<textarea disabled>관리자와 작성자만 댓글을 남길 수 있습니다.</textarea>
+		</c:otherwise>
+	</c:choose>
 
 </div>
 <script src="${pageContext.request.contextPath}/resources/js/gura_util.js"></script>
 <script>
-	
-	//클라이언트가 로그인 했는지 여부
-	let isLogin=${ not empty id };
-	
-	document.querySelector(".insert-form")
-		.addEventListener("submit", function(e){
-			//만일 로그인 하지 않았으면 
-			if(!isLogin){
-				//폼 전송을 막고 
-				e.preventDefault();
-				//로그인 폼으로 이동 시킨다.
-				location.href=
-					"${pageContext.request.contextPath}/users/loginform.do?url=${pageContext.request.contextPath}/qna/detail.do?num=${dto.num}";
-			}
-		});
-	
 	/*
 		detail
  페이지 로딩 시점에 만들어진 1 페이지에 해당하는 
