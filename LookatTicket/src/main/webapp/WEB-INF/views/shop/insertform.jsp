@@ -46,11 +46,11 @@
 		</div>
 		<div>
 			<label for="startdate">시작일</label>
-			<input type="text" name="startdate" id="startdate" />
+			<input type="date" name="startdate" id="startdate" />
 		</div>
 		<div>
 			<label for="enddate">종료일</label>
-			<input type="text" name="enddate" id="enddate"/>
+			<input type="date" name="enddate" id="enddate"/>
 		</div>
 		<div>
 			<label for="remainCount">재고 개수</label>
