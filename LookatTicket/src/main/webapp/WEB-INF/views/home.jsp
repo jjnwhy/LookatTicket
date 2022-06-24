@@ -62,7 +62,7 @@
 	<c:forEach var="tmp" items="${list }">
 		<c:if test="${tmp.remainCount != 0 }">
 		<div class="card" onclick="javascript:location.href='${pageContext.request.contextPath }/shop/detail.do?num=${tmp.num}'">
-	    <img src="${pageContext.request.contextPath }/images/lookat_foot.jpg" class="card-img-top" >
+	    <img src="${pageContext.request.contextPath }${tmp.image}" class="card-img-top" >
 	    <div class="card-body">
 	      <h5 class="card-title" style="text-align:center;">${tmp.name }</h5>
 	      <p class="card-text">출연진: ${tmp.cast } <br /> 장소: ${tmp.location }</p>
