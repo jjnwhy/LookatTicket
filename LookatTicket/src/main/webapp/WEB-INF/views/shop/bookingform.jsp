@@ -57,12 +57,43 @@
 		</table>
 		<form action="booking.do" method="post">
 			<input type="hidden" name="num" id="num" value="${dto.num }"/>
-			<!--<input type="hidden" name="price" id="price" value="${dto.price }" />
-			<input type="hidden" name="cast" id="cast" value="${dto.cast}" />
-			<input type="hidden" name="hours" id="hours" value="${dto.hours }" />
-			<input type="hidden" name="location" id="location" value="${dto.location }" /> -->
+			<label for="concert">날짜 선택</label>
 			<input type="date" min=${dto.startdate } max=${dto.enddate } name="concertdate"/>
+
+				<!-- <div>좌석선택(미구현)</div> -->
+		<!-- 좌석 현황 표출 -->
+		<div class="showSeatArea">
+			<div class="btn-group" data-toggle="buttons" id="F_div">
+				<label class="btn btn-big btn-primary" for="F1" id="F1_lb">
+				<input type="checkbox" autocomplete="off" id="F1" value="F1">F1</label> 
+				<label class="btn btn-big btn-primary" for="F2" id="F2_lb">
+				<input type="checkbox" autocomplete="off" id="F2">F2</label> 
+				<label class="btn btn-big btn-primary" for="F3" id="F3_lb">
+				<input type="checkbox" autocomplete="off" id="F3">F3</label>
+			</div>
+			<br> <br>
+			<div class="btn-group" data-toggle="buttons" id="E_div">
+				<label class="btn btn-big btn-primary" for="E1" id="E1_lb">
+				<input type="checkbox" autocomplete="off" id="E1">E1</label> 
+				<label class="btn btn-big btn-primary" for="E2" id="E2_lb">
+				<input type="checkbox" autocomplete="off" id="E2">E2</label> 
+				<label class="btn btn-big btn-primary" for="E3" id="E3_lb">
+				<input type="checkbox" autocomplete="off" id="E3">E3</label>
+			</div>
+			<br> <br>
+			<div class="btn-group" data-toggle="buttons" id="B_div">
+				<label class="btn btn-big btn-primary" for="B1" id="B1_lb">
+				<input type="checkbox" autocomplete="off" id="B1">B1</label> 
+				<label class="btn btn-big btn-primary" for="B2" id="B2_lb">
+				<input type="checkbox" autocomplete="off" id="B2">B2</label> 
+				<label class="btn btn-big btn-primary" for="B3" id="B3_lb">
+				<input type="checkbox" autocomplete="off" id="B3">B3</label>
+			</div>
+			<br> <br>
+		</div>
+			
 			<button type="submit">전송</button>
+			
 		</form>
 				
 	</div>

@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%
-	int ranNum = (int)Math.floor(Math.random()*2);
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,10 +57,12 @@
   </button>
 </div>
 	
-<div class="card-group">
+<div class="row row-cols-1 row-cols-md-3 g-4">
+	
 	<c:forEach var="tmp" items="${list }">
-		<div class="card">
-	    <img src="${pageContext.request.contextPath }/images/lookat_foot.jpg" class="card-img-top" alt="...">
+		<c:if test="${tmp.remainCount != 0 }">
+		<div class="card" onclick="javascript:location.href='${pageContext.request.contextPath }/shop/detail.do?num=${tmp.num}'">
+	    <img src="${pageContext.request.contextPath }/images/lookat_foot.jpg" class="card-img-top" >
 	    <div class="card-body">
 	      <h5 class="card-title" style="text-align:center;">${tmp.name }</h5>
 	      <p class="card-text">출연진: ${tmp.cast } <br /> 장소: ${tmp.location }</p>
@@ -71,23 +71,11 @@
 	      <small class="text-muted">일정: ${tmp.startdate }~${tmp.enddate }</small>
 	    </div>
 	  </div>
+	  </c:if>
 	</c:forEach>
-  <div class="card">
-    <img src="${pageContext.request.contextPath }/images/lookat_foot.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title" style="text-align:center;">오늘의 추천 콘서트</h5>
-      <p class="card-text">출연진: 마동석, 손석구 <br /> 간단한 줄거리: 안녕하세요.</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">일정: 2022-07-07</small>
-    </div>
-  </div>
-  
-  
 </div>
+
 	</div>
-	
-	
 
 	<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
