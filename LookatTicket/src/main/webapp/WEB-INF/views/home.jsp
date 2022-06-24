@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%
-	int ranNum = (int)Math.floor(Math.random()*2);
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +16,6 @@
 	*{
 		font-family: 'Nanum Gothic', sans-serif;
 	}
-	
 
 </style>
 </head>
@@ -34,59 +31,52 @@
 		<jsp:param value="index" name="thisPage"/> -> 반드시 jsp:include의 자식요소로 쓰기!
 		
 	 --%>
-	<jsp:include page="/include/navbar.jsp">
-		<jsp:param value="home" name="thisPage" />
-	</jsp:include>
+<jsp:include page="/include/navbar.jsp">
+	<jsp:param value="home" name="thisPage" />
+</jsp:include>
 
-	<div class="container">
+<div class="container">
 	<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="${pageContext.request.contextPath }/images/concert2.jpg" class="d-block w-100" width="500" height="650">
-    </div>
-    <div class="carousel-item">
-      <img src="${pageContext.request.contextPath }/images/bts2.jpg" class="d-block w-100" width="500" height="650">
-    </div>
-    
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-	
-<div class="card-group">
-	<c:forEach var="tmp" items="${list }" begin="1" end="3">
-		<div class="card" style="height:30rem;">
-	    <img src="${pageContext.request.contextPath }/images/lookat_foot.jpg" class="card-img-top" alt="...">
-	    <div class="card-body">
-	      <h5 class="card-title" style="text-align:center;">${tmp.name }</h5>
-	      <p class="card-text">출연진: ${tmp.cast } <br /> 장소: ${tmp.location }</p>
-	    </div>
-	    <div class="card-footer">
-	      <small class="text-muted">일정: ${tmp.startdate }~${tmp.enddate }</small>
-	    </div>
-	  </div>
+		<div class="carousel-inner">
+		  <div class="carousel-item active">
+		    <img src="${pageContext.request.contextPath }/images/concert2.jpg" class="d-block w-100" width="500" height="650">
+		  </div>
+		  <div class="carousel-item">
+		    <img src="${pageContext.request.contextPath }/images/bts2.jpg" class="d-block w-100" width="500" height="650">
+		  </div>  
+		</div>
+	<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="visually-hidden">Previous</span>
+	</button>
+	<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="visually-hidden">Next</span>
+	</button>
+	</div>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+	<c:forEach var="tmp" items="${list }" begin="5" end="7">
+		<c:if test="${tmp.remainCount != 0 }">
+			<div class="card" onclick="javascript:location.href='${pageContext.request.contextPath }/shop/detail.do?num=${tmp.num}'" padding="0">
+		    	<div class="img-wrapper">
+		    		<img src="${pageContext.request.contextPath }${tmp.image}" class="card-img-top" height="300">
+		    	</div>
+		    	<div class="card-body">
+			    	<h5 class="card-title" style="text-align:center;">${tmp.name }</h5>
+			      	<p class="card-text">출연진: ${tmp.cast } <br /> 장소: ${tmp.location }</p>
+	    		</div>
+	    		<div class="card-footer">
+	      			<small class="text-muted">일정: ${tmp.startdate }~${tmp.enddate }</small>
+	    		</div>
+			</div>
+		</c:if>
 	</c:forEach>
-<!-- 
-  <div class="card">
-    <img src="${pageContext.request.contextPath }/images/lookat_foot.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title" style="text-align:center;">오늘의 추천 콘서트</h5>
-      <p class="card-text">출연진: 마동석, 손석구 <br /> 간단한 줄거리: 안녕하세요.</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">일정: 2022-07-07</small>
-    </div>
-  </div> 
-   -->	
 </div>
 </div>
-	
 <jsp:include page="/include/footer.jsp"></jsp:include>
+<script>
+   // card 이미지의 부모 요소를 선택해서 imgLiquid  동작(jquery plugin 동작) 하기 
+   $(".img-wrapper").imgLiquid();
+</script> 
 </body>
 </html>

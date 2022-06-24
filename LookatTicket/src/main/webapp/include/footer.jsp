@@ -11,8 +11,10 @@ html,body{
 	height:100%;
 }
 footer{
+	width:100%;
 	height:100px;
 	flex:1;
+	text-align:center;
 	
 }
 

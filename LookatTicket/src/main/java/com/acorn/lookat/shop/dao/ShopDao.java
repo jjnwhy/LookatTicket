@@ -27,6 +27,9 @@ public interface ShopDao {
 	public void update(ShopDto dto);
 	//상품 삭제하기
 	public void delete(int num);
+	//재고 증가 시키기
+	public void plusCount(int num);
+
 }
 
 

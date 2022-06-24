@@ -46,7 +46,7 @@ public class QnAController {
 		service.saveContent(dto);
 		return new ModelAndView("qna/insert");
 	}
-	@RequestMapping("/qna/commnet_insert")
+	@RequestMapping("/qna/comment_insert")
 	public ModelAndView authCommentInsert(HttpServletRequest request, @RequestParam int ref_group) {
 		service.saveComment(request);
 		return new ModelAndView("redirect:/qna/detail.do?num="+ref_group);

@@ -62,6 +62,12 @@ public class ShopDaoImpl implements ShopDao{
 		session.delete("shop.delete", num);
 		
 	}
+	@Override
+	public void plusCount(int num) {
+		session.update("shop.plusCount",num);
+		
+	}
+
 
 }
 

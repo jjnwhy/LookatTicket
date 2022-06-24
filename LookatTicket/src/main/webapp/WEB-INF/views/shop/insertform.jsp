@@ -53,54 +53,55 @@
 		<br />
 	<h2>상품 추가 폼</h2>
 	<br />
-	<form action="insert.do" method="post" id="insertform">
+	<form action="insert.do" method="post" id="insertform" enctype="multipart/form-data">
 		<div>
-			<label class="form-label" for="cateNum">카테고리 번호</label>
+			<label class="control-label" for="cateNum">카테고리 번호</label>
 			<input class="form-control" type="text" name="cateNum" id="cateNum" placeholder="num"/>
 		</div>
 		<div>
-			<label class="form-label" for="name">상품명</label>
+			<label class="control-label" for="name">상품명</label>
 			<input class="form-control" type="text" name="name" id="name"/>
 		</div>
 		<div>
-			<label class="form-label" for="price">가격</label>
+			<label class="control-label" for="price">가격</label>
 			<input class="form-control" type="text" name="price" id="price"/>
 		</div>
 		<div>
-			<label class="form-label" for="cast">출연</label>
+			<label class="control-label" for="cast">출연</label>
 			<input class="form-control" type="text" name="cast" id="cast"/>
 		</div>
 		<div>
-			<label class="form-label" for="hours">관람 시간</label>
+			<label class="control-label" for="hours">관람 시간</label>
 			<input class="form-control" type="text" name="hours" id="hours"/>
 		</div>
 		<div>
-			<label class="form-label" for="location">공연 장소</label>
+			<label class="control-label" for="location">공연 장소</label>
 			<input class="form-control" type="text" name="location" id="location"/>
 		</div>
 		<div>
-			<label class="form-label" for="startdate">시작일</label>
+			<label class="control-label" for="startdate">시작일</label>
 			<input class="form-control" type="text" name="startdate" id="startdate"/>
 		</div>
 		<div>
-			<label class="form-label" for="enddate">종료일</label>
+			<label class="control-label" for="enddate">종료일</label>
 			<input class="form-control" type="text" name="enddate" id="enddate"/>
 		</div>
 		<div>
-			<label for="remainCount">재고 개수</label>
+			<label class="control-label" for="remainCount">재고 개수</label>
 			<input class="form-control" type="text" name="remainCount" id="remainCount"/>
 		</div>
 		<div>
-			<label class="form-label" for="tel">문의전화번호</label>
+			<label class="control-label" for="tel">문의번호</label>
 			<input class="form-control" type="text" name="tel" id="tel"/>
 		</div>
 		<div>
-			<label class="form-label" for="seatNum">좌석 번호</label>
+			<label class="control-label" for="seatNum">좌석 번호</label>
 			<input class="form-control" type="text" name="seatNum" id="seatNum"/>
 		</div>
 		<div>
-			<label for="image">이미지</label>
-			<input class="form-control" type="file" name="image" id="image"/>
+			<label for="imageFile">이미지</label>
+			<input class="form-control" type="file" name="imageFile" id="imageFile"
+				accept=".jpg, .jpeg, .png, .JPG, .JPEG"/>
 		</div>
 		<br />
 		<div>

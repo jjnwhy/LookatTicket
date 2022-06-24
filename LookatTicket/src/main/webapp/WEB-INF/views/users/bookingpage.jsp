@@ -55,6 +55,7 @@
 							<thead>
 								<tr>
 									<th>예매 번호</th>
+									<th>상품 이름</th>
 									<th>상품 번호</th>
 									<th>예약자id</th>
 									<th>공연명</th>
@@ -63,24 +64,27 @@
 									<th>선택 좌석</th>
 									<th>장소</th>
 									<th></th>
+									<th>콘서트 날짜</th>
+
 								</tr>
 							</thead>
 							<tbody>
-					<c:forEach var="tmp" items="${list}">
+						<c:forEach var="tmp" items="${list}">
 						<c:if test="${tmp.id eq sessionScope.id }">
-								<tr>
-									<td>${tmp.num }</td>
-									<td>${tmp.shopNum}</td>
-									<td>${tmp.id }</td>
-									<td>${tmp.name }</td>
-									<td>${tmp.dday }	</td>
-									<td>${tmp.price}</td>
-									<td>${tmp.seatNum}</td>
-									<td>${tmp.location}</td>
-									<td><a href="${pageContext.request.contextPath}/booking/delete.do?num=${tmp.num }" onclick="return confirm('${tmp.name}예매를 취소하시겠습니까?');">예매 취소</a></td>
-								</tr>
+							<tr>
+								<td>${tmp.num }</td>
+								<td>${tmp.name }</td>
+								<td>${tmp.shopNum}</td>
+								<td>${tmp.id }</td>
+								<td>${tmp.name }</td>
+								<td>${tmp.dday }	</td>
+								<td>${tmp.price}</td>
+								<td>${tmp.seatNum}</td>
+								<td>${tmp.location}</td>
+								<td>${tmp.concertdate }</td>
+								<td><a href="${pageContext.request.contextPath}/booking/delete.do?num=${tmp.num }" onclick="return confirm('${tmp.name}예매를 취소하시겠습니까?');">예매 취소</a></td>
 						</c:if>
-					 </c:forEach>
+					 	</c:forEach>
 							</tbody>
 						</table>					
 				<%--delete 링크에서 contextPath를 제거하고 링크를 달면 회원탈퇴가 되버리니 조심하세요.. --%>

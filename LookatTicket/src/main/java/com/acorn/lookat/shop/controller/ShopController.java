@@ -24,12 +24,6 @@ public class ShopController {
 		mView.setViewName("shop/list");
 		return mView;
 	}
-	@RequestMapping("/shop/booking")
-	public ModelAndView authBuy(HttpServletRequest request, ModelAndView mView) {
-		service.buy(request, mView);
-		mView.setViewName("redirect:/users/bookingpage.do");
-		return mView;
-	}
 	@RequestMapping("/shop/insertform")
 	public ModelAndView authInsertForm(HttpServletRequest request) {
 		return new ModelAndView("shop/insertform");
@@ -39,7 +33,7 @@ public class ShopController {
 	public ModelAndView authInsert(ShopDto dto, HttpSession session, HttpServletRequest request) {
 		String id=(String)session.getAttribute("id");
 		dto.setWriter(id);
-		service.saveConcert(dto);
+		service.saveConcert(dto, request);
 		return new ModelAndView("shop/insert");
 	}
 	@RequestMapping("/shop/detail")
@@ -70,6 +64,20 @@ public class ShopController {
 		
 		return new ModelAndView("redirect:/users/bookingpage.do");
 	}
+
+	@RequestMapping("/shop/booking")
+	public ModelAndView authBuy(HttpServletRequest request, ModelAndView mView) {
+		service.buy(request, mView);
+		mView.setViewName("redirect:/users/bookingpage.do");
+		return mView;
+	}
+	
+	@RequestMapping("/shop/bookingform")
+	public ModelAndView authBookingForm(HttpServletRequest request) {
+		service.getData(request);
+		return new ModelAndView("shop/bookingform");
+	}
+
 }
 
 

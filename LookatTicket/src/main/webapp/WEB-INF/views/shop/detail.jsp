@@ -8,6 +8,7 @@
 <title>/views/shop/detail.jsp</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script> <!-- jQuery -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
@@ -30,7 +31,7 @@
 	}
 	
 	.table{
-		width:50%;
+		width:80%;
 	}
 	
 	th, td{
@@ -43,7 +44,10 @@
 		align-items: center;
 	}
 
-	
+	.seattable tr td{
+		border: 1px solid;
+	}
+
 </style>
 </head>
 <body>
@@ -61,39 +65,43 @@
 			 </ol>
 		</nav>
 		<br />
-		<h2>공연 상세정보</h2>
+		<h2 align="center">공연 상세정보</h2>
 		<br />
-		<table class="table" align="center" width="60%">
+		<table class="table" align="center">
 			<colgroup>
-				<col style="width:20%">
-				<col style="width:40%">
+				<col style="width:10%">
+				<col style="width:30%">
+				<col style="width:10%">
+				<col style="width:30%">
 			</colgroup>
 			<tr>
 				<th>상품 번호</th>
 				<td>${dto.num }</td>
-			</tr>
-			<tr>
 				<th>상품명</th>
 				<td>${dto.name }</td>
 			</tr>
 			<tr>
 				<th>가격</th>
 				<td>${dto.price }</td>
-			</tr>
-			<tr>
 				<th>출연</th>
 				<td>${dto.cast }</td>
 			</tr>
 			<tr>
 				<th>관람시간</th>
 				<td>${dto.hours }</td>
-			</tr>
-			<tr>
 				<th>공연장소</th>
 				<td>${dto.location }</td>
 			</tr>
 			<tr>
-				<td colspan="2"><a class="btn btn-primary" href="booking.do?num=${dto.num }" id="bookBtn" onclick="return confirm('${dto.name}을(를) 예매 하시겠습니까?');">예매하기</a>
+				<th>공연날짜</th>
+				<td colspan="3">${dto.startdate } ~ ${dto.enddate }</td>
+			</tr>
+			<tr>
+				<th>공연 포스터</th>
+				<td colspan="3"><img src="${pageContext.request.contextPath}${dto.image}"/></td>
+			</tr>
+			<tr>
+				<td colspan="4"><a class="btn btn-primary" href="booking.do?num=${dto.num }" id="bookBtn" onclick="return confirm('${dto.name}을(를) 예매 하시겠습니까?');">예매하기</a>
 				</td>
 			</tr>
 		</table>

@@ -11,7 +11,11 @@
 		SET remainCount=remainCount-1
 		WHERE num=#{num}
 	</update>
-
+	<update id="plusCount" parameterType="int">
+		UPDATE shop
+		SET remainCount=remainCount+1
+		WHERE num=#{shopnum}
+	</update>
 	<select id="getPrice" parameterType="int" resultType="int">
 		SELECT price
 		FROM shop

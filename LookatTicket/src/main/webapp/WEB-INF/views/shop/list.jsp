@@ -52,11 +52,11 @@
 			 </ol>
 		</nav>
 		<br />
-		<h2>CONCERT  <a href="${pageContext.request.contextPath }/shop/insertform.do" id="addItem"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="blue" class="bi bi-plus-circle" viewBox="0 0 16 16">
-			  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-			  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-			</svg></a></h2> 
+		<h2>CONCERT</h2> 
 		<br />
+		<c:if test="${id eq 'admin' }">
+			<a href="${pageContext.request.contextPath }/shop/insertform.do">상품추가</a>
+		</c:if>
 		<div class="row">
 			<c:forEach var="tmp" items="${list }">
 				<div class="col">
@@ -70,6 +70,12 @@
 							티켓수량 : <strong>${tmp.remainCount }</strong>장
 							</p>
 							<a href="detail.do?num=${tmp.num }" class="card-link">상세보기</a>
+							<c:if test="${tmp.remainCount ne 0 }">
+								<a href="detail.do?num=${tmp.num }" class="card-link">예매하기</a>
+							</c:if><br />		
+							<c:if test="${id eq 'admin' }">
+								<td><a href="delete.do?num=${tmp.num }">상품삭제</a></td>
+							</c:if>
 						</div>
 					</div>
 				</div>
@@ -77,5 +83,6 @@
 		</div>
 	</div>
 	<jsp:include page="/include/footer.jsp"></jsp:include>
+	
 </body>
 </html>

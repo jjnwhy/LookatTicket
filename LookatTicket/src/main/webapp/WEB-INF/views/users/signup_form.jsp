@@ -102,7 +102,8 @@
 				<button class="btn btn-outline-secondary" type="button" onclick="location.href='${pageContext.request.contextPath}/'">취소</button>
 				</div>
 			</form>
-	</div>
+			
+		</div>
 </div>	
 <script src="${pageContext.request.contextPath}/resources/js/gura_util.js"></script>
 <script>
