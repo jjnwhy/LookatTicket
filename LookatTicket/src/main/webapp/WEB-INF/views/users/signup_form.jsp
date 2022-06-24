@@ -80,7 +80,7 @@
 				</div>
 				<div class="col-12">
 				   <label class="control-label" for="birth">생년월일</label>
-				   <input class="form-control" type="text" name="birth" id="birth" maxlength='10'/>
+				   <input class="form-control" type="date" name="birth" id="birth" maxlength='10'/>
 				   <small class="form-text text-muted">YYYY-MM-DD 형식으로 입력하세요</small>
 				</div>
 				<div class="col-12">

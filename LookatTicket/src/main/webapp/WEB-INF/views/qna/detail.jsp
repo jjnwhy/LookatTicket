@@ -6,11 +6,30 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/qna/detail.jsp</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 <style>
-	.content{
-		border: 1px dotted gray;
+	*{
+		font-family: 'Nanum Gothic', sans-serif;
 	}
+	
+	a:link, a:visited, a:active
+	{
+	    color: #000000;
+	    text-decoration: none;
+	}
+	
+	a:hover{
+		color: highlight;
+	}
+	
+	#myTable{
+		width: 70%;
+	}
+	
 	
 	/* 댓글 프로필 이미지를 작은 원형으로 만든다. */
 	.profile-image{
@@ -33,20 +52,23 @@
 	}
 	.comment-form textarea, .comment-form button{
 		float: left;
+		width:70%
 	}
 	.comments li{
 		clear: left;
+		width:70%
 	}
 	.comments ul li{
 		border-top: 1px solid #888;
+		width:70%
 	}
 	.comment-form textarea{
-		width: 84%;
-		height: 100px;
+		width: 60%;
+		height: 60px;
 	}
 	.comment-form button{
-		width: 14%;
-		height: 100px;
+		width: 10%;
+		height: 60px;
 	}
 	/* 댓글에 댓글을 다는 폼과 수정폼은 일단 숨긴다. */
 	.comments .comment-form{
@@ -98,53 +120,79 @@
 </style>
 </head>
 <body>
+<jsp:include page="/include/navbar.jsp">
+	<jsp:param value="qna" name="thisPage"/>
+</jsp:include>
 <div class="container">
-	<c:if test="${dto.prevNum ne 0 }">
-		<a href="detail.do?num=${dto.prevNum }&keyword=${encodedK }&condition=${condition }">이전글</a>
-	</c:if>
-	<c:if test="${dto.nextNum ne 0 }">
-		<a href="detail.do?num=${dto.nextNum }&keyword=${encodedK }&condition=${condition }">다음글</a>
-	</c:if>
-	<c:if test="${ not empty keyword }">
-		<p>	
-			<strong>${condition }</strong> 조건, 
-			<strong>${keyword }</strong> 검색어로 검색된 내용 자세히 보기 
-		</p>
-	</c:if>
-	<table>
+	<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);">
+		 <ol class="breadcrumb">
+			 <li class="breadcrumb-item">
+			 	<a href="${pageContext.request.contextPath}/home.do">Home</a></li>
+			 <li class="breadcrumb-item">
+			 	<a href="${pageContext.request.contextPath}/review/list.do">Q&A</a>
+			 </li>	
+			 <li class="breadcrumb-item active">${dto.title }</li>
+		 </ol>
+	</nav>
+	<br />
+	<div class="container">
+		<a href="list.do"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+			  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+			</svg>목록보기</a>
+		<c:if test="${dto.writer eq id }">
+			<a href="updateform.do?num=${dto.num }">수정</a>
+			<a href="delete.do?num=${dto.num }">삭제</a>
+		</c:if>
+	</div>
+	<p>
+		<c:if test="${dto.prevNum ne 0 }">
+			<a href="detail.do?num=${dto.prevNum }&keyword=${encodedK }&condition=${condition }"><a href="detail.do?num=${dto.prevNum }&keyword=${encodedK}&condition=${condition}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+	  <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+	</svg>이전글</a>
+		</c:if>
+		<c:if test="${dto.nextNum ne 0 }">
+			<a href="detail.do?num=${dto.nextNum }&keyword=${encodedK }&condition=${condition }">다음글<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+	  <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+	</svg></a>
+		</c:if>
+		<c:if test="${ not empty keyword }">
+			<p>	
+				<strong>${condition }</strong> 조건, 
+				<strong>${keyword }</strong> 검색어로 검색된 내용 자세히 보기 
+			</p>
+		</c:if>
+	</p> 
+	<div class="container">
+	<table class="table" id="myTable" align="center">
+		<colgroup>
+			<col style="width:20%">
+			<col style="width:40%">
+			<col style="width:20%">
+			<col style="width:40%">
+		</colgroup>
 		<tr>
 			<th>글번호</th>
 			<td>${dto.num }</td>
-		</tr>
-		<tr>
 			<th>작성자</th>
 			<td>${dto.writer }</td>
 		</tr>
 		<tr>
-			<th>제목</th>
-			<td>${dto.title }</td>
-		</tr>
-		<tr>
 			<th>조회수</th>
 			<td>${dto.viewCount }</td>
-		</tr>
-		<tr>
 			<th>등록일</th>
 			<td>${dto.regdate }</td>
 		</tr>
 		<tr>
-			<td colspan="2">
+			<th>제목</th>
+			<td colspan="3">${dto.title }</td>
+		</tr>
+		<tr>
+			<td colspan="4">
 				<div class="content">${dto.content }</div>
 			</td>
 		</tr>
 	</table>
-	<ul>
-		<li><a href="list.do">목록보기</a></li>
-		<c:if test="${dto.writer eq id }">
-			<li><a href="updateform.do?num=${dto.num }">수정</a></li>
-			<li><a href="delete.do?num=${dto.num }">삭제</a></li>
-		</c:if>
-	</ul>
+	
 	<!-- 댓글 목록 -->
 	<div class="comments">
 		<ul>
@@ -165,15 +213,6 @@
 						</c:if>
 								<dl>
 									<dt>
-										<c:if test="${ empty tmp.profile }">
-											<svg class="profile-image" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-											  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-											  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-											</svg>
-										</c:if>
-										<c:if test="${not empty tmp.profile }">
-											<img class="profile-image" src="${pageContext.request.contextPath}${tmp.profile }"/>
-										</c:if>
 										<span>${tmp.writer }</span>
 										<c:if test="${tmp.num ne tmp.comment_group }">
 											@<i>${tmp.target_id }</i>
@@ -227,11 +266,12 @@
 		<button type="submit">등록</button>
 	</form>
 </div>
+</div>
 <script src="${pageContext.request.contextPath}/resources/js/gura_util.js"></script>
 <script>
 	
 	//클라이언트가 로그인 했는지 여부
-	let isLogin=${ not empty id };
+	boolean isLogin=${ not empty id };
 	
 	document.querySelector(".insert-form")
 		.addEventListener("submit", function(e){
@@ -435,5 +475,6 @@
 		}
 	}
 </script>
+<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>

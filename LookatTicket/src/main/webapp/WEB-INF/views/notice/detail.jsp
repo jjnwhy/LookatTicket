@@ -85,31 +85,30 @@
 		
 		<table class="table" id="myTable" align="center">
 		<colgroup>
+			<col style="width:10%">
 			<col style="width:20%">
-			<col style="width:40%">
+			<col style="width:10%">
+			<col style="width:20%">
 		</colgroup>
 			<tr>
 				<th>글번호</th>
 				<td>${dto.num }</td>
-			</tr>
-			<tr>
-				<th>제목</th>
-				<td>${dto.title }</td>
-			</tr>
-			<tr>
 				<th>작성자</th>
 				<td>${dto.writer }</td>
 			</tr>
 			<tr>
 				<th>조회수</th>
 				<td>${dto.viewCount }</td>
-			</tr>
-			<tr>
 				<th>등록일</th>
 				<td>${dto.regdate }</td>
 			</tr>
 			<tr>
-				<td colspan="2">
+				<th>제목</th>
+				<td colspan="3">${dto.title }</td>
+			</tr>
+			</tr>
+			<tr>
+				<td colspan="4">
 					<div class="content">${dto.content }</div>
 				</td>
 			</tr>

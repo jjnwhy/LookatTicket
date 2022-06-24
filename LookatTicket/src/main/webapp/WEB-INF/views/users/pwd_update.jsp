@@ -42,7 +42,7 @@
 	<div class="container">
 		<c:choose>
 			<c:when test="${isSuccess }">
-				<h4>비밀번호를 수정하고 로그아웃되었습니다.</h4>
+				<h4>비밀번호를 수정하고 로그아웃되었습니다.😉</h4>
 				<br />
 				<br />
 				<h6><a href="${pageContext.request.contextPath}/users/loginform.do">다시 로그인 하기</a></h6>
