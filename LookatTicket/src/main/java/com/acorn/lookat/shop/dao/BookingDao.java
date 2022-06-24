@@ -8,6 +8,8 @@ import com.acorn.lookat.shop.dto.BookingDto;
 
 
 public interface BookingDao {
+	//예약번호를 가져오는 메소드
+	public int getNum(int num);
 	//예약 정보를 추가하는 메소드
 	public void insert(BookingDto dto);
 	//예약 정보를 가져오는 메소드

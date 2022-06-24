@@ -76,8 +76,11 @@ public class ShopServiceImpl implements ShopService{
 
 	@Override
 	public void cancel(int num) {
+		//booking에서 shopNum을 가져오고
+		int shopnum=bookingDao.getNum(num);
 		bookingDao.delete(num);
-		
+		//shopDao의 shopNum을 전달하고 재고를 증가시키기
+		shopDao.plusCount(shopnum);
 	}
 
 
@@ -89,12 +92,14 @@ public class ShopServiceImpl implements ShopService{
 		String realPath=request.getServletContext().getRealPath("/upload");
 		String filePath=realPath+File.separator;
 		File upload=new File(filePath);
+
 		if(!upload.exists()) {
 			upload.mkdir();
 		}
 		String saveFileName=System.currentTimeMillis() + orgFileName;
 		try {
 			image.transferTo(new File(filePath + saveFileName));
+			System.out.println();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -102,6 +107,8 @@ public class ShopServiceImpl implements ShopService{
 		dto.setWriter(id);
 		dto.setImage("/upload/" + saveFileName);
 		shopDao.insert(dto);
+
+		System.out.println(upload);
 	}
 
 
@@ -124,7 +131,6 @@ public class ShopServiceImpl implements ShopService{
 		request.setAttribute("dto", dto);
 		
 	}
-
 }
 
 
