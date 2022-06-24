@@ -28,6 +28,11 @@ public class QnAController {
 		service.getList(request);
 		return "qna/list";
 	}
+	@RequestMapping("qna/detail")
+	public String detail(HttpServletRequest request) {
+		service.getDetail(request);
+		return "qna/detail";
+	}
 	
 	@RequestMapping("/qna/insertform")
 	public ModelAndView authInsertFrom(HttpServletRequest request) {
