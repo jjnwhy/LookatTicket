@@ -43,4 +43,10 @@ public class BookingDaoImpl implements BookingDao{
 //		
 //	}
 
+	@Override
+	public int getNum(int num) {
+		return session.selectOne("booking.getNum", num);
+		
+	}
+
 }
