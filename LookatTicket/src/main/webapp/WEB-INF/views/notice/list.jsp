@@ -66,7 +66,7 @@
 			<thead>
 				<tr>
 					<th>번호</th>
-					<th>제목</th>
+					<th width="70%">제목</th>
 					<th>조회수</th>
 					<th>등록일</th>
 					<c:if test="${id eq 'admin' }">

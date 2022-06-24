@@ -15,7 +15,7 @@
    <insert id="insert" parameterType="bookingDto">
    		INSERT INTO booking
    		(num,shopnum,id,dday,price,seatnum,location)
-   		VALUES(booking_seq.NEXTVAL,#{shopNum,jdbcType=VARCHAR},#{id,jdbcType=VARCHAR},sysdate,#{price,jdbcType=VARCHAR},#{seatNum,jdbcType=VARCHAR},#{location,jdbcType=VARCHAR})
+   		VALUES(booking_seq.NEXTVAL,#{shopNum,jdbcType=VARCHAR},sysdate, #{id,jdbcType=VARCHAR},#{price,jdbcType=VARCHAR},#{seatNum,jdbcType=VARCHAR},#{location,jdbcType=VARCHAR})
    </insert>
    <!-- 정보를 삭제 -->
    <delete id="delete" parameterType="int">
