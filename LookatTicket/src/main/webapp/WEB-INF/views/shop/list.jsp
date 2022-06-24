@@ -76,7 +76,9 @@
 								출연 : <strong> ${tmp.cast} </strong> <br /> 가격 : <strong>${tmp.price }</strong>원
 								<br /> 장소 : ${tmp.location} <br /> 티켓수량 : <strong>${tmp.remainCount }</strong>장
 							</p>
+							<c:if test="${tmp.remainCount ne 0 }">
 								<a href="detail.do?num=${tmp.num }" class="card-link">예매하기</a>
+							</c:if>		
 						</div>
 					</div>
 				</div>

@@ -1,5 +1,6 @@
 package com.acorn.lookat.shop.service;
 
+import java.io.File;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,6 +9,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.acorn.lookat.shop.dao.BookingDao;
@@ -43,7 +45,7 @@ public class ShopServiceImpl implements ShopService{
 		int seatNum=shopDao.getSeatNum(num);
 		String location=shopDao.getLocation(num);
 		//3. 상품명
-		String name=(String)request.getParameter("name");
+		//String name=(String)request.getParameter("name");
 		//4. 콘서트 날짜
 		String concertdate=(String)request.getParameter("concertdate");
 		//5. 재고의 갯수를 1 줄인다.
@@ -51,7 +53,7 @@ public class ShopServiceImpl implements ShopService{
 		//6. 주문 테이블(배송) 에 정보를 추가 한다. 
 		BookingDto dto2=new BookingDto();
 		dto2.setNum(num);//상품번호
-		dto2.setName(name);
+		//dto2.setName(name);
 		dto2.setId(id); //누가
 		dto2.setShopNum(num); //어떤 상품을 
 		dto2.setPrice(price);
@@ -80,7 +82,25 @@ public class ShopServiceImpl implements ShopService{
 
 
 	@Override
-	public void saveConcert(ShopDto dto) {
+	public void saveConcert(ShopDto dto, HttpServletRequest request) {
+		MultipartFile image= dto.getImageFile();
+		String orgFileName=image.getOriginalFilename();
+		long fileSize=image.getSize();
+		String realPath=request.getServletContext().getRealPath("/upload");
+		String filePath=realPath+File.separator;
+		File upload=new File(filePath);
+		if(!upload.exists()) {
+			upload.mkdir();
+		}
+		String saveFileName=System.currentTimeMillis() + orgFileName;
+		try {
+			image.transferTo(new File(filePath + saveFileName));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		String id=(String)request.getSession().getAttribute("id");
+		dto.setWriter(id);
+		dto.setImage("/upload/" + saveFileName);
 		shopDao.insert(dto);
 	}
 
@@ -104,6 +124,7 @@ public class ShopServiceImpl implements ShopService{
 		request.setAttribute("dto", dto);
 		
 	}
+
 }
 
 

@@ -19,7 +19,7 @@
 	
 	<div class="container">
 	<h1>상품 추가 폼</h1>
-	<form action="insert.do" method="post" id="insertform">
+	<form action="insert.do" method="post" id="insertform" enctype="multipart/form-data">
 		<div>
 			<label for="cateNum">카테고리 번호</label>
 			<input type="text" name="cateNum" id="cateNum" placeholder="num"/>
@@ -46,7 +46,7 @@
 		</div>
 		<div>
 			<label for="startdate">시작일</label>
-			<input type="text" name="startdate" id="startdate"/>
+			<input type="text" name="startdate" id="startdate" />
 		</div>
 		<div>
 			<label for="enddate">종료일</label>
@@ -66,7 +66,8 @@
 		</div>
 		<div>
 			<label for="image">이미지</label>
-			<input type="file" name="image" id="image"/>
+			<input type="file" name="imageFile" id="imageFile"
+				accept=".jpg, .jpeg, .png, .JPG, .JPEG"/>
 		</div>
 		<div>
 			<button type="submit">저장</button>

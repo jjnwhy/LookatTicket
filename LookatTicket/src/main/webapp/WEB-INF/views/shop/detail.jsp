@@ -74,9 +74,13 @@
 				<th>공연날짜</th>
 				<td>${dto.startdate } ~ ${dto.enddate }</td>
 			</tr>
+			<tr>
+				<th>공연 포스터</th>
+				<td> <img src="${pageContext.request.contextPath}${dto.image}"/></td>
+			</tr>
+			
 		</table>
-		<a href="${pageContext.request.contextPath}/shop/bookingform.do?num=${dto.num }">예매하기</a>
-
+			<a href="${pageContext.request.contextPath}/shop/bookingform.do?num=${dto.num }">예매하기</a>
 				
 	</div>
 	<jsp:include page="/include/footer.jsp"></jsp:include>

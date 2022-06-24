@@ -16,6 +16,5 @@ public interface BookingDao {
 	public void delete(int num);
 	//예약 목록을 가져오는 메소드
 	public List<BookingDto> getList(BookingDto dto);
-	//상품의 공연날짜
-//	public String concertdate(int num);
+
 }
