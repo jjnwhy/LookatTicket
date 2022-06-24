@@ -78,7 +78,10 @@
 							</p>
 							<c:if test="${tmp.remainCount ne 0 }">
 								<a href="detail.do?num=${tmp.num }" class="card-link">예매하기</a>
-							</c:if>		
+							</c:if><br />		
+							<c:if test="${id eq 'admin' }">
+								<td><a href="delete.do?num=${tmp.num }">상품삭제</a></td>
+							</c:if>
 						</div>
 					</div>
 				</div>
