@@ -1,31 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/views/shop/detail.jsp</title>
+<title>/views/shop/bookingform</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-<style>
-	*{
-		font-family: 'Nanum Gothic', sans-serif;
-	}
-	
-	a:link, a:visited, a:active
-	{
-	    color: #000000;
-	    text-decoration: none;
-	}
-	
-	a:hover{
-		color: highlight;
-	}
-</style>
 </head>
 <body>
 	<jsp:include page="/include/navbar.jsp">
@@ -71,10 +55,18 @@
 				<td>${dto.startdate } ~ ${dto.enddate }</td>
 			</tr>
 		</table>
-
-		<a href="${pageContext.request.contextPath}/shop/bookingform.do?num=${dto.num }">예매하기</a>
+		<form action="booking.do" method="post">
+			<input type="hidden" name="num" id="num" value="${dto.num }"/>
+			<!--<input type="hidden" name="price" id="price" value="${dto.price }" />
+			<input type="hidden" name="cast" id="cast" value="${dto.cast}" />
+			<input type="hidden" name="hours" id="hours" value="${dto.hours }" />
+			<input type="hidden" name="location" id="location" value="${dto.location }" /> -->
+			<input type="date" min=${dto.startdate } max=${dto.enddate } name="concertdate"/>
+			<button type="submit">전송</button>
+		</form>
 				
 	</div>
 	<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
+
 </html>

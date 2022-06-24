@@ -31,6 +31,7 @@
 									<th>가격</th>
 									<th>선택 좌석</th>
 									<th>장소</th>
+									<th>콘서트 날짜</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -45,6 +46,7 @@
 									<td>${tmp.price}</td>
 									<td>${tmp.seatNum}</td>
 									<td>${tmp.location}</td>
+									<td>${tmp.concertdate }</td>
 									<td><a href="${pageContext.request.contextPath}/booking/delete.do?num=${tmp.num }" onclick="return confirm('예매를 취소하시겠습니까?');">예매 취소하기</a></td>
 								</tr>
 						</c:if>

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,17 +42,27 @@ public class ShopServiceImpl implements ShopService{
 		int price=shopDao.getPrice(num);
 		int seatNum=shopDao.getSeatNum(num);
 		String location=shopDao.getLocation(num);
+		//3. 상품명
+		String name=(String)request.getParameter("name");
+		//4. 콘서트 날짜
+		String concertdate=(String)request.getParameter("concertdate");
 		//5. 재고의 갯수를 1 줄인다.
 		shopDao.minusCount(num);
 		//6. 주문 테이블(배송) 에 정보를 추가 한다. 
 		BookingDto dto2=new BookingDto();
+		dto2.setNum(num);//상품번호
+		dto2.setName(name);
 		dto2.setId(id); //누가
 		dto2.setShopNum(num); //어떤 상품을 
 		dto2.setPrice(price);
 		dto2.setSeatNum(seatNum);
 		dto2.setLocation(location);
+		dto2.setConcertdate(concertdate);
 		bookingDao.insert(dto2);
 	}
+	
+
+	
 	@Override
 	public void getDetail(ModelAndView mView, int num) {
 		//dao 로 해당 게시글 num 에 해당하는 데이터(dto)를 가져온다.

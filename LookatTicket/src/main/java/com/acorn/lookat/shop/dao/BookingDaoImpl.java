@@ -37,5 +37,10 @@ public class BookingDaoImpl implements BookingDao{
 	public List<BookingDto> getList(BookingDto dto) {
 		return session.selectList("booking.getList",dto);
 	}
+//	@Override
+//	public String concertdate(int num) {
+//		return session.selectOne("shop.concertdate", num);
+//		
+//	}
 
 }

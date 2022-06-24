@@ -27,6 +27,7 @@ public interface ShopDao {
 	public void update(ShopDto dto);
 	//상품 삭제하기
 	public void delete(int num);
+
 }
 
 

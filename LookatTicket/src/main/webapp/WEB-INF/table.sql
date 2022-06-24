@@ -78,3 +78,8 @@ CREATE TABLE notice(
 	viewCount NUMBER, -- 조회수
 	regdate DATE -- 글 작성일
 );
+
+
+
+alter table booking add concertdate DATE;
+alter table booking add name VARCHAR2(200);

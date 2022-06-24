@@ -9,11 +9,12 @@ public class BookingDto {
 	private int price;
 	private int seatNum;
 	private String location;
+	private String concertdate;
 	
 	public BookingDto() {}
 
 	public BookingDto(int num, String name, int shopNum, String id, String dday, int price, int seatNum,
-			String location) {
+			String location, String concertdate) {
 		super();
 		this.num = num;
 		this.name = name;
@@ -23,6 +24,7 @@ public class BookingDto {
 		this.price = price;
 		this.seatNum = seatNum;
 		this.location = location;
+		this.concertdate = concertdate;
 	}
 
 	public int getNum() {
@@ -89,5 +91,14 @@ public class BookingDto {
 		this.location = location;
 	}
 
+	public String getConcertdate() {
+		return concertdate;
+	}
+
+	public void setConcertdate(String concertdate) {
+		this.concertdate = concertdate;
+	}
+
+	
 	
 }

@@ -2,25 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="booking">
 	<select id="getList" resultType="bookingDto">
-		SELECT num, shopnum, id, dday, price, seatnum, location
+		SELECT num,name, shopnum, id, dday, price, seatnum, location,concertdate
 		FROM booking
 		ORDER by num ASC
 	</select>
  	<select id="getData" parameterType="string" resultType="bookingDto">
- 		SELECT num,shopnum, id, dday, price, seatnum, location
+ 		SELECT num,name,shopnum, id, dday, price, seatnum, location,concertdate
  		FROM booking
  		WHERE id=#{id}
  	</select>
  	  <!-- 정보를 추가 -->
    <insert id="insert" parameterType="bookingDto">
    		INSERT INTO booking
-   		(num,shopnum,id,dday,price,seatnum,location)
-   		VALUES(booking_seq.NEXTVAL,#{shopNum,jdbcType=VARCHAR},#{id,jdbcType=VARCHAR},sysdate,#{price,jdbcType=VARCHAR},#{seatNum,jdbcType=VARCHAR},#{location,jdbcType=VARCHAR})
+   		(num,name,shopnum,id,dday,price,seatnum,location,concertdate)
+   		VALUES(booking_seq.NEXTVAL,#{name,jdbcType=VARCHAR},#{shopNum,jdbcType=VARCHAR},#{id,jdbcType=VARCHAR},sysdate,#{price,jdbcType=VARCHAR},#{seatNum,jdbcType=VARCHAR},#{location,jdbcType=VARCHAR},#{concertdate,jdbcType=DATE})
    </insert>
    <!-- 정보를 삭제 -->
    <delete id="delete" parameterType="int">
    		DELETE FROM booking
    		WHERE num=#{num}
    </delete>
+
 </mapper>
 
