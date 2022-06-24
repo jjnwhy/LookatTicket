@@ -24,8 +24,8 @@ public interface ShopService {
 	public void deleteConcert(int num, HttpServletRequest request);
 	//상품 정보
 	public void getData(HttpServletRequest request);
-
-		
+	
+	
 	
 }
 
