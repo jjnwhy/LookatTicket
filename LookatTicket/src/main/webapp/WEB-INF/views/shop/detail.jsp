@@ -70,6 +70,9 @@
 				<th>공연장소</th>
 				<td>${dto.location }</td>
 			</tr>
+			<tr>
+			
+			</tr>
 		</table>
 		<!-- <div>좌석선택(미구현)</div> -->
 		<!-- 좌석 현황 표출 -->

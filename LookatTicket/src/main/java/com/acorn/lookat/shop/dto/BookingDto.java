@@ -2,6 +2,7 @@ package com.acorn.lookat.shop.dto;
 
 public class BookingDto {
 	private int num;
+	private String name;
 	private int shopNum;
 	private String id;
 	private String dday;
@@ -11,9 +12,11 @@ public class BookingDto {
 	
 	public BookingDto() {}
 
-	public BookingDto(int num, int shopNum, String id, String dday, int price, int seatNum, String location) {
+	public BookingDto(int num, String name, int shopNum, String id, String dday, int price, int seatNum,
+			String location) {
 		super();
 		this.num = num;
+		this.name = name;
 		this.shopNum = shopNum;
 		this.id = id;
 		this.dday = dday;
@@ -28,6 +31,14 @@ public class BookingDto {
 
 	public void setNum(int num) {
 		this.num = num;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public int getShopNum() {
@@ -77,6 +88,6 @@ public class BookingDto {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	
+
 	
 }

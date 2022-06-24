@@ -28,6 +28,11 @@ public class QnAController {
 		service.getList(request);
 		return "qna/list";
 	}
+	@RequestMapping("qna/detail")
+	public String detail(HttpServletRequest request) {
+		service.getDetail(request);
+		return "qna/detail";
+	}
 	
 	@RequestMapping("/qna/insertform")
 	public ModelAndView authInsertFrom(HttpServletRequest request) {
@@ -41,7 +46,7 @@ public class QnAController {
 		service.saveContent(dto);
 		return new ModelAndView("qna/insert");
 	}
-	@RequestMapping("/qna/commnet_insert")
+	@RequestMapping("/qna/comment_insert")
 	public ModelAndView authCommentInsert(HttpServletRequest request, @RequestParam int ref_group) {
 		service.saveComment(request);
 		return new ModelAndView("redirect:/qna/detail.do?num="+ref_group);
