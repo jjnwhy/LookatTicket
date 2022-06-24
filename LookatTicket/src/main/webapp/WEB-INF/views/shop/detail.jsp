@@ -8,6 +8,7 @@
 <title>/views/shop/detail.jsp</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script> <!-- jQuery -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
@@ -24,6 +25,9 @@
 	
 	a:hover{
 		color: highlight;
+	}
+	.seattable tr td{
+		border: 1px solid;
 	}
 </style>
 </head>
@@ -70,7 +74,39 @@
 			
 			</tr>
 		</table>
-		<div>좌석선택(미구현)</div>
+		<!-- <div>좌석선택(미구현)</div> -->
+		<!-- 좌석 현황 표출 -->
+		<div class="showSeatArea">
+			<div class="btn-group" data-toggle="buttons" id="F_div">
+				<label class="btn btn-big btn-primary" for="F1" id="F1_lb">
+				<input type="checkbox" autocomplete="off" id="F1" value="F1">F1</label> 
+				<label class="btn btn-big btn-primary" for="F2" id="F2_lb">
+				<input type="checkbox" autocomplete="off" id="F2">F2</label> 
+				<label class="btn btn-big btn-primary" for="F3" id="F3_lb">
+				<input type="checkbox" autocomplete="off" id="F3">F3</label>
+			</div>
+			<br> <br>
+			<div class="btn-group" data-toggle="buttons" id="E_div">
+				<label class="btn btn-big btn-primary" for="E1" id="E1_lb">
+				<input type="checkbox" autocomplete="off" id="E1">E1</label> 
+				<label class="btn btn-big btn-primary" for="E2" id="E2_lb">
+				<input type="checkbox" autocomplete="off" id="E2">E2</label> 
+				<label class="btn btn-big btn-primary" for="E3" id="E3_lb">
+				<input type="checkbox" autocomplete="off" id="E3">E3</label>
+			</div>
+			<br> <br>
+			<div class="btn-group" data-toggle="buttons" id="B_div">
+				<label class="btn btn-big btn-primary" for="B1" id="B1_lb">
+				<input type="checkbox" autocomplete="off" id="B1">B1</label> 
+				<label class="btn btn-big btn-primary" for="B2" id="B2_lb">
+				<input type="checkbox" autocomplete="off" id="B2">B2</label> 
+				<label class="btn btn-big btn-primary" for="B3" id="B3_lb">
+				<input type="checkbox" autocomplete="off" id="B3">B3</label>
+			</div>
+			<br> <br>
+		</div>
+
+
 		<!-- 좌석 목록을 가져오고  선택하면 선택한 값을 저장하고 선택한 좌석(seatnum)에 저장 -->
 		<a href="booking.do?num=${dto.num }">예매하기</a>
 				
