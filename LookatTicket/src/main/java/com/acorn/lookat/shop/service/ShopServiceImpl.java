@@ -89,12 +89,14 @@ public class ShopServiceImpl implements ShopService{
 		String realPath=request.getServletContext().getRealPath("/upload");
 		String filePath=realPath+File.separator;
 		File upload=new File(filePath);
+
 		if(!upload.exists()) {
 			upload.mkdir();
 		}
 		String saveFileName=System.currentTimeMillis() + orgFileName;
 		try {
 			image.transferTo(new File(filePath + saveFileName));
+			System.out.println();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -102,6 +104,7 @@ public class ShopServiceImpl implements ShopService{
 		dto.setWriter(id);
 		dto.setImage("/upload/" + saveFileName);
 		shopDao.insert(dto);
+		System.out.println(upload);
 	}
 
 
