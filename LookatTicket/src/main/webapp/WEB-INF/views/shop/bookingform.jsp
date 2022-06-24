@@ -57,6 +57,7 @@
 		</table>
 		<form action="booking.do" method="post">
 			<input type="hidden" name="num" id="num" value="${dto.num }"/>
+			<input type="hidden" name="name" id="name" value="${dto.name }"/>
 			<label for="concert">날짜 선택</label>
 			<input type="date" min=${dto.startdate } max=${dto.enddate } name="concertdate"/>
 

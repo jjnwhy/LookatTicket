@@ -1,5 +1,7 @@
 package com.acorn.lookat.shop.dto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class ShopDto {
 	private int num;//상품번호
 	private String writer;//작성자
@@ -15,11 +17,13 @@ public class ShopDto {
 	private int remainCount;//재고 갯수
 	private String tel;//문의 번호
 	private int seatNum;//좌석번호
+	private MultipartFile imageFile;
 	
 	public ShopDto() {}
 
 	public ShopDto(int num, String writer, int cateNum, String name, String image, int price, String cast, String hours,
-			String location, String startdate, String enddate, int remainCount, String tel, int seatNum) {
+			String location, String startdate, String enddate, int remainCount, String tel, int seatNum,
+			MultipartFile imageFile) {
 		super();
 		this.num = num;
 		this.writer = writer;
@@ -35,6 +39,7 @@ public class ShopDto {
 		this.remainCount = remainCount;
 		this.tel = tel;
 		this.seatNum = seatNum;
+		this.imageFile = imageFile;
 	}
 
 	public int getNum() {
@@ -149,6 +154,13 @@ public class ShopDto {
 		this.seatNum = seatNum;
 	}
 
-	
+	public MultipartFile getImageFile() {
+		return imageFile;
+	}
+
+	public void setImageFile(MultipartFile imageFile) {
+		this.imageFile = imageFile;
+	}
+
 	
 }

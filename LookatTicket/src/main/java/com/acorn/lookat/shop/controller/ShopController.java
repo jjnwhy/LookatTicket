@@ -33,7 +33,7 @@ public class ShopController {
 	public ModelAndView authInsert(ShopDto dto, HttpSession session, HttpServletRequest request) {
 		String id=(String)session.getAttribute("id");
 		dto.setWriter(id);
-		service.saveConcert(dto);
+		service.saveConcert(dto, request);
 		return new ModelAndView("shop/insert");
 	}
 	@RequestMapping("/shop/detail")
@@ -77,12 +77,7 @@ public class ShopController {
 		service.getData(request);
 		return new ModelAndView("shop/bookingform");
 	}
-//	@RequestMapping(value="/shop/booking", method=RequestMethod.POST)
-//	public ModelAndView authBuy(ShopDto dto, HttpSession session, HttpServletRequest request) {
-//		service.buy(dto);
-//		return new ModelAndView("shop/booking");
-//		
-//	}
+
 }
 
 
