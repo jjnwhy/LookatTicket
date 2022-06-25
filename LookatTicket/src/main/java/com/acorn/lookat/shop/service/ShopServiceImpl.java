@@ -45,7 +45,7 @@ public class ShopServiceImpl implements ShopService{
 		int seatNum=shopDao.getSeatNum(num);
 		String location=shopDao.getLocation(num);
 		//3. 상품명
-		//String name=(String)request.getParameter("name");
+		String name=(String)request.getParameter("name");
 		//4. 콘서트 날짜
 		String concertdate=(String)request.getParameter("concertdate");
 		//5. 재고의 갯수를 1 줄인다.
@@ -53,7 +53,7 @@ public class ShopServiceImpl implements ShopService{
 		//6. 주문 테이블(배송) 에 정보를 추가 한다. 
 		BookingDto dto2=new BookingDto();
 		dto2.setNum(num);//상품번호
-		//dto2.setName(name);
+		dto2.setName(name);
 		dto2.setId(id); //누가
 		dto2.setShopNum(num); //어떤 상품을 
 		dto2.setPrice(price);

@@ -27,9 +27,7 @@
 		color: highlight;
 	}
 	
-	#myTable{
-		width: 70%;
-	}
+
 	
 	
 	/* 댓글 프로필 이미지를 작은 원형으로 만든다. */
@@ -118,6 +116,7 @@
 			transform: rotate(360deg);
 		}
 	}
+	
 </style>
 </head>
 <body>
@@ -170,7 +169,7 @@
 	</p> 
 	<div class="container">
 		<div class="container">
-			<table class="table" id="myTable" align="center">
+			<table class="table" id="myTable">
 				<colgroup>
 					<col style="width:20%">
 					<col style="width:40%">
@@ -201,7 +200,7 @@
 			</table>
 		</div>
 		<!-- 댓글 목록 -->
-		<div class="comments" align="center">
+		<div class="comments">
 			<ul>
 				<c:forEach var="tmp" items="${commentList }">
 					<c:choose>
@@ -278,7 +277,7 @@
 					</form>
 				</c:when>
 				<c:otherwise>
-						<textarea disabled>관리자와 작성자만 댓글을 남길 수 있습니다.</textarea>
+						<textarea   disabled>관리자와 작성자만 댓글을 남길 수 있습니다.</textarea>
 				</c:otherwise>
 			</c:choose>
 		</div>
@@ -287,7 +286,7 @@
 <script>
 
 	//클라이언트가 로그인 했는지 여부
-	boolean isLogin=${ not empty id };
+	let isLogin=${ not empty id };
 	document.querySelector(".insert-form")
 		.addEventListener("submit", function(e){
 			//만일 로그인 하지 않았으면 
@@ -490,5 +489,6 @@
 	}
 </script>
 <jsp:include page="/include/footer.jsp"></jsp:include>
+</div>
 </body>
 </html>

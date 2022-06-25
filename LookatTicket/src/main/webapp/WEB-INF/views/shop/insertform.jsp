@@ -32,7 +32,6 @@
 	#insertform{
 		width:50%;
 	}
-	
 </style>
 </head>
 <body>
@@ -57,6 +56,12 @@
 		<div>
 			<label class="control-label" for="cateNum">카테고리 번호</label>
 			<input class="form-control" type="text" name="cateNum" id="cateNum" placeholder="num"/>
+			<select name="cateNum" id="cateNum">
+				<option value="1">1. 콘서트</option>
+				<option value="2">2. 연극</option>
+				<option value="3">3. 뮤지컬</option>
+			</select>
+			<!-- <input type="text" name="cateNum" id="cateNum" placeholder="num"/>  -->
 		</div>
 		<div>
 			<label class="control-label" for="name">상품명</label>
@@ -64,7 +69,7 @@
 		</div>
 		<div>
 			<label class="control-label" for="price">가격</label>
-			<input class="form-control" type="text" name="price" id="price"/>
+			<input class="form-control" type="text" name="price" id="price" placeholder="ex. 100000"/>
 		</div>
 		<div>
 			<label class="control-label" for="cast">출연</label>
@@ -72,7 +77,7 @@
 		</div>
 		<div>
 			<label class="control-label" for="hours">관람 시간</label>
-			<input class="form-control" type="text" name="hours" id="hours"/>
+			<input class="form-control" type="text" name="hours" id="hours" placeholder="ex. 0시간"/>
 		</div>
 		<div>
 			<label class="control-label" for="location">공연 장소</label>
@@ -80,11 +85,12 @@
 		</div>
 		<div>
 			<label class="control-label" for="startdate">시작일</label>
-			<input class="form-control" type="text" name="startdate" id="startdate"/>
+			<input class="form-control" type="date" name="startdate" id="startdate" />
 		</div>
 		<div>
+
 			<label class="control-label" for="enddate">종료일</label>
-			<input class="form-control" type="text" name="enddate" id="enddate"/>
+			<input class="form-control" type="date" name="enddate" id="enddate"/>
 		</div>
 		<div>
 			<label class="control-label" for="remainCount">재고 개수</label>

@@ -82,7 +82,7 @@
 			</tr>
 			<tr>
 				<th>가격</th>
-				<td>${dto.price }</td>
+				<td>${dto.price }원</td>
 				<th>출연</th>
 				<td>${dto.cast }</td>
 			</tr>
@@ -98,7 +98,7 @@
 			</tr>
 			<tr>
 				<th>공연 포스터</th>
-				<td colspan="3"><img src="${pageContext.request.contextPath}${dto.image}"/></td>
+				<td colspan="3"><img src="${pageContext.request.contextPath}${dto.image}" height="100%" width="100%"/></td>
 			</tr>
 			<tr>
 				<td colspan="4"><a class="btn btn-primary" href="booking.do?num=${dto.num }" id="bookBtn" onclick="return confirm('${dto.name}을(를) 예매 하시겠습니까?');">예매하기</a>

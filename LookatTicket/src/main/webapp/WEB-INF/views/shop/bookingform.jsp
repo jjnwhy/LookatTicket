@@ -59,8 +59,11 @@
 			<input type="hidden" name="num" id="num" value="${dto.num }"/>
 			<input type="hidden" name="name" id="name" value="${dto.name }"/>
 			<label for="concert">날짜 선택</label>
-			<input type="date" min=${dto.startdate } max=${dto.enddate } name="concertdate"/>
-
+			<input type="date" min="${dto.startdate }" max="${dto.enddate }" name="concertdate"/>
+			
+			<button type="submit">전송</button>
+			
+		</form>
 				<!-- <div>좌석선택(미구현)</div> -->
 		<!-- 좌석 현황 표출 -->
 		<div class="showSeatArea">

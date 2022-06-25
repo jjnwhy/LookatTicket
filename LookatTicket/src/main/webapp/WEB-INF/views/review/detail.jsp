@@ -52,7 +52,7 @@
 			 <li class="breadcrumb-item">
 			 	<a href="${pageContext.request.contextPath}/review/list.do">Review</a>
 			 </li>	
-			 <li class="breadcrumb-item active">${dto.title }</li>
+			 <li class="breadcrumb-item active">리뷰 상세보기</li>
 		 </ol>
 	</nav>
 	<br />

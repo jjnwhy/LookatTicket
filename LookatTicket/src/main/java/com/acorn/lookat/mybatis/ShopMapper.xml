@@ -34,7 +34,7 @@
 	<select id="getData" parameterType="int" resultType="ShopDto">
 		SELECT *
 		FROM
-			(SELECT num,writer,cateNum,name,price,image,cast,hours,location,startdate,enddate,remainCount,tel,seatNum,
+			(SELECT num,writer,cateNum,name,price,image,cast,hours,location,TO_CHAR(startdate,'YYYY-MM-DD') as startdate,TO_CHAR(enddate,'YYYY-MM-DD') as enddate,remainCount,tel,seatNum,
 				LAG(num, 1, 0) OVER (ORDER BY num DESC) AS prevNum,
 				LEAD(num, 1, 0) OVER (ORDER BY num DESC) AS nextNum
 			FROM shop
@@ -43,7 +43,7 @@
 	</select>
 	<insert id="insert" parameterType="shopDto">
 		insert into shop
-		(num,writer,cateNum,name,price,image,cast,hours,location,startdate,enddate,remainCount,tel,seatNum)
+		(num,writer,cateNum,name,price,image,cast,hours,location, startdate, enddate,remainCount,tel,seatNum)
 		values(shop_seq.nextval, #{writer},#{cateNum} ,#{name},
 			#{price}, #{image}, #{cast}, #{hours}, #{location},#{startdate},#{enddate},#{remainCount},#{tel},#{seatNum})
 	</insert>
