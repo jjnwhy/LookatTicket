@@ -170,12 +170,6 @@
 	<div class="container">
 		<div class="container">
 			<table class="table" id="myTable">
-				<colgroup>
-					<col style="width:20%">
-					<col style="width:40%">
-					<col style="width:20%">
-					<col style="width:40%">
-				</colgroup>
 				<tr>
 					<th>글번호</th>
 					<td>${dto.num }</td>

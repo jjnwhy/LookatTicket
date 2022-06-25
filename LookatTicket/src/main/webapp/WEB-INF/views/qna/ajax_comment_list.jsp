@@ -18,6 +18,7 @@
 			</c:if>
 					<dl>
 						<dt>
+							
 							<c:if test="${ empty tmp.profile }">
 								<svg class="profile-image" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
 								  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -27,6 +28,7 @@
 							<c:if test="${not empty tmp.profile }">
 								<img class="profile-image" src="${pageContext.request.contextPath}${tmp.profile }"/>
 							</c:if>
+							
 							<span>${tmp.writer }</span>
 							<c:if test="${tmp.num ne tmp.comment_group }">
 								@<i>${tmp.target_id }</i>
