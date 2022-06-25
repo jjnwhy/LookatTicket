@@ -32,6 +32,10 @@
 	a:hover{
 		color: highlight;
 	}
+	.card-img-top{
+		height:15rem;
+		object-fit:fill;
+	}
 </style>
 </head>
 <body>
@@ -49,28 +53,41 @@
 		<br />
 		<h2>CONCERT</h2>
 		<h1>상품 목록 입니다.</h1>
-		<c:choose>
-			<c:when test="${empty id }">
-				<p>
-					<a href="${pageContext.request.contextPath }/users/loginform.do">로그인</a>
-					<a href="${pageContext.request.contextPath }/users/signup_form.do">회원가입</a>
-				</p>
-			</c:when>
-			<c:otherwise>
-				<p>
-					<strong>${id }</strong> 님 로그인중...
-				</p>
-			</c:otherwise>
-		</c:choose>
 		<c:if test="${id eq 'admin' }">
 			<a href="${pageContext.request.contextPath }/shop/insertform.do">상품추가</a>
 		</c:if>
 		<div class="row">
 			<c:forEach var="tmp" items="${list }">
+				<div class="col mb-2">
+					<div class="card" style="width: 18rem;" onclick="location.href='detail.do?num=${tmp.num }'">
+					<img src="${pageContext.request.contextPath }/${tmp.image }" class="card-img-top"/>
+						<div class="card-body">
+							<p class="card-text">
+								<h6>&lt;${tmp.name }&gt;</h6>
+								<strong>${tmp.startdate}~${tmp.enddate}</strong><br />
+								출연 : <strong> ${tmp.cast} </strong> <br /> 가격 : <strong>${tmp.price }</strong>원
+								<br /> 장소 : <strong>${tmp.location}</strong> <br /> 티켓수량 : <strong>${tmp.remainCount }</strong>장
+							</p>
+							<c:if test="${tmp.remainCount ne 0 }">
+								<button class="btn btn-primary btn-sm" onclick="location.href='detail.do?num=${tmp.num }'">자세히보기</button>
+							</c:if>
+							<c:if test="${id eq 'admin' }">
+								<button class="btn btn-primary btn-sm" onclick="location.href='delete.do?num=${tmp.num }'">상품삭제</button>
+							</c:if>
+						</div>
+					</div>
+				</div>
+			</c:forEach>
+		</div>
+		<!-- 
+		<div class="row">
+			<c:forEach var="tmp" items="${list }">
 				<div class="col">
 					<div class="card">
 						<div class="card-body">
-							<h3 class="card-title">${tmp.name }</h3>
+							<h3 class="card-title">
+							<img src="${pageContext.request.contextPath }/${tmp.image }"/><br />
+							${tmp.name }</h3>
 							<h4>${tmp.startdate}~${tmp.enddate}</h4>
 							<p class="card-text">
 								출연 : <strong> ${tmp.cast} </strong> <br /> 가격 : <strong>${tmp.price }</strong>원
@@ -87,6 +104,7 @@
 				</div>
 			</c:forEach>
 		</div>
+		 -->
 	</div>
 	<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>

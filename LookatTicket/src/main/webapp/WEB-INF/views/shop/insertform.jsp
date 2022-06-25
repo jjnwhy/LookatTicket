@@ -22,7 +22,12 @@
 	<form action="insert.do" method="post" id="insertform" enctype="multipart/form-data">
 		<div>
 			<label for="cateNum">카테고리 번호</label>
-			<input type="text" name="cateNum" id="cateNum" placeholder="num"/>
+			<select name="cateNum" id="cateNum">
+				<option value="1">1. 콘서트</option>
+				<option value="2">2. 연극</option>
+				<option value="3">3. 뮤지컬</option>
+			</select>
+			<!-- <input type="text" name="cateNum" id="cateNum" placeholder="num"/>  -->
 		</div>
 		<div>
 			<label for="name">상품명</label>
