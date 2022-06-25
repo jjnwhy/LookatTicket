@@ -112,6 +112,7 @@ public class UsersController {
 		//서비스를 이용해서 개인정보를 수정하고
 		service.updateUser(dto, session);
 		mView.setViewName("redirect:/users/mypage.do");
+	
 		return mView;
 	}
 	
