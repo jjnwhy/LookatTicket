@@ -80,7 +80,7 @@
 				<input class="form-control" type="text" id="regdate" name="regdate" value="${dto.regdate }" disabled/>
 			</div>
 			<div>
-			<button class="btn btn-outline-primary" type="submit">수정완료</button>
+			<button class="btn btn-primary" type="submit">수정완료</button>
 			<button class="btn btn-outline-secondary" type="reset">되돌리기</button>
 			<a class="btn btn-outline-secondary btn-sm" href="${pageContext.request.contextPath }/users/delete.do" onclick="return confirm('정말 탈퇴하시겠습니까?😭');">회원탈퇴</a>
 			</div>

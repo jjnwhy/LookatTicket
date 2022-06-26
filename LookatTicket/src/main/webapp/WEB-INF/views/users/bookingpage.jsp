@@ -47,6 +47,7 @@
 				 <li class="breadcrumb-item active">예매내역</li>
 			 </ol>
 		</nav>
+		<br />
 			<h2>${id }님의 예매내역</h2>
 			<br />
 			<c:choose>
@@ -55,16 +56,15 @@
 							<thead>
 								<tr>
 									<th>예매 번호</th>
+									<th>예약 일시</th>
 									<th>상품 이름</th>
 									<th>상품 번호</th>
-									<th>예약자id</th>
 									<th>공연명</th>
-									<th>예약 일자</th>
 									<th>가격</th>
 									<th>선택 좌석</th>
 									<th>장소</th>
+									<th>공연 날짜</th>
 									<th></th>
-									<th>콘서트 날짜</th>
 
 								</tr>
 							</thead>
@@ -73,16 +73,15 @@
 						<c:if test="${tmp.id eq sessionScope.id }">
 							<tr>
 								<td>${tmp.num }</td>
+								<td>${tmp.dday }</td>
 								<td>${tmp.name }</td>
 								<td>${tmp.shopNum}</td>
-								<td>${tmp.id }</td>
 								<td>${tmp.name }</td>
-								<td>${tmp.dday }	</td>
 								<td>${tmp.price}</td>
 								<td>${tmp.seatNum}</td>
 								<td>${tmp.location}</td>
 								<td>${tmp.concertdate }</td>
-								<td><a href="${pageContext.request.contextPath}/booking/delete.do?num=${tmp.num }" onclick="return confirm('${tmp.name}예매를 취소하시겠습니까?');">예매 취소</a></td>
+								<td><a href="${pageContext.request.contextPath}/booking/delete.do?num=${tmp.num }" onclick="return confirm('${tmp.name} 예매를 취소하시겠습니까?');">예매 취소</a></td>
 						</c:if>
 					 	</c:forEach>
 							</tbody>

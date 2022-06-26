@@ -47,22 +47,22 @@
 			 <li class="breadcrumb-item">
 			 	<a href="${pageContext.request.contextPath}/notice/detail.do">${dto.title }</a>
 			 </li>		
-			 <li class="breadcrumb-item active">공지 작성</li>
+			 <li class="breadcrumb-item active">공지 수정</li>
 		 </ol>
 	</nav>
 	<br />
 	<h2>공지 수정</h2>
 	<form action="update.do" method="post" id="updateForm">
-		<div class="mb-3">
+		<input type="hidden" name="num" value="${dto.num }" />
+		<div class="mb-1">
 			<label class="form-label" for="title"></label>
 			<input class="form-control" type="text" name="title" id="title" value="${dto.title }"/>
 		</div>
-		<div class="mb-3">
+		<div class="mb-1">
 			<label class="form-label" for="content"></label>
 			<textarea class="form-control" name="content" id="content" cols="30" rows="10">${dto.content }</textarea>
 		</div>
 		<button class="btn btn-primary" type="submit" onclick="submitContents(this);">저장</button>
-		<button class="btn btn-outline-secondary" type="reset">취소</button>
 	</form>
 	</div>
 	<!-- SmartEditor 에서 필요한 javascript 로딩  -->

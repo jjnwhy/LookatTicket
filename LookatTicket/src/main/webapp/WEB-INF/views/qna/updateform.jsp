@@ -20,12 +20,15 @@
 	    color: #000000;
 	    text-decoration: none;
 	}
+	#myForm{
+		width:70%
+	}
 </style>
 </head>
 <body>
 <div class="container">
 	<jsp:include page="/include/navbar.jsp">
-			<jsp:param value="review" name="thisPage" />
+			<jsp:param value="qna" name="thisPage" />
 	</jsp:include>
 	<div class="container">
 		<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);">
@@ -37,23 +40,23 @@
 				 <li class="breadcrumb-item active">문의글 수정</li>
 			 </ol>
 		</nav>
-	<h1>글 수정 폼 입니다.</h1>
-	<form action="update.do" method="post">
+		<br />
+	<h2>문의글 수정</h2>
+	<form action="update.do" method="post" id=myForm>
 		<input type="hidden" name="num" value="${dto.num }" />
 		<div>
-			<label for="writer">작성자</label>
-			<input type="text" id="writer" value="${dto.writer }" disabled/>
+			<label class="control-label" for="writer">작성자</label>
+			<input class="form-control" type="text" id="writer" value="${dto.writer }" disabled/>
 		</div>
 		<div>
-			<label for="title">제목</label>
-			<input type="text" name="title" id="title" value="${dto.title }"/>
+			<label class="control-label" for="title"></label>
+			<input class="form-control" type="text" name="title" id="title" value="${dto.title }"/>
 		</div>
 		<div>
-			<label for="content">내용</label>
-			<textarea name="content" id="content">${dto.content }</textarea>
+			<label class="control-label" for="content"></label>
+			<textarea class="form-control" name="content" id="content">${dto.content }</textarea>
 		</div>
-		<button type="submit" onclick="submitContents(this);">수정확인</button>
-		<button type="reset">취소</button>
+		<button class="btn btn-primary" type="submit" onclick="submitContents(this);">저장</button>
 	</form>
 </div>
 <!-- SmartEditor 에서 필요한 javascript 로딩  -->

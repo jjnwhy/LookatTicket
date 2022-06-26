@@ -17,7 +17,7 @@
 </head>
 <body>
 	<script>
-		alert("${id}님의 글을 수정 했습니다.")
+		alert("${id}님의 글을 수정했습니다.")
 		location.href="${pageContext.request.contextPath}/review/detail.do?num=${param.num}";	
 	</script>
 </body>

@@ -49,11 +49,11 @@
 	<br />
 	<h1>문의글 작성</h1>
 	<form action="insert.do" method="post" id="insertForm">
-		<div class="mb-3">
+		<div class="mb-1">
 			<label class="form-label" for="title"></label>
 			<input class="form-control" type="text" name="title" id="title" placeholder="제목을 입력하세요"/>
 		</div>
-		<div class="mb-3">
+		<div class="mb-1">
 			<label class="form-label" for="content"></label>
 			<textarea class="form-control"  name="content" id="content"></textarea>
 		</div>

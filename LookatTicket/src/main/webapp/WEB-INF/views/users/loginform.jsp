@@ -70,7 +70,7 @@ body {
     <h1 class="h3 mb-3 fw-normal">로그인</h1>
 
     <div class="form-floating">
-      <input type="text" class="form-control" name="id" id="id" placeholder="id">
+      <input type="text" class="form-control" name="id" id="id" placeholder="id" autofocus>
       <label for="id">아이디</label>
     </div>
     <div class="form-floating">

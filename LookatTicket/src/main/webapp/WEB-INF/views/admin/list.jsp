@@ -28,6 +28,13 @@
 	a:hover{
 		color: highlight;
 	}
+	
+	#listBtn{
+		position:absolute;
+		left:50%;
+		transform: translateX(-50%);
+	}
+
 </style>
 </head>
 <body>
@@ -44,12 +51,13 @@
 				 </ol>
 		</nav>
 		<br />
-		<h1>관리자 페이지</h1>
-		<div class="btn-group" role="group" aria-label="Basic outlined example">
+		<h2>관리자 페이지</h2>
+		<div id=listBtn class="btn-group" role="group" aria-label="Basic outlined example">
 			<button type="button" class="btn btn-outline-primary" id="usersBtn">회원 관리</button>
 			<button type="button" class="btn btn-outline-primary" id="shopBtn">상품 관리</button>
 			
 		</div>
+		<br />
 		<script src="${pageContext.request.contextPath}/resources/js/gura_util.js"></script>
 		<script type="text/javascript">
 			document.querySelector("#usersBtn").addEventListener("click",function(){
@@ -74,7 +82,8 @@
 			});
 		</script>
 		<div id="m1">
-		
+		<br />
+	
 		<table class="table">
 			<caption align="top">회원 관리</caption>
 			<thead>

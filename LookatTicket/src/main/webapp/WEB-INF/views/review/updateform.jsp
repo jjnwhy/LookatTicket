@@ -45,19 +45,20 @@
 				 <li class="breadcrumb-item active">리뷰 수정</li>
 			 </ol>
 		</nav>
-	<h2>리뷰 수정</h2>
-	<form action="update.do" method="post" id="myForm">
-		<div class="mb-1">
-			<label class="col-form-label" for="title"></label>
-			<input class="form-control" type="text" name="title" id="title" value="${dto.title }"/>
-		</div>
-		<div class="mb-1">
-			<label class="col-form-label" for="content"></label>
-			<textarea class="form-control" name="content" id="content">${dto.content }</textarea>
-		</div>
-		<button class="btn btn-outline-primary" type="submit" onclick="submitContents(this);">확인</button>
-		<button class="btn btn-outline-secondary" type="reset">취소</button>
-	</form>
+		<br />
+		<h2>리뷰 수정</h2>
+		<form action="update.do" method="post" id="myForm">
+			<input type="hidden" name="num" value="${dto.num }" />
+			<div class="mb-1">
+				<label class="col-form-label" for="title"></label>
+				<input class="form-control" type="text" name="title" id="title" value="${dto.title }"/>
+			</div>
+			<div class="mb-1">
+				<label class="col-form-label" for="content"></label>
+				<textarea class="form-control" name="content" id="content">${dto.content }</textarea>
+			</div>	
+			<button class="btn btn-primary" type="submit" onclick="submitContents(this);">저장</button>
+		</form>
 </div>
 </div>
 <script src="${pageContext.request.contextPath }/SmartEditor/js/HuskyEZCreator.js"></script>
