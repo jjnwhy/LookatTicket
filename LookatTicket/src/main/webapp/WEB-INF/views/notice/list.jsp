@@ -67,7 +67,8 @@
 				<thead>
 					<tr>
 						<th>번호</th>
-						<th width="50%">제목</th>
+						<th>작성자</th>
+						<th width="40%">제목</th>
 						<th>조회수</th>
 						<th>등록일</th>
 						<c:if test="${id eq 'admin' }">
@@ -79,6 +80,7 @@
 					<c:forEach var="tmp" items="${list }">
 						<tr>
 							<td>${tmp.num }</td>
+							<td>${tmp.writer }</td>
 							<td>
 								<a href="detail.do?num=${tmp.num }&keyword=${encodedK }&condition=${condition}">${tmp.title }</a>
 							</td>

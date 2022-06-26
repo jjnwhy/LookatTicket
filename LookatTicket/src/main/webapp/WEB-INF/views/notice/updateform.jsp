@@ -102,34 +102,24 @@
 		var sHTML = oEditors.getById["content"].getIR();
 		alert(sHTML);
 	}
-
+		
+	function submitContents(elClickedObj) {
+		oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
+		
+		// 에디터의 내용에 대한 값 검증은 이곳에서 document.getElementById("content").value를 이용해서 처리하면 됩니다.
+		
+		try {
+			elClickedObj.form.submit();
+		} catch(e) {}
+	}
 	
 	function setDefaultFont() {
 		var sDefaultFont = '궁서';
 		var nFontSize = 24;
 		oEditors.getById["content"].setDefaultFont(sDefaultFont, nFontSize);
 	}
-	
-	//폼에 submit 이벤트가 일어났을때 실행할 함수 등록
-	document.querySelector("#insertForm")
-		.addEventListener("submit", function(e){
-			//에디터에 입력한 내용이 textarea 의 value 값이 될수 있도록 변환한다. 
-			oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);
-			//textarea 이외에 입력한 내용을 여기서 검증하고 
-			const title=document.querySelector("#title").value;
-			
-			//만일 폼 제출을 막고 싶으면  
-			//e.preventDefault();
-			//을 수행하게 해서 폼 제출을 막아준다.
-			if(title.length < 5){
-				alert("제목을 5글자 이상 입력하세요!");
-				e.preventDefault();
-			}
-			
-		});
 </script>
-
-	<jsp:include page="/include/footer.jsp"></jsp:include>
+<jsp:include page="/include/footer.jsp"></jsp:include>
 
 </body>
 </html>
