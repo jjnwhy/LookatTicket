@@ -27,7 +27,18 @@
 		color: highlight;
 	}
 	
-
+	#wrapper{
+		height:100%;
+		min-height:100%;
+		padding-bottom:100px;
+	}
+	
+	footer{
+		height: 100px;
+		position: relative;
+		transform: translateY(-100%);
+	}
+	
 	
 	
 	/* 댓글 프로필 이미지를 작은 원형으로 만든다. */
@@ -45,33 +56,40 @@
 	}
 	.comments dt{
 		margin-top: 5px;
+		text-align:left;
 	}
 	.comments dd{
 		margin-left: 50px;
+		text-align:left;
 	}
 	.comment-form textarea, .comment-form button{
-		float: left;
-		width:70%
+		float: center;
+		vertical-align: middle;
+		align:middle;
 	}
 	.comments li{
 		clear: left;
-		width:70%
+		width:90%;
+		align:center;
+		
 	}
 	.comments ul li{
 		border-top: 1px solid #888;
-		width:70%
+		
 	}
 	.comment-form textarea{
-		width: 60%;
-		height: 60px;
+		width: 80%;
+		height: 50px;
+		border-radius: 4px;
 	}
 	.comment-form button{
 		width: 10%;
-		height: 60px;
+		height: 50px;
 	}
 	/* 댓글에 댓글을 다는 폼과 수정폼은 일단 숨긴다. */
 	.comments .comment-form{
 		display: none;
+		
 	}
 	/* .reply_icon 을 li 요소를 기준으로 배치 하기 */
 	.comments li{
@@ -87,7 +105,7 @@
 	  display: block;
 	  padding: 9.5px;
 	  margin: 0 0 10px;
-	  font-size: 13px;
+	  font-size: 15px;
 	  line-height: 1.42857143;
 	  color: #333333;
 	  word-break: break-all;
@@ -117,6 +135,9 @@
 		}
 	}
 	
+	#myTable{
+		width:90%;
+	}
 </style>
 </head>
 <body>
@@ -167,9 +188,15 @@
 			</p>
 		</c:if>
 	</p> 
-	<div class="container">
+	<div class="container" id="wrapper" align="center">
 		<div class="container">
 			<table class="table" id="myTable">
+				<colgroup>
+					<col style="width:10%">
+					<col style="width:30%">
+					<col style="width:10%">
+					<col style="width:30%">
+				</colgroup>
 				<tr>
 					<th>글번호</th>
 					<td>${dto.num }</td>
@@ -266,12 +293,14 @@
 						<input type="hidden" name="ref_group" value="${dto.num }"/>
 						<!-- 원글의 작성자가 댓글의 대상자가 된다. -->
 						<input type="hidden" name="target_id" value="${dto.writer }"/>
+						<div class="container">
 						<textarea name="content"></textarea>
-						<button type="submit">등록</button>
+						<button class="btn btn-primary" type="submit">등록</button>
+						</div>
 					</form>
 				</c:when>
 				<c:otherwise>
-						<textarea   disabled>관리자와 작성자만 댓글을 남길 수 있습니다.</textarea>
+						<textarea disabled>관리자와 작성자만 댓글을 남길 수 있습니다.</textarea>
 				</c:otherwise>
 			</c:choose>
 		</div>

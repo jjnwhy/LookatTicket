@@ -55,12 +55,13 @@
 	<form action="insert.do" method="post" id="insertform" enctype="multipart/form-data">
 		<div>
 			<label class="control-label" for="cateNum">카테고리 번호</label>
-			<input class="form-control" type="text" name="cateNum" id="cateNum" placeholder="num"/>
 			<select name="cateNum" id="cateNum">
 				<option value="1">1. 콘서트</option>
 				<option value="2">2. 연극</option>
 				<option value="3">3. 뮤지컬</option>
 			</select>
+			<input class="form-control" type="text" name="cateNum" id="cateNum" value=""/>
+			
 			<!-- <input type="text" name="cateNum" id="cateNum" placeholder="num"/>  -->
 		</div>
 		<div>
@@ -116,5 +117,8 @@
 	</form>
 	</div>
 	<jsp:include page="/include/footer.jsp"></jsp:include>
+<script>
+$('input[name=cateNum]').attr('value',"(#option:selected).val()");
+</script>
 </body>
 </html>
