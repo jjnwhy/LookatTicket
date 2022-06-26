@@ -29,7 +29,9 @@
 	a:hover{
 		color: highlight;
 	}	
-  
+  	#regdateDiv{
+  		display:none;
+  	}
 </style>
 </head>
 <body>
@@ -72,7 +74,7 @@
 				<div class="col-md-3">
 					<label class="control-label" for="addrNum">우편번호</label>
 					<input class="form-control" type="text" name="addrNum" id="addrNum" maxlength='5'/>
-					<div class="invalid-feedback">우편번호 형식에 맞게 입력하세요(숫자5자리)</div>
+					<div class="invalid-feedback">숫자5자리</div>
 				</div>	
 				<div class="col-md-9">
 					<label class="control-label" for="addr">주소</label>	
@@ -93,12 +95,12 @@
 				   <input class="form-control" type="text" name="email" id="email"/>
 				   <small class="form-text text-muted">이메일 형식에 맞게 입력하세요</small>
 				</div>
-				<div class="col-12">
+				<div class="col-12" id="regdateDiv">
 				   <label class="control-label" for="regdate" ></label>
 				   <input class="form-control" type="hidden" name="regdate" id="regdate" />
 				</div>
 				<div class="col-12">
-				<button class="btn btn-outline-primary" type="submit">가입</button>
+				<button class="btn btn-primary" type="submit">가입</button>
 				<button class="btn btn-outline-secondary" type="button" onclick="location.href='${pageContext.request.contextPath}/'">취소</button>
 				</div>
 			</form>
