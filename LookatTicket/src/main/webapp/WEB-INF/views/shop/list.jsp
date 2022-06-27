@@ -105,7 +105,6 @@
 							가격 : <strong>${tmp.price }</strong>원<br /> 
 							장소 : ${tmp.location} <br /> 
 							티켓수량 : <strong>${tmp.remainCount }</strong>장
-=======
 							<h3 class="card-title">
 							<img src="${pageContext.request.contextPath }/${tmp.image }"/><br />
 							${tmp.name }</h3>
@@ -113,7 +112,6 @@
 							<p class="card-text">
 								출연 : <strong> ${tmp.cast} </strong> <br /> 가격 : <strong>${tmp.price }</strong>원
 								<br /> 장소 : ${tmp.location} <br /> 티켓수량 : <strong>${tmp.remainCount }</strong>장
->>>>>>> branch 'master' of https://github.com/jjnwhy/LookatTicket.git
 							</p>
 							<a href="detail.do?num=${tmp.num }" class="card-link">상세보기</a>
 							<c:if test="${tmp.remainCount ne 0 }">
