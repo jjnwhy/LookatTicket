@@ -69,6 +69,7 @@
 				<c:if test="${id eq 'admin' }">
 				<th>삭제</th>
 				</c:if>
+				
 			</tr>
 		</thead>
 		<tbody>

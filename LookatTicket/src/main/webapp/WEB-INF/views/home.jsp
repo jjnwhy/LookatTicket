@@ -42,7 +42,6 @@
   		<div class="carousel-item active">
 			<img src="${pageContext.request.contextPath }/images/welcome_carousel.bmp" class="d-block w-100">
 		</div>
-<<<<<<< HEAD
 	<!-- 
 		<div class="carousel-item">
 			<img src="${pageContext.request.contextPath }/${list[15].image}" class="d-block w-100" onclick="javascript:location.href='${pageContext.request.contextPath }/shop/detail.do?num=${list[15].num}'" id="postImg">
@@ -54,7 +53,7 @@
  	-->
  	
 
-		<c:forEach var="tmp" items="${list }" begin="9" end="11">
+		<c:forEach var="tmp" items="${list }" begin="1" end="110">
 
 			<div class="carousel-item">
 				<img src="${pageContext.request.contextPath }/${tmp.image}" class="d-block w-100" onclick="javascript:location.href='${pageContext.request.contextPath }/shop/detail.do?num=${tmp.num}'">
