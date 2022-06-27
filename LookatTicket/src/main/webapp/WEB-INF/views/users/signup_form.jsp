@@ -192,7 +192,7 @@
 		//1. 입력한 이메일을 읽어와서
 		const inputEmail=this.value;
 		//2. 이메일 검증할 정규 표현식 객체를 만들어서
-		const reg_email=/@/;
+		const reg_email=/^([\w\.\_\-])*[a-zA-Z0-9]+([\w\.\_\-])*([a-zA-Z0-9])+([\w\.\_\-])+@([a-zA-Z0-9]+\.)+[a-zA-Z0-9]{2,8}$/;
 		//3. 정규표현식 매칭 여부에 따라 분기하기
 		if(reg_email.test(inputEmail)){//만일 매칭된다면
 			isEmailValid = true;
@@ -211,7 +211,7 @@
 		//1.입력한 우편번호 읽어오기
 		const inputAddrNum=this.value;
 		//2.우편번호를 검증할 정규표현식 객체를 만들기
-		const reg_addrNum=/[0-9]/g;
+		const reg_addrNum=/^[0-9]{5}$/g;
 		//3.정규표현식 매칭 여부에 따라 분기하기
 		if(reg_addrNum.test(inputAddrNum)){
 			isAddrNumValid = true;
