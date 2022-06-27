@@ -61,7 +61,6 @@
 		<thead>
 			<tr>
 				<th>번호</th>
-				<th>상품번호</th>
 				<th>제목</th>
 				<th>작성자</th>
 				<th>조회수</th>
@@ -76,7 +75,6 @@
 		<c:forEach var="tmp" items="${list }">
 			<tr>
 				<td>${tmp.num }</td>
-				<td>shopNum</td>
 				<td>
 					<a href="detail.do?num=${tmp.num }&keyword=${encodedK }&condition=${condition}">${tmp.title }</a>
 				</td>

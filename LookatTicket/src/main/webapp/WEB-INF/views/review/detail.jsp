@@ -121,8 +121,6 @@
 		<tr>
 			<th>글번호</th>
 			<td>${dto.num }</td>
-			<th>상품 번호</th>
-			<td>shopNum</td>
 		</tr>
 		<tr>
 			<th>작성자</th>
