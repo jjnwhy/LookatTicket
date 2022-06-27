@@ -68,7 +68,7 @@
 			</tr>
 			<tr>
 				<th>가격</th>
-				<td>${dto.price }</td>
+				<td>${dto.price }원</td>
 			</tr>
 			<tr>
 				<th>출연</th>
