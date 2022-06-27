@@ -107,7 +107,7 @@
       </div>
       <div>
          <label for="imageFile">이미지</label>
-         <input class="form-control" type="file" name="imageFile" id="imageFile"
+         <input class="form-control mb-2" type="file" name="imageFile" id="imageFile"
             accept=".jpg, .jpeg, .png, .JPG, .JPEG"/>
       </div>
       <br />

@@ -16,7 +16,7 @@
 	*{
 		font-family: 'Nanum Gothic', sans-serif;
 	}
- 
+
 </style>
 </head>
 <body>
@@ -43,7 +43,7 @@
 			<img src="${pageContext.request.contextPath }/images/welcome_carousel.bmp" class="d-block w-100">
 		</div>
 		<div class="carousel-item">
-			<img src="${pageContext.request.contextPath }/${list[15].image}" class="d-block w-100" onclick="javascript:location.href='${pageContext.request.contextPath }/shop/detail.do?num=${list[15].num}'">
+			<img src="${pageContext.request.contextPath }/${list[15].image}" class="d-block w-100" onclick="javascript:location.href='${pageContext.request.contextPath }/shop/detail.do?num=${list[15].num}'" id="postImg">
 			<br />
 			<div class="carousel-caption d-none d-md-block">
 				<h5 style="color:black">${list[15].name }</h5>
