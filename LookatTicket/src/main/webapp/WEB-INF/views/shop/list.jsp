@@ -44,6 +44,8 @@
 		object-fit:fill;
 	}
 
+	
+
 </style>
 </head>
 <body>
@@ -72,7 +74,7 @@
 		<div class="row" style="float:center;">
 			<c:forEach var="tmp" items="${list }">
 				<div class="col mb-2">
-					<div class="card" style="width: 18rem;">
+					<div class="card" style="width: 18rem; height:30rem;">
 					<img src="${pageContext.request.contextPath }/${tmp.image }" class="card-img-top" onclick="location.href='detail.do?num=${tmp.num }'"/>
 						<div class="card-body">
 							<p class="card-text">
@@ -85,7 +87,7 @@
 								<button class="btn btn-primary btn-sm" onclick="location.href='detail.do?num=${tmp.num }'">자세히보기</button>
 							</c:if>							
 							<c:if test="${id eq 'admin' }">
-								<button class="btn btn-primary btn-sm" onclick="location.href='delete.do?num=${tmp.num }'">상품삭제</button>
+								<button class="btn btn-primary btn-sm" onclick="location.href='delete.do?num=${tmp.num }'">상품삭제</button>					
 							</c:if>	
 						</div>
 					</div>
