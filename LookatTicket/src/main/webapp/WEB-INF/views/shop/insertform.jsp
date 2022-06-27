@@ -98,10 +98,6 @@
          <input class="form-control" type="text" name="remainCount" id="remainCount"/>
       </div>
       <div>
-         <label class="control-label" for="tel">문의번호</label>
-         <input class="form-control" type="text" name="tel" id="tel"/>
-      </div>
-      <div>
          <label class="control-label" for="seatNum">좌석 번호</label>
          <input class="form-control" type="text" name="seatNum" id="seatNum"/>
       </div>
