@@ -24,9 +24,18 @@
 		text-align: center;
 	}
 	
-	a:link, a:visited, a:active
-	{
-	    color: #000000;
+	.breadcrumb-item > a:link, a:visited, a:active{
+		color: #000000;
+	    text-decoration: none;
+	}
+	
+	.container > a:link, a:visited, a:active{
+		color: #000000;
+	    text-decoration: none;
+	}
+	
+	td > a {
+		color: #000000;
 	    text-decoration: none;
 	}
 	

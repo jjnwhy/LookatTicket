@@ -22,9 +22,8 @@
 	#insertForm{
 				width:70%;
 	}
-	a:link, a:visited, a:active
-	{
-	    color: #000000;
+	.breadcrumb-item > a:link, a:visited, a:active{
+		color: #000000;
 	    text-decoration: none;
 	}
 	

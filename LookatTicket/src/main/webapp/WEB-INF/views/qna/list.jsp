@@ -15,9 +15,14 @@
 	*{
 		font-family: 'Nanum Gothic', sans-serif;
 	}
-	a:link, a:visited, a:active
-	{
-	    color: #000000;
+
+	.breadcrumb-item > a:link, a:visited, a:active{
+		color: #000000;
+	    text-decoration: none;
+	}
+	
+	.container > a:link, a:visited, a:active{
+		color: #000000;
 	    text-decoration: none;
 	}
 	
@@ -51,6 +56,16 @@
 	
 	th, td{
 		text-align:center;
+	}
+	
+	td > a:link, a:visited, a:active{
+		color: #000000;
+	    text-decoration: none;
+	}
+	
+	.container > a:link, a:visited, a:active{
+		color: #000000;
+	    text-decoration: none;
 	}
 	
 	#write{

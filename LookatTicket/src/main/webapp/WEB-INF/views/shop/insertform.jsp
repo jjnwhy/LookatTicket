@@ -19,11 +19,10 @@
       font-family: 'Nanum Gothic', sans-serif;
    }
    
-   a:link, a:visited, a:active
-   {
-       color: #000000;
-       text-decoration: none;
-   }
+	.breadcrumb-item > a:link, a:visited, a:active{
+		color: #000000;
+	    text-decoration: none;
+	}
    
    a:hover{
       color: highlight;

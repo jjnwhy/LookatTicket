@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ 	<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <%
@@ -6,10 +6,10 @@
 	String thisPage = request.getParameter("thisPage"); // "home"|"shop"|"review"|"qna"|"notice"|"mypage"
 %>
 <style>
-.dropdown-menu a.active{
-	background-color:black;
-	color: white;
-}
+	.dropdown-menu a.active{
+		background-color:black;
+		color: white;
+	}
 
 	.navbar-brand{
 		transition: transform 0.2s ease-out;
