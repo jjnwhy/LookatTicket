@@ -98,6 +98,7 @@
 				</span>	
 			</div>
 		</form>
+
 		<script>
 		document.querySelector("#myForm").addEventListener("submit",function(e){
 			let dateControl = document.querySelector('input[type="date"]').value;
@@ -110,6 +111,7 @@
 		
 			
 		</script>
+
 		<br />
 				<!-- <div>좌석선택(미구현)</div> -->
 		<!-- 좌석 현황 표출 

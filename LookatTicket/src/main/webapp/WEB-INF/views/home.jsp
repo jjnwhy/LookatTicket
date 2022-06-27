@@ -38,30 +38,30 @@
 
 
 <div id="concertCarousel" class="carousel slide" data-bs-ride="carousel">
-     <div class="carousel-inner">
-        <div class="carousel-item active">
-         <img src="${pageContext.request.contextPath }/images/welcome_carousel.bmp" class="d-block w-100">
-      </div>
-   <!-- 
-      <div class="carousel-item">
-         <img src="${pageContext.request.contextPath }/${list[15].image}" class="d-block w-100" onclick="javascript:location.href='${pageContext.request.contextPath }/shop/detail.do?num=${list[15].num}'" id="postImg">
-         <br />
-         <div class="carousel-caption d-none d-md-block">
-            <h5 style="color:black">${list[15].name }</h5>
-            <p style="color:black"><strong>출연진: ${list[15].cast } <br /> 장소: ${list[15].location }</strong></p>
-            <p style="color:black"><strong>일정: ${list[15].startdate }~${list[15].enddate} </strong></p>
-    -->
-    
 
+  	<div class="carousel-inner">
+  		<div class="carousel-item active">
+			<img src="${pageContext.request.contextPath }/images/welcome_carousel.bmp" class="d-block w-100">
+		</div>
+	<!-- 
+		<div class="carousel-item">
+			<img src="${pageContext.request.contextPath }/${list[15].image}" class="d-block w-100" onclick="javascript:location.href='${pageContext.request.contextPath }/shop/detail.do?num=${list[15].num}'" id="postImg">
+			<br />
+			<div class="carousel-caption d-none d-md-block">
+				<h5 style="color:black">${list[15].name }</h5>
+				<p style="color:black"><strong>출연진: ${list[15].cast } <br /> 장소: ${list[15].location }</strong></p>
+				<p style="color:black"><strong>일정: ${list[15].startdate }~${list[15].enddate} </strong></p>
+ 	-->
+ 	
       <c:forEach var="tmp" items="${list }" begin="1" end="3" >
 		
          <div class="carousel-item">
             <img src="${pageContext.request.contextPath }/${tmp.image}" class="d-block w-100" onclick="javascript:location.href='${pageContext.request.contextPath }/shop/detail.do?num=${tmp.num}'">
             <br />
             <div class="carousel-caption d-none d-md-block">
-               <h5 style="color:black">${tmp.name }</h5>
-               <p style="color:black"><strong>출연진: ${tmp.cast } <br /> 장소: ${tmp.location }</strong></p>
-               <p style="color:black"><strong>일정: ${tmp.startdate }~${tmp.enddate} </strong></p>
+               <h5 style="color:black"><span style="background-color:white;">${tmp.name }</span></h5>
+               <p style="color:black"><span style="background-color:white;"><strong>출연진: ${tmp.cast } <br /> 장소: ${tmp.location }</span></strong></p>
+               <p style="color:black"><span style="background-color:white;"><strong>일정: ${tmp.startdate }~${tmp.enddate} </strong></span></p> 
             </div>
 
          </div>
