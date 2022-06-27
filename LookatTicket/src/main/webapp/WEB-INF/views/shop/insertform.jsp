@@ -23,68 +23,78 @@
 	</jsp:include>
 	
 	<div class="container">
+		<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);">
+			 <ol class="breadcrumb">
+				 <li class="breadcrumb-item">
+				 	<a href="${pageContext.request.contextPath}/home.do">홈</a></li>
+				 <li class="breadcrumb-item active">상품 추가</li>
+			 </ol>
+		</nav>
+		<div class="col-6 col-md-4 offset-md-4">
 	<h1>상품 추가 폼</h1>
-	<form action="insert.do" method="post" id="insertform" enctype="multipart/form-data">
-		<div>
-			<label for="cateNum">카테고리 번호</label>
-			<select name="cateNum" id="cateNum">
+	<form class="row g-3" action="insert.do" method="post" id="insertform" enctype="multipart/form-data">
+		<div class="col-md-3">
+			<label class="control-label" for="cateNum">카테고리</label>
+			<select class="form-control" name="cateNum" id="cateNum">
 				<option value="1">1. 콘서트</option>
 				<option value="2">2. 연극</option>
 				<option value="3">3. 뮤지컬</option>
 			</select>
 			<!-- <input type="text" name="cateNum" id="cateNum" placeholder="num"/>  -->
 		</div>
-		<div>
-			<label for="name">상품명</label>
-			<input type="text" name="name" id="name"/>
+		<div class="col-12">
+			<label class="control-label" for="name">상품명</label>
+			<input class="form-control" type="text" name="name" id="name"/>
 		</div>
-		<div>
-			<label for="price">가격</label>
-			<input type="text" name="price" id="price"/>
+		<div class="col-12">
+			<label class="control-label" for="price">가격</label>
+			<input class="form-control" type="text" name="price" id="price"/>
 		</div>
-		<div>
-			<label for="cast">출연</label>
-			<input type="text" name="cast" id="cast"/>
+		<div class="col-12">
+			<label class="control-label" for="cast">출연</label>
+			<input class="form-control" type="text" name="cast" id="cast"/>
 		</div>
-		<div>
-			<label for="hours">관람 시간</label>
-			<input type="text" name="hours" id="hours" placeholder="ex. 0시간"/>
+		<div class="col-12">
+			<label class="control-label" for="hours">관람 시간</label>
+			<input class="form-control" type="text" name="hours" id="hours" placeholder="ex. 0시간"/>
 		</div>
-		<div>
-			<label for="location">공연 장소</label>
-			<input type="text" name="location" id="location"/>
+		<div class="col-12">
+			<label class="control-label" for="location">공연 장소</label>
+			<input class="form-control" type="text" name="location" id="location"/>
 		</div>
-		<div>
-			<label for="startdate">시작일</label>
-			<input type="date" name="startdate" id="startdate" />
+		<div class="col-12">
+			<label class="control-label" for="startdate">시작일</label>
+			<input class="form-control" type="date" name="startdate" id="startdate" />
 		</div>
-		<div>
-			<label for="enddate">종료일</label>
-			<input type="date" name="enddate" id="enddate"/>
+		<div class="col-12">
+			<label class="control-label" for="enddate">종료일</label>
+			<input class="form-control" type="date" name="enddate" id="enddate"/>
 		</div>
-		<div>
-			<label for="remainCount">재고 개수</label>
-			<input type="text" name="remainCount" id="remainCount"/>
+		<!-- 
+		<div class="col-12">
+			<label class="control-label" for="remainCount">재고 개수</label>
+			<input class="form-control" type="text" name="remainCount" id="remainCount"/>
 		</div>
-		<div>
-			<label for="tel">문의전화번호</label>
-			<input type="text" name="tel" id="tel"/>
+		 -->
+		<div class="col-12">
+			<label class="control-label" for="tel">문의전화번호</label>
+			<input class="form-control" type="text" name="tel" id="tel"/>
 		</div>
-		<div>
-			<label for="seatNum">좌석 번호</label>
-			<input type="text" name="seatNum" id="seatNum"/>
+		<div class="col-12">
+			<label class="control-label" for="seatNum">좌석 번호</label>
+			<input class="form-control" type="text" name="seatNum" id="seatNum"/>
 		</div>
-		<div>
-			<label for="image">이미지</label>
-			<input type="file" name="imageFile" id="imageFile"
+		<div class="col-12">
+			<label class="control-label" for="image">이미지</label>
+			<input class="form-control" type="file" name="imageFile" id="imageFile"
 				accept=".jpg, .jpeg, .png, .JPG, .JPEG"/>
 		</div>
-		<div>
-			<button type="submit">저장</button>
+		<div class="col-12">
+			<button class="btn btn-outline-primary" type="submit">저장</button>
 		</div>
 	</form>
 	</div>
-
+	</div>
 
 	<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
