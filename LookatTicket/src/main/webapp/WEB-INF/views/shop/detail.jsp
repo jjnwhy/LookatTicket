@@ -102,8 +102,9 @@
 			</tr>
 			<tr>
 				<c:if test="${dto.remainCount ne 0 }">
-				<!-- <td colspan="4"><a class="btn btn-primary" href="booking.do?num=${dto.num }" id="bookBtn" onclick="return confirm('${dto.name}을(를) 예매 하시겠습니까?');">예매하기</a> -->
-				<td colspan="4"><a class="btn btn-primary" href="bookingform.do?num=${dto.num }" id="bookBtn" onclick="return confirm('${dto.name}을(를) 예매 하시겠습니까?');" >예매하기</a>
+
+				<td colspan="4"><a class="btn btn-primary" href="bookingform.do?num=${dto.num }" onclick="return confirm('${dto.name}을(를) 예매하시겠습니까?')" id="bookBtn">예매하기</a>
+
 				</td>
 				</c:if>
 				<c:if test="${dto.remainCount eq 0 }">

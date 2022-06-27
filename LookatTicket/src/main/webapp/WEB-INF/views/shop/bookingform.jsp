@@ -10,6 +10,29 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+<style>
+   *{
+      font-family: 'Nanum Gothic', sans-serif;
+   }
+   
+   a:link, a:visited, a:active
+   {
+       color: #000000;
+       text-decoration: none;
+   }
+   
+   a:hover{
+      color: highlight;
+   }
+   #myTable{
+   		width:60%;
+   }
+   
+   #myInput{
+   		border-radius:5px;
+   }
+
+  </style>
 </head>
 <body>
 	<jsp:include page="/include/navbar.jsp">
@@ -22,10 +45,18 @@
 				 	<a href="${pageContext.request.contextPath}/home.do">홈</a></li>
 				 <li class="breadcrumb-item">
 				 	<a href="${pageContext.request.contextPath}/shop/list.do">Ticket</a></li>
-				 <li class="breadcrumb-item active">상세정보</li>
+				 <li class="breadcrumb-item">
+				 	<a href="${pageContext.request.contextPath}/shop/detail.do">티켓 상세보기</a></li>	
+				 <li class="breadcrumb-item active">예약하기</li>
 			 </ol>
 		</nav>
-		<table class="table">
+		<br />	
+		
+		<table class="table" id="myTable">
+		<colgroup>
+			<col style="width:20%">
+			<col style="width:40%">
+		</colgroup>
 			<tr>
 				<th>상품 번호</th>
 				<td>${dto.num }</td>
@@ -55,15 +86,19 @@
 				<td>${dto.startdate } ~ ${dto.enddate }</td>
 			</tr>
 		</table>
-		<form action="booking.do" method="post">
-			<input type="hidden" name="num" id="num" value="${dto.num }"/>
-			<input type="hidden" name="name" id="name" value="${dto.name }"/>
-			<label for="concert">날짜 선택</label>
-			<input type="date" min="${dto.startdate }" max="${dto.enddate }" name="concertdate"/>
-			
-			<button type="submit">전송</button>
-			
+		<form action="booking.do" method="post" id="myForm">
+			<input class="form-control" type="hidden" name="num" id="num" value="${dto.num }"/>
+			<input class="form-control" type="hidden" name="name" id="name" value="${dto.name }"/>
+			<label class="control-label" for="concert">날짜 선택</label>
+			<div class="input-group">
+				<input type="date" min="${dto.startdate }" max="${dto.enddate }" name="concertdate" style="width:150px" id="myInput"/>
+				<span class="input-group-btn">
+					<button class="btn btn-primary" type="submit">전송</button>
+				</span>	
+			</div>
 		</form>
+		
+		<br />
 				<!-- <div>좌석선택(미구현)</div> -->
 		<!-- 좌석 현황 표출 -->
 		<div class="showSeatArea">
@@ -95,9 +130,6 @@
 			</div>
 			<br> <br>
 		</div>
-			
-			<button type="submit">전송</button>
-			
 		</form>
 				
 	</div>
