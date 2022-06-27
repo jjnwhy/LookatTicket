@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -91,16 +92,27 @@
 			<input class="form-control" type="hidden" name="name" id="name" value="${dto.name }"/>
 			<label class="control-label" for="concert">날짜 선택</label>
 			<div class="input-group">
-				<input type="date" min="${dto.startdate }" max="${dto.enddate }" name="concertdate" style="width:150px" id="myInput"/>
-				<span class="input-group-btn">
-					<button class="btn btn-primary" type="submit">전송</button>
+				<input type="date" min="${dto.startdate }" max="${dto.enddate }" name="concertdate" style="width:150px;"/>
+				<span class="input-group-btn ms-2">
+					<button class="btn btn-primary" type="submit" id="submitBtn">전송</button>
 				</span>	
 			</div>
 		</form>
+		<script>
+		document.querySelector("#myForm").addEventListener("submit",function(e){
+			let dateControl = document.querySelector('input[type="date"]').value;
+			if(dateControl==""){
+				alert("날짜를 선택하세요!");
+				e.preventDefault();
+				//document.querySelector("#myForm").preventDefault();
+			}
+		});
 		
+			
+		</script>
 		<br />
 				<!-- <div>좌석선택(미구현)</div> -->
-		<!-- 좌석 현황 표출 -->
+		<!-- 좌석 현황 표출 
 		<div class="showSeatArea">
 			<div class="btn-group" data-toggle="buttons" id="F_div">
 				<label class="btn btn-big btn-primary" for="F1" id="F1_lb">
@@ -131,7 +143,7 @@
 			<br> <br>
 		</div>
 		</form>
-				
+			-->	
 	</div>
 	<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>

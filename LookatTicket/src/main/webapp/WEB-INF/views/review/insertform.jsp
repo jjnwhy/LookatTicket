@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,6 +49,11 @@
 	<h2>리뷰 작성</h2>
 	<form action="insert.do" method="post" id="insertForm">
 		<div class="mb-1">
+			<select name="shopName" id="shopName">
+				<c:forEach var="tmp" items="${list }">
+				<option value="${tmp.shopnum }">${tmp.shopnum }</option>
+				</c:forEach>
+			</select>
 			<label class="form-label" for="title"></label>
 			<input class="form-control" type="text" name="title" id="title" placeholder="제목을 입력하세요"/>
 		</div>
