@@ -14,6 +14,20 @@
 	*{
 		font-family: 'Nanum Gothic', sans-serif;
 	}
+	
+	a:link, a:visited, a:active
+	{
+	    color: #000000;
+	    text-decoration: none;
+	}
+	
+	a:hover{
+		color: highlight;
+	}
+	
+	#myForm{
+		width:70%;
+	}
 </style>	
 </head>
 <body>
@@ -21,24 +35,31 @@
 	<jsp:include page="/include/navbar.jsp">
 			<jsp:param value="review" name="thisPage" />
 	</jsp:include>
-	<h1>리뷰 수정</h1>
-	<form action="update.do" method="post">
-		<input type="hidden" name="num" value="${dto.num }" />
-		<div class="mb-3">
-			<label class="col-form-label" for="writer">작성자</label>
-			<input class="form-control" type="text" id="writer" value="${dto.writer }" disabled/>
-		</div>
-		<div class="mb-3">
-			<label class="col-form-label" for="title">제목</label>
-			<input class="form-control" type="text" name="title" id="title" value="${dto.title }"/>
-		</div>
-		<div class="mb-3">
-			<label class="col-form-label" for="content">내용</label>
-			<textarea class="form-control" name="content" id="content">${dto.content }</textarea>
-		</div>
-		<button type="submit" onclick="submitContents(this);">수정확인</button>
-		<button type="reset">취소</button>
-	</form>
+	<div class="container">
+		<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);">
+			 <ol class="breadcrumb">
+				 <li class="breadcrumb-item">
+				 	<a href="${pageContext.request.contextPath}/home.do">홈</a></li>
+				 <li class="breadcrumb-item">
+				 	<a href="${pageContext.request.contextPath}/review/list.do">리뷰 목록</a></li>	
+				 <li class="breadcrumb-item active">리뷰 수정</li>
+			 </ol>
+		</nav>
+		<br />
+		<h2>리뷰 수정</h2>
+		<form action="update.do" method="post" id="myForm">
+			<input type="hidden" name="num" value="${dto.num }" />
+			<div class="mb-1">
+				<label class="col-form-label" for="title"></label>
+				<input class="form-control" type="text" name="title" id="title" value="${dto.title }"/>
+			</div>
+			<div class="mb-1">
+				<label class="col-form-label" for="content"></label>
+				<textarea class="form-control" name="content" id="content">${dto.content }</textarea>
+			</div>	
+			<button class="btn btn-primary" type="submit" onclick="submitContents(this);">저장</button>
+		</form>
+</div>
 </div>
 <script src="${pageContext.request.contextPath }/SmartEditor/js/HuskyEZCreator.js"></script>
 <script>

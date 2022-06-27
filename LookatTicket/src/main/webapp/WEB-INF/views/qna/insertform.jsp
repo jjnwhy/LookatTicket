@@ -7,22 +7,54 @@
 <title>/views/qna/insertform.jsp</title>
 <link rel="stylesheet" 
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 <style>
+	*{
+		font-family: 'Nanum Gothic', sans-serif;
+	}
 	#content{
 		height: 500px;
+	}
+	#insertForm{
+		width:60%;
+	}
+	a:link, a:visited, a:active
+	{
+	    color: #000000;
+	    text-decoration: none;
+	}
+	
+	a:hover{
+		color: highlight;
 	}
 </style>
 </head>
 <body>
+	<jsp:include page="/include/navbar.jsp">
+		<jsp:param value="review" name="thisPage" />
+	</jsp:include>
 <div class="container">
-	<h1>새글 작성 폼</h1>
+	<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);">
+		 <ol class="breadcrumb">
+			 <li class="breadcrumb-item">
+			 	<a href="${pageContext.request.contextPath}/home.do">홈</a></li>
+			 <li class="breadcrumb-item">
+			 	<a href="${pageContext.request.contextPath}/qna/list.do">Q&A</a>
+			 </li>	
+			 <li class="breadcrumb-item active">문의글 작성</li>
+		 </ol>
+	</nav>
+	<br />
+	<h1>문의글 작성</h1>
 	<form action="insert.do" method="post" id="insertForm">
-		<div class="mb-3">
-			<label class="form-label" for="title">제목</label>
-			<input class="form-control" type="text" name="title" id="title"/>
+		<div class="mb-1">
+			<label class="form-label" for="title"></label>
+			<input class="form-control" type="text" name="title" id="title" placeholder="제목을 입력하세요"/>
 		</div>
-		<div class="mb-3">
-			<label class="form-label" for="content">내용</label>
+		<div class="mb-1">
+			<label class="form-label" for="content"></label>
 			<textarea class="form-control"  name="content" id="content"></textarea>
 		</div>
 		<button class="btn btn-primary" type="submit">저장</button>
@@ -105,6 +137,7 @@
 			
 		});
 </script>
+<jsp:include page="/include/footer.jsp"></jsp:include>	ㄴ
 </body>
 </html>
 

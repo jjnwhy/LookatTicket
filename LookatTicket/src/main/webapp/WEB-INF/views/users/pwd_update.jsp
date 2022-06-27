@@ -15,24 +15,50 @@
 	*{
 		font-family: 'Nanum Gothic', sans-serif;
 	}
+	
+	a:link, a:visited, a:active
+	{
+	    color: #000000;
+	    text-decoration: none;
+	}
+	
+	a:hover{
+		color: highlight;
+	}
+	
+	h4,h6{
+		text-align:center;
+	}
 </style>
 </head>
 <body>
+	<jsp:include page="/include/navbar.jsp">
+		<jsp:param value="users" name="thisPage" />
+	</jsp:include>
+		<br />
+		<br />
+		<br />
+		<br />
 	<div class="container">
 		<c:choose>
 			<c:when test="${isSuccess }">
-				<p>
-					비밀번호를 수정하고 로그아웃되었습니다.
-					<a href="${pageContext.request.contextPath}/users/loginform.do">다시 로그인 하기</a>
-				</p>
+				<h4>비밀번호를 수정하고 로그아웃되었습니다.😉</h4>
+				<br />
+				<br />
+				<h6><a href="${pageContext.request.contextPath}/users/loginform.do">다시 로그인 하기</a></h6>
 			</c:when>
 			<c:otherwise>
-				<p>
-					기존 비밀번호를 확인해주세요.
-					<a href="${pageContext.request.contextPath}/users/pwd_updateform.do">다시시도</a>
-				</p>
+				<h4>기존 비밀번호를 확인해주세요.😵<h4>
+				<br />
+				<h6><a href="${pageContext.request.contextPath}/users/pwd_updateform.do">다시시도</a></h6>	
 			</c:otherwise>
 		</c:choose>
 	</div>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
 </html>

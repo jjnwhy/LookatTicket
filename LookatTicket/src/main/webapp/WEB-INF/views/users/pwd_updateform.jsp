@@ -59,7 +59,7 @@
 		</div>
 		<br />
 		<button class="btn btn-outline-primary bi bi-check-lg" type="submit">완료</button>
-		<button class="btn btn-outline-secondary" type="button" onclick="window.location.href='http://localhost:8888/lookat/users/mypage.do'">취소</button>
+		<button class="btn btn-outline-secondary" type="button" onclick="window.location.href='http://localhost:8888/lookat/users/mypage2.do'">취소</button>
 	</form>
 </div>
 </div>

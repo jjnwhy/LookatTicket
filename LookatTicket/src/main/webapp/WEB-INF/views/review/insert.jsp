@@ -8,7 +8,7 @@
 </head>
 <body>
 	<script>
-		alert("새 리뷰가 추가 되었습니다.")
+		alert("새 리뷰가 추가되었습니다.")
 		location.href="${pageContext.request.contextPath}/review/list.do";
 	</script>
 </body>

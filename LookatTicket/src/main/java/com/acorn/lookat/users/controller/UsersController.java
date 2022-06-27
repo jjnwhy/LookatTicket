@@ -66,15 +66,7 @@ public class UsersController {
 		return mView;
 	}
 	
-	@RequestMapping("/users/mypage")
-	public ModelAndView authInfo(HttpSession session, ModelAndView mView, 
-			HttpServletRequest request) {
-		
-		service.getMypage(session, mView);
-		
-		mView.setViewName("users/mypage");
-		return mView;
-	}	
+	
 	
 	@RequestMapping("/users/bookingpage")
 	public ModelAndView authBooking(HttpSession session, ModelAndView mView, 
@@ -111,17 +103,16 @@ public class UsersController {
 			HttpServletRequest request) {
 		//서비스를 이용해서 개인정보를 수정하고
 		service.updateUser(dto, session);
-		mView.setViewName("redirect:/users/mypage.do");
-	
+		mView.setViewName("redirect:/users/mypage2.do");
 		return mView;
 	}
 	
 	//개인정보 수정폼 요청 처리
-	@RequestMapping("/users/updateform")
+	@RequestMapping("/users/mypage2")
 	public ModelAndView authUpdateForm(ModelAndView mView, HttpSession session,
 			HttpServletRequest request) {
 		service.getMypage(session, mView);
-		mView.setViewName("users/updateform");
+		mView.setViewName("users/mypage2");
 		return mView;
 	}
 	

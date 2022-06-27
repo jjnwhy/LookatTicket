@@ -6,24 +6,48 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/qna/detail.jsp</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-	integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" 	crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-	crossorigin="anonymous"></script>
 <style>
-	.content{
-		border: 1px dotted gray;
+	*{
+		font-family: 'Nanum Gothic', sans-serif;
 	}
 	
-	/* 댓글 프로필 이미지를 작은 원형으로 만든다. */
+	a:link, a:visited, a:active
+	{
+	    color: #000000;
+	    text-decoration: none;
+	}
+	
+	a:hover{
+		color: highlight;
+	}
+	
+	#wrapper{
+		height:100%;
+		min-height:100%;
+		padding-bottom:100px;
+	}
+	
+	footer{
+		height: 100px;
+		position: relative;
+		transform: translateY(-100%);
+	}
+	
+	
+	
+	/* 댓글 프로필 이미지를 작은 원형으로 만든다. 
 	.profile-image{
 		width: 50px;
 		height: 50px;
 		border: 1px solid #cecece;
 		border-radius: 50%;
-	}
+	}*/
 	/* ul 요소의 기본 스타일 제거 */
 	.comments ul{
 		padding: 0;
@@ -32,30 +56,40 @@
 	}
 	.comments dt{
 		margin-top: 5px;
+		text-align:left;
 	}
 	.comments dd{
 		margin-left: 50px;
+		text-align:left;
 	}
 	.comment-form textarea, .comment-form button{
-		float: left;
+		float: center;
+		vertical-align: middle;
+		align:middle;
 	}
 	.comments li{
 		clear: left;
+		width:90%;
+		align:center;
+		
 	}
 	.comments ul li{
 		border-top: 1px solid #888;
+		
 	}
 	.comment-form textarea{
-		width: 84%;
-		height: 100px;
+		width: 80%;
+		height: 50px;
+		border-radius: 4px;
 	}
 	.comment-form button{
-		width: 14%;
-		height: 100px;
+		width: 10%;
+		height: 50px;
 	}
 	/* 댓글에 댓글을 다는 폼과 수정폼은 일단 숨긴다. */
 	.comments .comment-form{
 		display: none;
+		
 	}
 	/* .reply_icon 을 li 요소를 기준으로 배치 하기 */
 	.comments li{
@@ -71,7 +105,7 @@
 	  display: block;
 	  padding: 9.5px;
 	  margin: 0 0 10px;
-	  font-size: 13px;
+	  font-size: 15px;
 	  line-height: 1.42857143;
 	  color: #333333;
 	  word-break: break-all;
@@ -100,6 +134,10 @@
 			transform: rotate(360deg);
 		}
 	}
+	
+	#myTable{
+		width:90%;
+	}
 </style>
 </head>
 <body>
@@ -107,137 +145,182 @@
 		<jsp:param value="qna" name="thisPage" />
 	</jsp:include>
 <div class="container">
-	<c:if test="${dto.prevNum ne 0 }">
-		<a href="detail.do?num=${dto.prevNum }&keyword=${encodedK }&condition=${condition }">이전글</a>
-	</c:if>
-	<c:if test="${dto.nextNum ne 0 }">
-		<a href="detail.do?num=${dto.nextNum }&keyword=${encodedK }&condition=${condition }">다음글</a>
-	</c:if>
-	<c:if test="${ not empty keyword }">
-		<p>	
-			<strong>${condition }</strong> 조건, 
-			<strong>${keyword }</strong> 검색어로 검색된 내용 자세히 보기 
-		</p>
-	</c:if>
-	<table>
-		<tr>
-			<th>글번호</th>
-			<td>${dto.num }</td>
-		</tr>
-		<tr>
-			<th>작성자</th>
-			<td>${dto.writer }</td>
-		</tr>
-		<tr>
-			<th>제목</th>
-			<td>${dto.title }</td>
-		</tr>
-		<tr>
-			<th>조회수</th>
-			<td>${dto.viewCount }</td>
-		</tr>
-		<tr>
-			<th>등록일</th>
-			<td>${dto.regdate }</td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<div class="content">${dto.content }</div>
-			</td>
-		</tr>
-	</table>
-	<ul>
-		<li><a href="list.do">목록보기</a></li>
+	<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);">
+		 <ol class="breadcrumb">
+			 <li class="breadcrumb-item">
+			 	<a href="${pageContext.request.contextPath}/home.do">홈</a></li>
+			 <li class="breadcrumb-item">
+			 	<a href="${pageContext.request.contextPath}/review/list.do">Q&A</a>
+			 </li>	
+			 <li class="breadcrumb-item active">문의글 상세보기</li>
+		 </ol>
+	</nav>
+	<br />
+	<div class="container">
+		<a href="list.do"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+			  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+			</svg>목록보기</a>
 		<c:if test="${dto.writer eq id }">
-			<li><a href="updateform.do?num=${dto.num }">수정</a></li>
-			<li><a href="delete.do?num=${dto.num }">삭제</a></li>
+			<a href="updateform.do?num=${dto.num }"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+					  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+					  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+					</svg>수정</a>
+			<a href="delete.do?num=${dto.num }"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+					  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+					</svg>삭제</a>
 		</c:if>
-	</ul>
-	<!-- 댓글 목록 -->
-	<div class="comments">
-		<ul>
-			<c:forEach var="tmp" items="${commentList }">
-				<c:choose>
-					<c:when test="${tmp.deleted eq 'yes' }">
-						<li>삭제된 댓글 입니다.</li>
-					</c:when>
-					<c:otherwise>
-						<c:if test="${tmp.num eq tmp.comment_group }">
-							<li id="reli${tmp.num }">
-						</c:if>
-						<c:if test="${tmp.num ne tmp.comment_group }">
-							<li id="reli${tmp.num }" style="padding-left:50px;">
-								<svg class="reply-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-right" viewBox="0 0 16 16">
-		  							<path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z"/>
-								</svg>
-						</c:if>
-								<dl>
-									<dt>
-										<span>${tmp.writer }</span>
-										<c:if test="${tmp.num ne tmp.comment_group }">
-											@<i>${tmp.target_id }</i>
-										</c:if>
-										<span>${tmp.regdate }</span>
-										<c:if test="${id eq dto.writer || id eq 'admin' }">
-										<a data-num="${tmp.num }" href="javascript:" class="reply-link">답글</a>
-										</c:if>
-										<c:if test="${ (id ne null) and (tmp.writer eq id) }">
-											<a data-num="${tmp.num }" class="update-link" href="javascript:">수정</a>
-											<a data-num="${tmp.num }" class="delete-link" href="javascript:">삭제</a>
-										</c:if>
-									</dt>
-									<dd>
-										<pre id="pre${tmp.num }">${tmp.content }</pre>						
-									</dd>
-								</dl>
-								<form id="reForm${tmp.num }" class="animate__animated comment-form re-insert-form" action="comment_insert.do" method="post">
-									<input type="hidden" name="ref_group" value="${dto.num }"/>
-									<input type="hidden" name="target_id" value="${tmp.writer }"/>
-									<input type="hidden" name="comment_group" value="${tmp.comment_group }"/>
-									<textarea name="content"></textarea>
-									<button type="submit">등록</button>
-								</form>
-							<c:if test="${tmp.writer eq id }">
-								<form id="updateForm${tmp.num }" class="comment-form update-form" action="comment_update.do" method="post">
-									<input type="hidden" name="num" value="${tmp.num }" />
-									<textarea name="content">${tmp.content }</textarea>
-									<button type="submit">수정</button>
-								</form>
-							</c:if>
-							</li>		
-					</c:otherwise>
-				</c:choose>
-			</c:forEach>
-		</ul>
-	</div>		
-	<div class="loader">
-		<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
-			  <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
-			  <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
-		</svg>
 	</div>
+	<p>
+		<c:if test="${dto.prevNum ne 0 }">
+			<a href="detail.do?num=${dto.prevNum }&keyword=${encodedK }&condition=${condition }"><a href="detail.do?num=${dto.prevNum }&keyword=${encodedK}&condition=${condition}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+	  <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+	</svg>이전글</a>
+		</c:if>
+		<c:if test="${dto.nextNum ne 0 }">
+			<a href="detail.do?num=${dto.nextNum }&keyword=${encodedK }&condition=${condition }">다음글<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+	  <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+	</svg></a>
+		</c:if>
+		<c:if test="${ not empty keyword }">
+			<p>	
+				<strong>${condition }</strong> 조건, 
+				<strong>${keyword }</strong> 검색어로 검색된 내용 자세히 보기 
+			</p>
+		</c:if>
+	</p> 
+	<div class="container" id="wrapper" align="center">
+		<div class="container">
+			<table class="table" id="myTable">
+				<colgroup>
+					<col style="width:10%">
+					<col style="width:30%">
+					<col style="width:10%">
+					<col style="width:30%">
+				</colgroup>
+				<tr>
+					<th>글번호</th>
+					<td>${dto.num }</td>
+					<th>작성자</th>
+					<td>${dto.writer }</td>
+				</tr>
+				<tr>
+					<th>조회수</th>
+					<td>${dto.viewCount }</td>
+					<th>등록일</th>
+					<td>${dto.regdate }</td>
+				</tr>
+				<tr>
+					<th>제목</th>
+					<td colspan="3">${dto.title }</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<div class="content">${dto.content }</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<!-- 댓글 목록 -->
+		<div class="comments">
+			<ul>
+				<c:forEach var="tmp" items="${commentList }">
+					<c:choose>
+						<c:when test="${tmp.deleted eq 'yes' }">
+							<li>삭제된 댓글 입니다.</li>
+						</c:when>
+						<c:otherwise>
+							<c:if test="${tmp.num eq tmp.comment_group }">
+								<li id="reli${tmp.num }">
+							</c:if>
+							<c:if test="${tmp.num ne tmp.comment_group }">
+								<li id="reli${tmp.num }" style="padding-left:50px;">
+									<svg class="reply-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-right" viewBox="0 0 16 16">
+			  							<path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z"/>
+									</svg>
+							</c:if>
+									<dl>
+										<dt>
+											<span>${tmp.writer }</span>
+											<c:if test="${tmp.num ne tmp.comment_group }">
+												@<i>${tmp.target_id }</i>
+											</c:if>
+											<span>${tmp.regdate }</span>
+											<c:if test="${id eq dto.writer || id eq 'admin' }">
+											<a data-num="${tmp.num }" href="javascript:" class="reply-link">답글</a>
+											</c:if>
+											<c:if test="${ (id ne null) and (tmp.writer eq id) }">
+												<a data-num="${tmp.num }" class="update-link" href="javascript:">수정</a>
+												<a data-num="${tmp.num }" class="delete-link" href="javascript:">삭제</a>
+											</c:if>
+										</dt>
+										<dd>
+											<pre id="pre${tmp.num }">${tmp.content }</pre>						
+										</dd>
+									</dl>
+									<form id="reForm${tmp.num }" class="animate__animated comment-form re-insert-form" action="comment_insert.do" method="post">
+										<input type="hidden" name="ref_group" value="${dto.num }"/>
+										<input type="hidden" name="target_id" value="${tmp.writer }"/>
+										<input type="hidden" name="comment_group" value="${tmp.comment_group }"/>
+										<textarea name="content"></textarea>
+										<button type="submit">등록</button>
+									</form>
+								<c:if test="${tmp.writer eq id }">
+									<form id="updateForm${tmp.num }" class="comment-form update-form" action="comment_update.do" method="post">
+										<input type="hidden" name="num" value="${tmp.num }" />
+										<textarea name="content">${tmp.content }</textarea>
+										<button type="submit">수정</button>
+									</form>
+								</c:if>
+								</li>		
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+			</ul>
+		</div>		
+		<div class="loader">
+			<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+				  <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+				  <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+			</svg>
+		</div>
 	
 	<!-- 원글에 댓글을 작성할 폼 -->
-	<c:choose>
-		<c:when test="${id eq dto.writer || id eq 'admin'}">
-			<form class="comment-form insert-form" action="comment_insert.do" method="post">
-				<!-- 원글의 글번호가 댓글의 ref_group 번호가 된다. -->
-				<input type="hidden" name="ref_group" value="${dto.num }"/>
-				<!-- 원글의 작성자가 댓글의 대상자가 된다. -->
-				<input type="hidden" name="target_id" value="${dto.writer }"/>
-				<textarea name="content"></textarea>
-				<button type="submit">등록</button>
-			</form>
-		</c:when>
-		<c:otherwise>
-				<textarea disabled>관리자와 작성자만 댓글을 남길 수 있습니다.</textarea>
-		</c:otherwise>
-	</c:choose>
-
-</div>
-
+		<div class="container">
+			<c:choose>
+				<c:when test="${id eq dto.writer || id eq 'admin'}">
+					<form class="comment-form insert-form" action="comment_insert.do" method="post">
+						<!-- 원글의 글번호가 댓글의 ref_group 번호가 된다. -->
+						<input type="hidden" name="ref_group" value="${dto.num }"/>
+						<!-- 원글의 작성자가 댓글의 대상자가 된다. -->
+						<input type="hidden" name="target_id" value="${dto.writer }"/>
+						<div class="container">
+						<textarea name="content"></textarea>
+						<button class="btn btn-primary" type="submit">등록</button>
+						</div>
+					</form>
+				</c:when>
+				<c:otherwise>
+						<textarea disabled>관리자와 작성자만 댓글을 남길 수 있습니다.</textarea>
+				</c:otherwise>
+			</c:choose>
+		</div>
+	</div>	
 <script src="${pageContext.request.contextPath}/resources/js/gura_util.js"></script>
 <script>
+
+	//클라이언트가 로그인 했는지 여부
+	let isLogin=${ not empty id };
+	document.querySelector(".insert-form")
+		.addEventListener("submit", function(e){
+			//만일 로그인 하지 않았으면 
+			if(!isLogin){
+				//폼 전송을 막고 
+				e.preventDefault();
+				//로그인 폼으로 이동 시킨다.
+				location.href=
+					"${pageContext.request.contextPath}/users/loginform.do?url=${pageContext.request.contextPath}/qna/detail.do?num=${dto.num}";
+			}
+		});
 	/*
 		detail
  페이지 로딩 시점에 만들어진 1 페이지에 해당하는 
@@ -428,5 +511,7 @@
 		}
 	}
 </script>
+<jsp:include page="/include/footer.jsp"></jsp:include>
+</div>
 </body>
 </html>

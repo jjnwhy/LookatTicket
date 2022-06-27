@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/views/qna/updateform.jsp</title>
+<title>/views/notice/updateform.jsp</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,51 +16,56 @@
 		font-family: 'Nanum Gothic', sans-serif;
 	}
 	
+	#updateForm{
+		width:70%;
+	}
+	
 	a:link, a:visited, a:active
 	{
 	    color: #000000;
 	    text-decoration: none;
 	}
-	#myForm{
-		width:70%
+	
+	a:hover{
+		color: highlight;
 	}
 </style>
 </head>
 <body>
+<jsp:include page="/include/navbar.jsp">
+		<jsp:param value="notice" name="thisPage" />
+</jsp:include>
+
 <div class="container">
-	<jsp:include page="/include/navbar.jsp">
-			<jsp:param value="qna" name="thisPage" />
-	</jsp:include>
-	<div class="container">
-		<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);">
-			 <ol class="breadcrumb">
-				 <li class="breadcrumb-item">
-				 	<a href="${pageContext.request.contextPath}/home.do">홈</a></li>
-				 <li class="breadcrumb-item">
-				 	<a href="${pageContext.request.contextPath}/qna/list.do">Q&A 목록</a></li>	
-				 <li class="breadcrumb-item active">문의글 수정</li>
-			 </ol>
-		</nav>
-		<br />
-	<h2>문의글 수정</h2>
-	<form action="update.do" method="post" id=myForm>
+	<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);">
+		 <ol class="breadcrumb">
+			 <li class="breadcrumb-item">
+			 	<a href="${pageContext.request.contextPath}/home.do">홈</a></li>
+			 <li class="breadcrumb-item">
+			 	<a href="${pageContext.request.contextPath}/notice/list.do">Notice</a>
+			 </li>
+			 <li class="breadcrumb-item">
+			 	<a href="${pageContext.request.contextPath}/notice/detail.do">${dto.title }</a>
+			 </li>		
+			 <li class="breadcrumb-item active">공지 수정</li>
+		 </ol>
+	</nav>
+	<br />
+	<h2>공지 수정</h2>
+	<form action="update.do" method="post" id="updateForm">
 		<input type="hidden" name="num" value="${dto.num }" />
-		<div>
-			<label class="control-label" for="writer">작성자</label>
-			<input class="form-control" type="text" id="writer" value="${dto.writer }" disabled/>
-		</div>
-		<div>
-			<label class="control-label" for="title"></label>
+		<div class="mb-1">
+			<label class="form-label" for="title"></label>
 			<input class="form-control" type="text" name="title" id="title" value="${dto.title }"/>
 		</div>
-		<div>
-			<label class="control-label" for="content"></label>
-			<textarea class="form-control" name="content" id="content">${dto.content }</textarea>
+		<div class="mb-1">
+			<label class="form-label" for="content"></label>
+			<textarea class="form-control" name="content" id="content" cols="30" rows="10">${dto.content }</textarea>
 		</div>
 		<button class="btn btn-primary" type="submit" onclick="submitContents(this);">저장</button>
 	</form>
-</div>
-<!-- SmartEditor 에서 필요한 javascript 로딩  -->
+	</div>
+	<!-- SmartEditor 에서 필요한 javascript 로딩  -->
 <script src="${pageContext.request.contextPath }/SmartEditor/js/HuskyEZCreator.js"></script>
 <script>
 	var oEditors = [];
@@ -113,6 +119,7 @@
 		oEditors.getById["content"].setDefaultFont(sDefaultFont, nFontSize);
 	}
 </script>
-<jsp:include page="/include/footer.jsp"></jsp:include>	
+<jsp:include page="/include/footer.jsp"></jsp:include>
+
 </body>
 </html>

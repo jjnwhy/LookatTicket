@@ -6,11 +6,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.acorn.lookat.notice.dto.NoticeDto;
 import com.acorn.lookat.notice.service.NoticeService;
+import com.acorn.lookat.review.dto.ReviewDto;
 
 @Controller
 public class NoticeController {
@@ -74,5 +76,17 @@ public class NoticeController {
 		
 		return new ModelAndView("redirect:/notice/list.do");
 	}
-
+	
+	@RequestMapping("/notice/updateform")
+	public ModelAndView authUpdateForm(HttpServletRequest request) {
+		service.getData(request);
+		return new ModelAndView("notice/updateform");
+	}
+	
+	@RequestMapping(value="/notice/update", method=RequestMethod.POST)
+	public ModelAndView authUpdate(NoticeDto dto, HttpServletRequest request) {
+		service.updateNotice(dto);
+		return new ModelAndView("notice/update");
+	}
+	
 }

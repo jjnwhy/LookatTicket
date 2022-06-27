@@ -35,10 +35,16 @@
 	a:hover{
 		color: highlight;
 	}
+
+	#addItem{
+		text-align: right;
+	}
+
 	.card-img-top{
 		height:15rem;
 		object-fit:fill;
 	}
+
 </style>
 </head>
 <body>
@@ -54,20 +60,21 @@
 			 </ol>
 		</nav>
 		<br />
-		<h2>CONCERT</h2>
-	
+		<h2>CONCERT</h2> 
+		<div class="container" style="float:right;">
 		<c:if test="${id eq 'admin' }">
-			<a href="${pageContext.request.contextPath }/shop/insertform.do" id="write">상품 추가 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+			<a href="${pageContext.request.contextPath }/shop/insertform.do" id="write">상품 추가 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="blue" class="bi bi-pencil-square" viewBox="0 0 16 16">
 			  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
 			  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
 			</svg></a>
 		</c:if>
+		</div>
 		<br /><br />
 		<div class="row" style="float:center;">
 			<c:forEach var="tmp" items="${list }">
 				<div class="col mb-2">
-					<div class="card" style="width: 18rem;" onclick="location.href='detail.do?num=${tmp.num }'">
-					<img src="${pageContext.request.contextPath }/${tmp.image }" class="card-img-top"/>
+					<div class="card" style="width: 18rem;">
+					<img src="${pageContext.request.contextPath }/${tmp.image }" class="card-img-top" onclick="location.href='detail.do?num=${tmp.num }'"/>
 						<div class="card-body">
 							<p class="card-text">
 								<h6>&lt;${tmp.name }&gt;</h6>
@@ -80,8 +87,7 @@
 							</c:if>							
 							<c:if test="${id eq 'admin' }">
 								<button class="btn btn-primary btn-sm" onclick="location.href='delete.do?num=${tmp.num }'">상품삭제</button>
-							</c:if>
-						
+							</c:if>	
 						</div>
 					</div>
 				</div>
@@ -93,6 +99,13 @@
 				<div class="col">
 					<div class="card">
 						<div class="card-body">
+							<h3 class="card-title">${tmp.name }</h3>
+							<h5>${tmp.startdate}~${tmp.enddate}</h4>
+							출연 : <strong> ${tmp.cast} </strong><br /> 
+							가격 : <strong>${tmp.price }</strong>원<br /> 
+							장소 : ${tmp.location} <br /> 
+							티켓수량 : <strong>${tmp.remainCount }</strong>장
+=======
 							<h3 class="card-title">
 							<img src="${pageContext.request.contextPath }/${tmp.image }"/><br />
 							${tmp.name }</h3>
@@ -100,7 +113,9 @@
 							<p class="card-text">
 								출연 : <strong> ${tmp.cast} </strong> <br /> 가격 : <strong>${tmp.price }</strong>원
 								<br /> 장소 : ${tmp.location} <br /> 티켓수량 : <strong>${tmp.remainCount }</strong>장
+>>>>>>> branch 'master' of https://github.com/jjnwhy/LookatTicket.git
 							</p>
+							<a href="detail.do?num=${tmp.num }" class="card-link">상세보기</a>
 							<c:if test="${tmp.remainCount ne 0 }">
 								<a href="detail.do?num=${tmp.num }" class="card-link">예매하기</a>
 							</c:if><br />		
@@ -115,5 +130,10 @@
 		 -->
 	</div>
 	<jsp:include page="/include/footer.jsp"></jsp:include>
+<script>
+//card 이미지의 부모 요소를 선택해서 imgLiquid  동작(jquery plugin 동작) 하기 
+ // $(".img-wrapper").imgLiquid();
+  
+</script> 
 </body>
 </html>

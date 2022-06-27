@@ -11,8 +11,10 @@ html,body{
 	height:100%;
 }
 footer{
+	width:100%;
 	height:100px;
 	flex:1;
+	text-align:center;
 	
 }
 
@@ -27,6 +29,7 @@ footer{
 			<!-- 
 			 <a class="navbar-brand" href="${pageContext.request.contextPath }/home.do"><img src="${pageContext.request.contextPath }/images/lookat_logo.jpg" alt="룩앳티켓" width="140" height="80" /></a>
 			-->
+			
 				<p>
 					<span class="text-muted">&copy; 2022 Lookat Company, Inc
 						&nbsp;&nbsp; 관리자: 정나영|이석민|조유남|현준호|황인준 </span> <br /> <span
@@ -34,6 +37,7 @@ footer{
 						class="text-muted">☏ 02-777-1234</span>
 				</p>
 				<br />
+				
 		</nav>
 </div>
 	</footer>

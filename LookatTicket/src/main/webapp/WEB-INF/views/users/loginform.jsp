@@ -53,6 +53,9 @@ body {
 </head>
 
 <body class="text-center">
+	<jsp:include page="/include/navbar.jsp">
+			<jsp:param value="users" name="thisPage" />
+	</jsp:include>
 <main class="form-signin w-100 m-auto">
   <form action="${pageContext.request.contextPath}/users/login.do" method="post">
 	    <c:choose>
@@ -67,7 +70,7 @@ body {
     <h1 class="h3 mb-3 fw-normal">로그인</h1>
 
     <div class="form-floating">
-      <input type="text" class="form-control" name="id" id="id" placeholder="id">
+      <input type="text" class="form-control" name="id" id="id" placeholder="id" autofocus>
       <label for="id">아이디</label>
     </div>
     <div class="form-floating">

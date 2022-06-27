@@ -2,8 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="shop">
 	<select id="getList" resultType="shopDto">
-		SELECT num,cateNum,name,image,price,cast,hours,location,TO_CHAR(startdate,'YY.MM.DD') AS startdate,
-				TO_CHAR(enddate,'YY.MM.DD') AS enddate,remainCount,tel,seatNum
+		SELECT num,cateNum,name,image,price,cast,hours,location,TO_CHAR(startdate, 'YYYY/MM/DD') startdate, TO_CHAR(enddate, 'YYYY/MM/DD') enddate,remainCount,tel,seatNum
 		FROM shop
 		ORDER BY num ASC
 	</select>
@@ -17,7 +16,6 @@
 		SET remainCount=remainCount+1
 		WHERE num=#{shopnum}
 	</update>
-
 	<select id="getPrice" parameterType="int" resultType="int">
 		SELECT price
 		FROM shop
@@ -59,7 +57,6 @@
 			hours=#{hours}, location=#{location}
 		where num=#{num}
 	</update>
-
 </mapper>
 
 

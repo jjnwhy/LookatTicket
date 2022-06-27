@@ -27,7 +27,7 @@
 	
 	<update id="update" parameterType="usersDto">
 		UPDATE users
-		SET addrNum=#{addrNum}, addr=#{addr}, phone=#{phone}, email=#{email}
+		SET addrNum=#{addrNum}, addr=#{addr}, phone=#{phone}, email=#{email} 
 		WHERE id=#{id}
 	</update>
 	

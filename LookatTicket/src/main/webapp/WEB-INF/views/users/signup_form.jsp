@@ -29,7 +29,9 @@
 	a:hover{
 		color: highlight;
 	}	
-  
+  	#regdateDiv{
+  		display:none;
+  	}
 </style>
 </head>
 <body>
@@ -51,19 +53,19 @@
 				
 				<div class="col-12">
 					<label class="control-label" for="id">아이디</label>
-					<input class="form-control" type="text" name="id" id="id" autofocus/>
+					<input class="form-control" type="text" name="id" id="id" maxlength='10' autofocus/>
 					<small class="form-text text-muted">영문자 소문자로 시작하고 5글자~10글자 이내로 입력하세요</small>
 				   	<div class="invalid-feedback">사용할 수 없는 아이디 입니다</div>
 				</div>
 				<div class="col-12">
 				   <label class="control-label" for="pwd">비밀번호</label>
-				   <input class="form-control" type="password" name="pwd" id="pwd"/>
-				   <small class="form-text text-muted">특수 문자를 하나 이상 조합하세요</small>
+				   <input class="form-control" type="password" name="pwd" id="pwd" maxlength='10'/>
+				   <small class="form-text text-muted">최소 5글자, 최대 10글자로 입력하세요</small>
 				   <div class="invalid-feedback">비밀번호를 확인 하세요</div>
 				</div>
 				<div class="col-12">
 				   <label class="control-label" for="pwd2">비밀번호 확인</label>
-				   <input class="form-control" type="password" name="pwd2" id="pwd2"/>
+				   <input class="form-control" type="password" name="pwd2" id="pwd2" maxlength='10'/>
 				</div>
 				<div class="col-12">
 				   <label class="control-label" for="name">이름</label>
@@ -71,8 +73,8 @@
 				</div>
 				<div class="col-md-3">
 					<label class="control-label" for="addrNum">우편번호</label>
-					<input class="form-control" type="text" name="addrNum" id="addrNum"/>
-					<div class="invalid-feedback">우편번호 형식에 맞게 입력하세요(숫자5자리)</div>
+					<input class="form-control" type="text" name="addrNum" id="addrNum" maxlength='5'/>
+					<div class="invalid-feedback">숫자5자리</div>
 				</div>	
 				<div class="col-md-9">
 					<label class="control-label" for="addr">주소</label>	
@@ -80,7 +82,7 @@
 				</div>
 				<div class="col-12">
 				   <label class="control-label" for="birth">생년월일</label>
-				   <input class="form-control" type="text" name="birth" id="birth"/>
+				   <input class="form-control" type="date" name="birth" id="birth" maxlength='10'/>
 				   <small class="form-text text-muted">YYYY-MM-DD 형식으로 입력하세요</small>
 				</div>
 				<div class="col-12">
@@ -93,12 +95,12 @@
 				   <input class="form-control" type="text" name="email" id="email"/>
 				   <small class="form-text text-muted">이메일 형식에 맞게 입력하세요</small>
 				</div>
-				<div class="col-12">
+				<div class="col-12" id="regdateDiv">
 				   <label class="control-label" for="regdate" ></label>
 				   <input class="form-control" type="hidden" name="regdate" id="regdate" />
 				</div>
 				<div class="col-12">
-				<button class="btn btn-outline-primary" type="submit">가입</button>
+				<button class="btn btn-primary" type="submit">가입</button>
 				<button class="btn btn-outline-secondary" type="button" onclick="location.href='${pageContext.request.contextPath}/'">취소</button>
 				</div>
 			</form>

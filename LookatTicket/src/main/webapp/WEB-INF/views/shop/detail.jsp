@@ -26,9 +26,28 @@
 	a:hover{
 		color: highlight;
 	}
+	a{
+		text-align:center;
+	}
+	
+	.table{
+		width:80%;
+	}
+	
+	th, td{
+		text-align:center;
+	}
+	#bookBtn{
+		color:white;
+	}
+	#container{
+		align-items: center;
+	}
+
 	.seattable tr td{
 		border: 1px solid;
 	}
+
 </style>
 </head>
 <body>
@@ -45,43 +64,54 @@
 				 <li class="breadcrumb-item active">상세정보</li>
 			 </ol>
 		</nav>
-		<table class="table">
+		<br />
+		<h2 align="center">공연 상세정보</h2>
+		<br />
+		<table class="table" align="center">
+			<colgroup>
+				<col style="width:10%">
+				<col style="width:30%">
+				<col style="width:10%">
+				<col style="width:30%">
+			</colgroup>
 			<tr>
 				<th>상품 번호</th>
 				<td>${dto.num }</td>
-			</tr>
-			<tr>
 				<th>상품명</th>
 				<td>${dto.name }</td>
 			</tr>
 			<tr>
 				<th>가격</th>
-				<td>${dto.price }</td>
-			</tr>
-			<tr>
+				<td>${dto.price }원</td>
 				<th>출연</th>
 				<td>${dto.cast }</td>
 			</tr>
 			<tr>
 				<th>관람시간</th>
 				<td>${dto.hours }</td>
-			</tr>
-			<tr>
 				<th>공연장소</th>
 				<td>${dto.location }</td>
 			</tr>
 			<tr>
 				<th>공연날짜</th>
-				<td>${dto.startdate } ~ ${dto.enddate }</td>
+				<td colspan="3">${dto.startdate } ~ ${dto.enddate }</td>
 			</tr>
 			<tr>
 				<th>공연 포스터</th>
-				<td> <img src="${pageContext.request.contextPath}${dto.image}"/></td>
+				<td colspan="3"><img src="${pageContext.request.contextPath}${dto.image}" height="100%" width="100%"/></td>
 			</tr>
-			
+			<tr>
+				<c:if test="${dto.remainCount ne 0 }">
+				<td colspan="4"><a class="btn btn-primary" href="booking.do?num=${dto.num }" id="bookBtn" onclick="return confirm('${dto.name}을(를) 예매 하시겠습니까?');">예매하기</a>
+				</td>
+				</c:if>
+				<c:if test="${dto.remainCount eq 0 }">
+				<td colspan="4"><a class="btn btn-danger" disabled >품절</a>
+				</c:if>
+			</tr>
 		</table>
-			<a href="${pageContext.request.contextPath}/shop/bookingform.do?num=${dto.num }">예매하기</a>
-				
+		<div>좌석선택(미구현)</div>
+		<!-- 좌석 목록을 가져오고  선택하면 선택한 값을 저장하고 선택한 좌석(seatnum)에 저장 -->
 	</div>
 	<jsp:include page="/include/footer.jsp"></jsp:include>
 </body>
