@@ -104,7 +104,7 @@
 		</tbody>
 	</table>
 	<div class="page-ui clearfix">
-		<ul class="pagination">
+		<ul class="pagination" style="justify-content:center;">
 			<c:if test="${startPageNum ne 1 }">
 				<li class="page-item">
 					<a class="page-link" href="list.do?pageNum=${startPageNum-1 }&condition=${condition }&keyword=${encodedK }">Prev</a>
@@ -132,7 +132,7 @@
 	
 	<div style="clear:both;"></div>
 	
-	<form class="row g-3" action="list.do" method="get"> 
+	<form class="row g-3" action="list.do" method="get" style="justify-content:center;"> 
 	<div class="col-md-2">
 		<select class="form-select" name="condition" id="condition">
 			<option value="title_content" ${condition eq 'title_content' ? 'selected' : '' }>제목+내용</option>
