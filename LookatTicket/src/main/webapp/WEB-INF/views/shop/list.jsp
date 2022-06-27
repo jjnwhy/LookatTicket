@@ -56,7 +56,7 @@
 		<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);">
 			 <ol class="breadcrumb">
 				 <li class="breadcrumb-item">
-				 	<a href="${pageContext.request.contextPath}/home.do">Home</a></li>
+				 	<a href="${pageContext.request.contextPath}/home.do">홈</a></li>
 				 <li class="breadcrumb-item active">Ticket</li>
 			 </ol>
 		</nav>
@@ -83,9 +83,9 @@
 								출연 : <strong> ${tmp.cast} </strong> <br /> 가격 : <strong>${tmp.price }</strong>원
 								<br /> 장소 : <strong>${tmp.location}</strong> <br /> 티켓수량 : <strong>${tmp.remainCount }</strong>장
 							</p>
-							<c:if test="${tmp.remainCount ne 0 }">
+							
 								<button class="btn btn-primary btn-sm" onclick="location.href='detail.do?num=${tmp.num }'">자세히보기</button>
-							</c:if>							
+							<%--<c:if test="${tmp.remainCount ne 0 }"></c:if> --%>							
 							<c:if test="${id eq 'admin' }">
 								<button class="btn btn-primary btn-sm" onclick="location.href='delete.do?num=${tmp.num }'">상품삭제</button>					
 							</c:if>	
@@ -106,6 +106,7 @@
 							가격 : <strong>${tmp.price }</strong>원<br /> 
 							장소 : ${tmp.location} <br /> 
 							티켓수량 : <strong>${tmp.remainCount }</strong>장
+=======
 							<h3 class="card-title">
 							<img src="${pageContext.request.contextPath }/${tmp.image }"/><br />
 							${tmp.name }</h3>
@@ -113,6 +114,7 @@
 							<p class="card-text">
 								출연 : <strong> ${tmp.cast} </strong> <br /> 가격 : <strong>${tmp.price }</strong>원
 								<br /> 장소 : ${tmp.location} <br /> 티켓수량 : <strong>${tmp.remainCount }</strong>장
+>>>>>>> branch 'master' of https://github.com/jjnwhy/LookatTicket.git
 							</p>
 							<a href="detail.do?num=${tmp.num }" class="card-link">상세보기</a>
 							<c:if test="${tmp.remainCount ne 0 }">
