@@ -73,8 +73,8 @@
 		<div class="row" style="float:center;">
 			<c:forEach var="tmp" items="${list }">
 				<div class="col mb-2">
-					<div class="card" style="width: 18rem;" onclick="location.href='detail.do?num=${tmp.num }'">
-					<img src="${pageContext.request.contextPath }/${tmp.image }" class="card-img-top"/>
+					<div class="card" style="width: 18rem;">
+					<img src="${pageContext.request.contextPath }/${tmp.image }" class="card-img-top" onclick="location.href='detail.do?num=${tmp.num }'"/>
 						<div class="card-body">
 							<p class="card-text">
 								<h6>&lt;${tmp.name }&gt;</h6>

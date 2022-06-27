@@ -101,8 +101,13 @@
 				<td colspan="3"><img src="${pageContext.request.contextPath}${dto.image}" height="100%" width="100%"/></td>
 			</tr>
 			<tr>
+				<c:if test="${dto.remainCount ne 0 }">
 				<td colspan="4"><a class="btn btn-primary" href="booking.do?num=${dto.num }" id="bookBtn" onclick="return confirm('${dto.name}을(를) 예매 하시겠습니까?');">예매하기</a>
 				</td>
+				</c:if>
+				<c:if test="${dto.remainCount eq 0 }">
+				<td colspan="4"><a class="btn btn-danger" disabled >품절</a>
+				</c:if>
 			</tr>
 		</table>
 		<div>좌석선택(미구현)</div>
